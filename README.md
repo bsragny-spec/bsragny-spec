@@ -49,9 +49,9 @@ pip install numpy scipy && python3 tools/optimize.py
 
 ## Tasarımın bir bakışta özeti
 
-- Cihaz: proje ile alınacak HDR afterloader; seçim ölçütü üreticinin Yb-169 kaynak kablosunu
-  sağlaması veya onaylaması (belge 08). Kaynak 0,9 mm kapsül formatında Yb-169; kanal yayı
-  seçilen kablonun bükülme sınırına göre, tasarım değeri 17 mm.
+- Cihaz: kurumdaki **Varian GammaMedplus iX**, Yb-169 için uygun format. Kaynak 0,9 mm kapsül
+  formatında Yb-169; Varian ile kaynak anlaşması ön şart, olmazsa belge 08'e göre cihaz alımı.
+  Kablo bükülme yarıçapı 13 mm bildiriliyor; teyit edilirse kanallar sklera küresini tam izler.
 - Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar tam yükseklikte altın kalkanla kapalı.
 - İç eğrilik yarıçapı 12,3 mm, çap ailesi 12 ile 20 mm, COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar

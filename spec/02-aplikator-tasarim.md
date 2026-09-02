@@ -57,11 +57,11 @@ oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
 - Kanallar plak tabanına paralel **kirişler** boyunca uzanır, hepsi anterior (limbal) kenardaki
   giriş bloğundan girer. Radyal yerleşim elendi: kanallar bir merkezde toplanınca giriş bloğu
   plak ortasına gelir ve bükülme yarıçapı sağlanamaz.
-- Kanallar sklera eğrisini **yaklaşık** izler. Küre kabuğunun yarıçapı 13,8 mm'dir, ancak
-  Varian kaynak kablosunun izin verilen en küçük bükülme yarıçapı bundan büyüktür
-  (VariSource için 17 mm belgelidir; GammaMed/Bravos için Varian dokümanından teyit edilecek,
-  tasarım değeri 17 mm). Bu nedenle kanal ekseni **17 mm yarıçaplı yay** olarak yapılır,
-  kiriş ortası skleradan 1,5 mm'de tutulur, uçlar küreden dışa doğru hafifçe ayrılır:
+- Kanallar sklera eğrisini izler; eksen yarıçapı 13,8 mm'lik küre kabuğu üzerindedir.
+  Kurumdaki GammaMedplus iX kablosunun bildirilen minimum bükülme yarıçapı 13 mm'dir (belge 01),
+  yani küreyi tam izleyen kanal kablo sınırının içindedir. Bu değer Varian teknik föyünden teyit
+  edilene kadar (A2b) **yedek tasarım** 17 mm yaylı kanaldır: kiriş ortası skleradan 1,5 mm'de,
+  uçlar küreden dışa doğru hafifçe ayrılır:
 
   | Kiriş uzunluğu | Düz kanal sapması | R = 17 mm kanal sapması |
   |----------------|-------------------|-------------------------|
@@ -70,9 +70,11 @@ oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
   | 14 mm | 1,91 mm | 0,40 mm |
   | 16 mm | 2,56 mm | 0,56 mm |
 
-  Sapma kanal katmanı içinde karşılanır; uçlarda bekleme yüksekliği 1,5 mm'den en fazla
-  0,6 mm artar ve plan kütüphanesinde gerçek koordinatlarla hesaba girer. Düz kanal seçilseydi
-  sapma kabul edilemez olurdu.
+  Yedek tasarımda sapma kanal katmanı içinde karşılanır; uçlarda bekleme yüksekliği 1,5 mm'den
+  en fazla 0,6 mm artar ve plan kütüphanesinde gerçek koordinatlarla hesaba girer. Düz kanal
+  her iki durumda da elenir.
+- Kanal yarıçapı ne olursa olsun 20 tekrarlı sahte kaynak geçiş testi kabul şartıdır (belge 04);
+  13 mm sınırına yakın çalışıldığı için bu test özellikle önemlidir.
 - Giriş bloğu ile kanal arasında ek büküm yoktur; transfer tüpü bloğa kanal yayına teğet girer.
 - Kör uçta kaynağın ulaşamadığı boşluk **2,0 mm** kabul edilmiştir; kaynak modeline göre
   otoradyografiyle ölçülür ve TPS'e girilir.

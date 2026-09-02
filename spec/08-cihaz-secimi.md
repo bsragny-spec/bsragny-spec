@@ -1,6 +1,9 @@
 # 08. Afterloader seçimi
 
-Cihaz proje bütçesiyle alınabileceğinden, seçim aplikatöre ve kaynağa göre yapılır; tersi değil.
+Kurumda **Varian GammaMedplus iX** vardır ve Yb-169 için uygun formattadır (belge 01). İlk
+tercih mevcut cihazdır; bu belge, Varian'ın Yb-169 kaynak talebine olumsuz yanıt vermesi
+durumunda proje bütçesiyle alınacak cihazın seçim ölçütlerini tanımlar. Seçim aplikatöre ve
+kaynağa göre yapılır; tersi değil.
 
 ## Belirleyici ölçüt
 
@@ -30,7 +33,8 @@ projeye uygun değildir; teknik özellikler ikinci sıradadır. Satın alma şar
 
 | Cihaz | Kaynak formatı | Bilinen | Teyit edilecek |
 |-------|----------------|---------|----------------|
-| Varian Bravos | 0,9 mm kapsül, 0,9 mm çelik kablo | Bu formatta Yb-169 prototipi yayımlanmış (belge 01) | Yb-169 tutumu; kablo bükülme yarıçapı; BrachyVision'da Acuros BV ile özel aplikatör |
+| Varian GammaMedplus iX (mevcut) | 0,9 mm kapsül, örgülü esnek kablo | Bu formatta Yb-169 prototipi yayımlanmış; bükülme yarıçapı 13 mm bildiriliyor (belge 01) | Yb-169 tutumu; 13 mm değerinin föyden teyidi; BrachyVision'da Acuros BV ile özel aplikatör |
+| Varian Bravos | GammaMedplus ile aynı kaynak | Mevcut cihazın halefi; Yb-169 tutumu aynı olacaktır | Cihaz yenilemesi gerekirse |
 | Elekta Flexitron | Flexisource, 0,85 mm kapsül | Yaygın servis ağı | Yb-169 tutumu; bükülme yarıçapı; Oncentra ACE ile özel aplikatör |
 | Eckert & Ziegler BEBIG SagiNova | Ir-192 ve Co-60 kaynakları | Üretici aynı zamanda kapalı kaynak imalatçısı; özel izotop için en olası muhatap | Yb-169 üretimi ve kablo formatı; bükülme yarıçapı; SagiPlan model tabanlı hesap |
 

@@ -22,13 +22,27 @@ tamamen kesilir. Geçen doz 177, 198 ve 308 keV çizgilerinden gelir. Bu nedenle
   doğrulanacak, gerekiyorsa kalınlık 2,0 mm'ye çıkarılacaktır.
 - Ameliyathane koruma hesabı için 3 mm kurşun paravan yeterli kabul edilir; ölçümle teyit edilir.
 
-## Cihaz kısıtı: afterloader kablo formatı
+## Cihaz: Varian GammaMedplus iX (kurumda mevcut)
 
 Bütün HDR afterloader'lar yalnızca üreticinin kendi kaynak kablosu formatıyla çalışır ve kaynak
-değişimi üretici servisi tarafından yapılır. Bu nedenle Yb-169 kaynağı **seçilen cihazın kablo
-formatında** üretilmeli ve cihazda kullanımı için üreticiyle anlaşma yapılmalıdır. Cihaz proje
-ile alınacağından bu anlaşma satın alma şartnamesine yazılır (belge 08). Aşağıdaki tablo,
-kurumdaki mevcut Varian cihazı için yapılan değerlendirmedir; diğer adaylar belge 08'dedir.
+değişimi üretici servisi tarafından yapılır. Kurumdaki cihaz **GammaMedplus iX**'tir ve
+Yb-169 için uygun formattadır. Yb-169 kaynağı bu kablo formatında üretilmeli ve cihazda
+kullanımı için Varian ile anlaşma yapılmalıdır (belge 06, A2). Varian olumsuz yanıt verirse
+proje bütçesiyle başka cihaz alınması belge 08'deki ölçütlere göre değerlendirilir.
+
+GammaMedplus iX kaynak kablosu, açık kaynaklardan derlenen özellikler:
+
+| Özellik | Değer | Durum |
+|---------|-------|-------|
+| Kapsül | 0,9 mm dış çap, yaklaşık 4,5 mm uzunluk | Yayımlanmış |
+| Aktif Ir-192 peleti | 0,6 mm çap, 3,5 mm uzunluk | Yayımlanmış |
+| Kablo | Örgülü çelik, uçtaki 200 mm ultra esnek | Ürün tanıtımı |
+| **Minimum bükülme yarıçapı** | **13 mm** | Ürün tanıtımı; Varian teknik föyünden teyit edilecek (A2b) |
+| Tedavi uzunluğu | Aplikatör + transfer tüpü toplam 1300 mm sabit | Yayımlanmış |
+| Kanal | 3 veya 24 | Yayımlanmış |
+
+13 mm değeri teyit edilirse plak kanalları 13,8 mm yarıçaplı sklera küresini **tam izleyebilir**
+(belge 02); aksi halde 17 mm yaylı tasarım geçerlidir.
 
 | Varian modeli | Kaynak formatı | Yb-169 uygunluğu |
 |---------------|----------------|------------------|
