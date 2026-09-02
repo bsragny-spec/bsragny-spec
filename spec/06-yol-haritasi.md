@@ -21,8 +21,8 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | No | Soru | Etkisi | Sorumlu |
 |----|------|--------|---------|
 | A1 | Tek fraksiyonda sklera toleransı. LQ modeli 25 Gy apeks için 5 mm tümörde ~100 Gy sklera verir, bu 55 ile 65 Gy başlangıç sınırının üzerindedir | Reçeteyi ve endikasyon aralığını belirler. Faz I'de reçete sklera sınırıyla kesilir | Radyasyon onkolojisi + radyobiyoloji danışmanı |
-| A2 | **Varian**, kendi kablo formatında Yb-169 kaynak kablosunun cihazda kullanılmasını kabul eder mi (kendi üretimi, onaylı üçüncü taraf veya araştırma izni); BrachyVision'a Yb-169 kaynak modeli eklenir mi | Projenin kaynak tarafındaki ön şartı. Olumsuzsa Yb-169 yolu kapanır, A8 senaryosu devreye girer | Fizik + Varian |
-| A2b | Varian modeli hangisi: GammaMedplus iX / Bravos (Yb-169 uygun) mu, VariSource iX (uygun değil) mi; GammaMed/Bravos kablosunun belgeli minimum bükülme yarıçapı | Kanal yarıçapı 17 mm tasarım değeri buna göre kesinleşir | Fizik |
+| A2 | Hangi afterloader üreticisi kendi kablo formatında Yb-169 kaynağını sağlar veya onaylar; planlama sistemine Yb-169 kaynak modeli eklenir mi (belge 08) | Cihaz satın alma kararı ve projenin kaynak tarafındaki ön şartı. Hiçbiri olumlu değilse A8 | Fizik + üreticiler |
+| A2b | Seçilen cihazın belgeli minimum kablo bükülme yarıçapı | Kanal yayı yarıçapı (tasarım değeri 17 mm) buna göre kesinleşir | Fizik |
 | A3 | Yb-169 kuyu odası kalibrasyon izlenebilirliği | Klinik kullanım ön şartı | Fizik + tedarikçi + kalibrasyon laboratuvarı |
 | A4 | Plak kalınlığı 4,2 mm orbitada tolere edilir mi, özellikle posterior yerleşimde | Kalınlık azaltılırsa koruma veya bekleme yüksekliği ödün verir | Cerrah |
 | A5 | Transfer tüpünün forniksten çıkışı: kapak ekartörü altında tüp yolu, konjonktiva basısı | Giriş bloğu ve kılıf tasarımı | Cerrah + tasarım |
@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.1.4 | 2026-09-02 | Cihaz proje ile alınacak: belge 08 afterloader seçim ölçütleri, adaylar ve kabul testi; A2 üreticiden bağımsız yazıldı |
 | v0.1.3 | 2026-09-02 | Cihaz kısıtı: Varian HDR afterloader. Kaynak Varian 0,9 mm kapsül formatına bağlandı, kanal yayı 17 mm bükülme yarıçapına göre yeniden tanımlandı, A2 ve A8 güncellendi, Flynn 2019 ve Safaeipour 2021 referansları eklendi |
 | v0.1.2 | 2026-09-02 | Plak seçim kuralı taban + 4 mm, tam yükseklik kenar kalkanı, tek giriş ilkesi; optimize.py ile kanal düzeni karşılaştırması belge 07'ye eklendi |
 | v0.1.1 | 2026-09-02 | Belge 07 eklendi: Dupere 2021 Yb-169 halka aplikatörü referansı, spiral kanal analizi, topoloji karşılaştırması; A9 açık sorusu |

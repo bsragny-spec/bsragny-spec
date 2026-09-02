@@ -22,12 +22,13 @@ tamamen kesilir. Geçen doz 177, 198 ve 308 keV çizgilerinden gelir. Bu nedenle
   doğrulanacak, gerekiyorsa kalınlık 2,0 mm'ye çıkarılacaktır.
 - Ameliyathane koruma hesabı için 3 mm kurşun paravan yeterli kabul edilir; ölçümle teyit edilir.
 
-## Cihaz kısıtı: Varian HDR afterloader
+## Cihaz kısıtı: afterloader kablo formatı
 
-Kurumda Varian HDR afterloader bulunmaktadır. Varian cihazları yalnızca üreticinin kendi kaynak
-kablosu formatıyla çalışır ve kaynak değişimi üretici servisi tarafından yapılır. Bu nedenle
-Yb-169 kaynağı **Varian kablo formatında** üretilmeli ve cihazda kullanımı için Varian ile
-anlaşma yapılmalıdır. Bu, projenin kaynak tarafındaki en kritik ön şartıdır (belge 06, A2).
+Bütün HDR afterloader'lar yalnızca üreticinin kendi kaynak kablosu formatıyla çalışır ve kaynak
+değişimi üretici servisi tarafından yapılır. Bu nedenle Yb-169 kaynağı **seçilen cihazın kablo
+formatında** üretilmeli ve cihazda kullanımı için üreticiyle anlaşma yapılmalıdır. Cihaz proje
+ile alınacağından bu anlaşma satın alma şartnamesine yazılır (belge 08). Aşağıdaki tablo,
+kurumdaki mevcut Varian cihazı için yapılan değerlendirmedir; diğer adaylar belge 08'dedir.
 
 | Varian modeli | Kaynak formatı | Yb-169 uygunluğu |
 |---------------|----------------|------------------|

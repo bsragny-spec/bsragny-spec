@@ -21,6 +21,7 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 | 05 | [Tek seans iş akışı](spec/05-is-akisi.md) | Ameliyathanede dikimden çıkarıma adım adım akış |
 | 06 | [Geliştirme yol haritası ve açık sorular](spec/06-yol-haritasi.md) | Fazlar, mevzuat, riskler, karar bekleyen konular |
 | 07 | [Kanal topolojisi](spec/07-kanal-topolojisi.md) | Dupere 2021 Yb-169 halka aplikatörü ile karşılaştırma, spiral kanalın bükülme yarıçapı analizi |
+| 08 | [Afterloader seçimi](spec/08-cihaz-secimi.md) | Cihaz proje ile alınacaksa seçim ölçütleri, adaylar, kabul testi |
 
 ## Çizimler
 
@@ -48,8 +49,9 @@ pip install numpy scipy && python3 tools/optimize.py
 
 ## Tasarımın bir bakışta özeti
 
-- Cihaz: kurumdaki **Varian HDR afterloader**. Kaynak Varian 0,9 mm kapsül formatında Yb-169;
-  kanal yayı Varian kablosunun 17 mm bükülme sınırına göre. Varian ile kaynak anlaşması ön şarttır.
+- Cihaz: proje ile alınacak HDR afterloader; seçim ölçütü üreticinin Yb-169 kaynak kablosunu
+  sağlaması veya onaylaması (belge 08). Kaynak 0,9 mm kapsül formatında Yb-169; kanal yayı
+  seçilen kablonun bükülme sınırına göre, tasarım değeri 17 mm.
 - Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar tam yükseklikte altın kalkanla kapalı.
 - İç eğrilik yarıçapı 12,3 mm, çap ailesi 12 ile 20 mm, COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar
