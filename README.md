@@ -20,11 +20,16 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 | 04 | [Kalite kontrol ve güvenlik](spec/04-qa-guvenlik.md) | Kabul testleri, hasta öncesi QA, acil durum, radyasyon korunması |
 | 05 | [Tek seans iş akışı](spec/05-is-akisi.md) | Ameliyathanede dikimden çıkarıma adım adım akış |
 | 06 | [Geliştirme yol haritası ve açık sorular](spec/06-yol-haritasi.md) | Fazlar, mevzuat, riskler, karar bekleyen konular |
+| 07 | [Kanal topolojisi](spec/07-kanal-topolojisi.md) | Dupere 2021 Yb-169 halka aplikatörü ile karşılaştırma, spiral kanalın bükülme yarıçapı analizi |
 
 ## Çizimler
 
 - [figures/kesit.svg](figures/kesit.svg): kanal eksenine dik kesit, katmanlar ve tümör ilişkisi
 - [figures/ustten.svg](figures/ustten.svg): 16 mm plak, üstten kanal ve bekleme pozisyonu yerleşimi
+
+## Kaynakça
+
+- Dupere JM, Munro JJ III, Medich DC. Shielded high dose rate ocular brachytherapy using Yb-169. Phys Med Biol 2021;66(12). DOI 10.1088/1361-6560/ac02d6. Yb-169 ve altın koruma seçimini bağımsız olarak destekleyen referans tasarım; halka geometrisi ve pelet dizisi kullanır.
 
 ## Araçlar
 

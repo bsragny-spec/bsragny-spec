@@ -28,6 +28,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | A6 | Makula ve optik disk için tek fraksiyon kısıtları | Faz I'de kayıt, sonra sınır | Klinik |
 | A7 | Yıllık 6 ile 8 kaynak değişiminin maliyeti hasta sayısıyla karşılanıyor mu | Sürdürülebilirlik | Yönetim |
 | A8 | Kaynak tedarik zinciri kesilirse yedek plan: Ir-192 ile bunkerde tek seans (koruma ödünüyle) | Süreklilik | Fizik |
+| A9 | Kanal topolojisi: standart afterloader ile paralel kiriş mi, pelet dizili özel yükleyici ile spiral veya halka mı (belge 07) | Proje kapsamını ve cihaz bağımlılığını belirler | Klinik + fizik |
 
 ## Riskler
 
@@ -45,3 +46,4 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.1.1 | 2026-09-02 | Belge 07 eklendi: Dupere 2021 Yb-169 halka aplikatörü referansı, spiral kanal analizi, topoloji karşılaştırması; A9 açık sorusu |

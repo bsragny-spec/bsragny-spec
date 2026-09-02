@@ -54,6 +54,10 @@ Bu konu belge 06'da açık soru olarak listelenmiştir; klinik kullanım öncesi
 
 ## Tedarik
 
+- Dupere ve arkadaşlarının 2021 çalışmasında (belge 07) Yb-169 HDR kaynağı yazarlardan birinin
+  bağlı olduğu kaynak üreticisiyle ilişkilidir; tedarik görüşmelerinde ilk temas adayı olarak
+  değerlendirilecek, teyit edilecek.
+
 - Türkiye'de yeterli akıya sahip araştırma reaktörü bulunmadığından hedef ışınlaması yurt
   dışında yapılır; kapsülleme kapalı kaynak üreticisi tarafından yapılır.
 - Kısa yarı ömür nedeniyle **üretim, taşıma, kalibrasyon ve ilk hasta** arasındaki süre
