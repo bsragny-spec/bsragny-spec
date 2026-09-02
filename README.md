@@ -34,17 +34,22 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 ## Araçlar
 
 `tools/geometry.py` kanal yerleşimini, bekleme pozisyonlarını, sklera/apeks doz oranını ve
-toplam bekleme süresini kaba olarak hesaplar. Yalnızca tasarım kararlarını beslemek içindir.
+toplam bekleme süresini kaba olarak hesaplar. `tools/optimize.py` kanal düzenlerini (tek kiriş,
+paralel kirişler, halka, eş merkezli halkalar) bekleme süresi optimizasyonu ile karşılaştırır.
+Yalnızca tasarım kararlarını beslemek içindir.
 
 ```
 python3 tools/geometry.py
+pip install numpy scipy && python3 tools/optimize.py
 ```
 
 ## Tasarımın bir bakışta özeti
 
+- Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar tam yükseklikte altın kalkanla kapalı.
 - İç eğrilik yarıçapı 12,3 mm, çap ailesi 12 ile 20 mm, COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar
   (bekleme ekseni skleradan 1,5 mm), 1,5 mm altın veya tungsten sırt koruması.
-- Kanal sayısı çapa göre 3, 5 veya 7; hepsi tek bir giriş bloğundan anterior kenardan girer.
+- Plağa tek giriş; içeride 3, 5 veya 7 paralel kör kanal. Kabloyla uygulanabilen düzenler
+  arasında en iyi sklera/reçete oranını veren düzen budur (belge 07).
 - Tek fraksiyon, hedef apeks dozu başlangıçta 22 Gy, faz I protokolüyle kademeli artış.
 - Işınlama süresi 4 Ci kaynakla 5 mm tümörde yaklaşık 11 dakika.

@@ -86,10 +86,11 @@ etkisi belirgindir. Yöntem:
 Sonuç: 25 Gy apeks reçetesi ile 16 mm plakta 5 mm tümörde sklera yaklaşık 100 Gy'ye çıkar.
 Bu, tablodaki 55 ile 65 Gy sklera sınırının **üzerindedir**. Buradan çıkan tasarım sonuçları:
 
-- Tümörden bir boy büyük plak seçmek sklera oranını belirgin düşürür; plak seçim kuralı
-  "tümör tabanı + 2 mm marj" yerine "+ 3 ile 4 mm" olarak yazılmalıdır.
-- Bekleme optimizasyonu kenar pozisyonlarını güçlendirip merkezi zayıflatarak oranı
-  tipik olarak %15 ile 25 düşürür.
+- Plak seçim kuralı **tümör tabanı en geniş çapı + 4 mm** olarak sabitlenmiştir (belge 02).
+  `tools/optimize.py` sonuçlarına göre bu kural ve bekleme optimizasyonu birlikte sklera
+  oranını eşit süreli küçük plağa göre %20 ile 30 düşürür.
+- Bekleme optimizasyonu (belge 07) kenar pozisyonlarını güçlendirip merkezi zayıflatarak
+  oranı 16 mm plakta 5,2'den 4,1'e indirir.
 - Buna rağmen 5 mm üzeri tümörlerde sklera sınırı reçeteyi belirleyecektir. Faz I'de
   reçete "apeks 20 ile 25 Gy **veya** sklera sınırı, hangisi önce" olarak yazılır.
 - LDR'de sklera 250 ile 400 Gy'yi tolere ediyor olması, tek fraksiyonda 100 Gy'nin

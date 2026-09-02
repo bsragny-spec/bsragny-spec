@@ -15,7 +15,8 @@ birbirinden bağımsız, tek bir giriş bloğunda toplanan paralel kör kanallar
 | İç eğrilik yarıçapı | 12,3 mm | COMS ile aynı, mevcut dikim tekniği geçerli |
 | Çap ailesi | 12, 14, 16, 18, 20 mm | COMS eşdeğeri; 14 ve 18 ilk üretimde atlanabilir |
 | Toplam kalınlık (kenar hariç) | ≤ 4,2 mm hedef, ≤ 4,5 mm üst sınır | COMS yaklaşık 3,5 mm; orbita toleransı cerrahi ekiple teyit edilecek |
-| Kenar dudağı yüksekliği | Sırt yüzeyinden 0,5 mm, sklera yönünde | Yanal doz kolimasyonu, COMS ile aynı işlev |
+| Kenar kalkanı | Sırt kabuğuyla tek parça altın, **tam yükseklikte** sklera temasına kadar iner, kalınlık 0,5 mm | Plak kenarı her yönde kapalıdır; yalnızca giriş bloğu yuvası açıktır. Yanal doz kolimasyonu |
+| Plak seçim kuralı | **Tümör tabanının en geniş çapı + 4 mm** | Her yönde 2 mm marj; sklera/apeks oranını düşürmenin en etkili yolu (belge 07) |
 | Kütle, 16 mm | Yaklaşık 4 ile 6 g | Altın sırt ile; tungsten alaşım daha hafif |
 
 ## Katmanlar, skleradan dışa doğru
@@ -48,6 +49,11 @@ geometrisi ile değişir.
 
 ## Kanal yerleşimi
 
+Tasarım kararı (belge 07'deki karşılaştırmaya dayanır): **plağa tek giriş, içeride paralel
+kör kirişler, bekleme süreleri doğrusal programlama ile optimize.** Kablo sürücülü HDR
+kaynağıyla uygulanabilen düzenler arasında en iyi sklera/reçete oranını bu verir; tek kiriş
+oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
+
 - Kanallar plak tabanına paralel **kirişler** boyunca uzanır, hepsi anterior (limbal) kenardaki
   giriş bloğundan girer. Radyal yerleşim elendi: kanallar bir merkezde toplanınca giriş bloğu
   plak ortasına gelir ve bükülme yarıçapı sağlanamaz.
@@ -68,11 +74,16 @@ geometrisi ile değişir.
 | 20 mm | 7 | 2,50 mm | 34 | 18,3 mm |
 
 Kanal aralığı 2,25 mm'de komşu tüpler arası duvar 0,75 mm kalır; PEEK için yeterlidir,
-üretim yöntemi belirlenince teyit edilir.
+üretim yöntemi belirlenince teyit edilir. Belge 07'deki karşılaştırmaya göre 5 kanal ile
+7 kanal arasındaki fark %3'ün altındadır; 20 mm plakta 5 veya 7 kanal seçimi Monte Carlo'da
+sklera yüzeyi dalgalanmasına göre yapılır.
 
 ## Giriş bloğu ve transfer tüpleri
 
-- Tek giriş bloğu, plağın anterior kenarında, plak yüzeyinden **≤ 3 mm** çıkıntı yapar.
+- **Plağa tek giriş vardır.** Kenar kalkanında tek bir yuva açılır; transfer tüpleri tek kılıf
+  ve tek kilitli konektörle bu yuvaya bağlanır. Kaynak, afterloader tarafından her kör kanala
+  sırayla gönderilir; cerrahın gördüğü tek bir kablo çıkışıdır.
+- Giriş bloğu plağın anterior kenarında, plak yüzeyinden **≤ 3 mm** çıkıntı yapar.
   Kanal girişleri blokta yan yana dizilir; her giriş numaralı ve renk kodludur.
 - Kanallar bloğa **teğet** girer; blokta ek büküm yoktur. Tüm büküm kanal içindeki küre
   kabuğu eğrisidir.

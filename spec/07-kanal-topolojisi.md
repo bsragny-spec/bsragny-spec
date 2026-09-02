@@ -95,6 +95,38 @@ Bunun bedelleri:
 - Optik sinir ve iris doz azalmalarının bizim geometride de elde edilip edilmediği,
   belge 03'teki Monte Carlo çalışmasında I-125 COMS karşılaştırması eklenerek kontrol edilecek.
 
+## Sayısal karşılaştırma: hangi düzen en iyi
+
+`tools/optimize.py`: plak çapı = taban + 4 mm; tümör yüzeyinin her noktası ≥ reçete olacak
+şekilde bekleme süreleri doğrusal programlama ile optimize edilir, plak altındaki sklera
+maksimumu en aza indirilir. Değer, **sklera maksimumu / reçete dozu** oranıdır; küçük iyidir.
+"Eşit" sütunu bütün bekleme sürelerinin eşit olduğu plan, "opt." optimize edilmiş plandır.
+
+| Düzen | Bükülme yarıçapı | Kabloyla uygulanır | Taban 8, apeks 3, plak 12 | Taban 12, apeks 5, plak 16 | Taban 12, apeks 8, plak 16 | Taban 16, apeks 5, plak 20 |
+|-------|------------------|--------------------|---------------------------|----------------------------|----------------------------|----------------------------|
+| Tek çap kirişi | 13,8 mm | Evet | 7,9 → 6,8 | 8,4 → 8,0 | 15,1 → 14,3 | 11,1 → 9,9 |
+| 3 paralel kiriş | 13,8 mm | Evet | 5,2 → 4,2 | 5,9 → 5,1 | 10,0 → 8,5 | 6,3 → 4,8 |
+| **5 paralel kiriş** | 13,8 mm | **Evet** | 4,8 → **3,9** | 5,2 → **4,1** | 8,9 → **6,9** | 4,3 → **3,0** |
+| 7 paralel kiriş | 13,8 mm | Evet | 4,8 → 3,7 | 5,2 → 4,0 | 8,8 → 6,7 | 4,5 → 3,3 |
+| C halkası + merkez | 3,8 ile 6,9 mm | Hayır | 3,7 → 3,3 | 4,1 → 3,9 | 6,7 → 6,3 | 3,7 → 3,3 |
+| Eş merkezli halkalar + merkez | 2,5 ile 3,8 mm | Hayır | 3,7 → 3,3 | 4,3 → 3,6 | 7,3 → 5,9 | 3,6 → 2,7 |
+
+Okuma:
+
+- **Tek kanal ile plak içi tarama** (tek kiriş) oranı iki kat kötüleştirir; sklera dozu
+  kabul edilemez olur. Tek giriş korunur ama içeride birden fazla kör kanal şarttır.
+- **5 paralel kiriş**, kabloyla uygulanabilen düzenler içinde en iyisidir; 7 kanal %3'ten az
+  kazandırır.
+- **Halka ve eş merkezli düzenler**, pelet dizili özel yükleyici gerektirir ve 5 kirişe göre
+  %5 ile 25 kazandırır. En büyük fark 20 mm plak ve kalın tümörde görülür. Bu kazanç, özel
+  cihaz geliştirmenin bedeliyle karşılaştırılmalıdır (A9).
+- **Optimizasyon** 5 kirişte oranı %15 ile 30 düşürür; plan kütüphanesi bu optimize edilmiş
+  sürelerle kurulur.
+- Toplam bekleme süresi düzenler arasında %20'den az değişir; ışınlama süresini düzen değil
+  kaynak aktivitesi belirler.
+
+Bu sayılar nokta kaynak yaklaşımıyladır; sıralama Monte Carlo'da değişmez, mutlak değerler değişir.
+
 ## Sonuç
 
 Sklera eğrisine uyan kubbe plak fikri korunur ve referans tasarımdan daha iyidir. Spiral kanal,
@@ -102,7 +134,8 @@ kablo sürücülü HDR kaynağının sertliği ve bükülme sınırı nedeniyle 
 fiziksel olarak çalışmaz; ancak pelet dizisiyle mümkündür ve o zaman standart afterloader
 şartı düşer. Bu iki şart arasında seçim yapılmalıdır:
 
-- **Standart afterloader korunacaksa**: paralel kirişler (mevcut tasarım).
+- **Standart afterloader korunacaksa**: 5 paralel kiriş, tek giriş, optimize bekleme süreleri
+  (mevcut tasarım). Kabloyla uygulanabilen en iyi düzen budur.
 - **Spiral veya eş merkezli halka isteniyorsa**: pelet dizili özel yükleyici; proje kapsamı
   cihaz geliştirmeyi de içerecek şekilde büyür.
 
