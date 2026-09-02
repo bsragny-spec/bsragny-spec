@@ -153,7 +153,7 @@ def run_notched(D, h):
     """Jukstapapiller tümör: taban çapı D-4, posterior kenarı çentik dibinde (y=+5)."""
     import geometry as G
     b = D - 4
-    yc = 5.0 - b / 2.0
+    yc = (G.NOTCH_CY - G.NOTCH_R) - b / 2.0   # tümör posterior kenarı çentik dibinde
     tp = tumor_points_offset(b, h, yc)
     sp = sclera_points(D)
     disc = np.array([on_sphere(0, 0, R_IN)])

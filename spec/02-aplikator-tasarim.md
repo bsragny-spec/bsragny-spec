@@ -88,17 +88,17 @@ oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
 - Kanal yarıçapı ne olursa olsun 20 tekrarlı sahte kaynak geçiş testi kabul şartıdır (belge 04);
   13 mm sınırına yakın çalışıldığı için bu test özellikle önemlidir.
 - Giriş bloğu ile kanal arasında ek büküm yoktur; transfer tüpü bloğa kanal yayına teğet girer.
-- Kanal tüpü kenar kalkanının 0,3 mm içine kadar uzanır; kör uçta kaynağın ulaşamadığı boşluk **2,0 mm** kabul edilmiştir; kaynak modeline göre
+- Kanal tüpü her iki uçta kenar kalkanının 0,5 mm içine kadar uzanır (kiriş uzunluğu kalkan iç çemberine göre hesaplanır); kör uçta kaynağın ulaşamadığı boşluk **2,0 mm** kabul edilmiştir; kaynak modeline göre
   otoradyografiyle ölçülür ve TPS'e girilir.
 - Bekleme pozisyonu adımı 2,5 mm; planlama sistemi izin veriyorsa 1,0 mm adımla optimizasyon.
 
 | Çap | Kanal sayısı | Kanal aralığı | Bekleme pozisyonu sayısı | En uzun kanal yayı |
 |-----|--------------|---------------|--------------------------|--------------------|
-| 12 mm | 3 | 3,50 mm | 7 | 9,2 mm |
-| 14 mm | 5 | 2,25 mm | 16 | 11,3 mm |
-| 16 mm | 5 | 2,75 mm | 19 | 13,5 mm |
-| 18 mm | 5 | 3,25 mm | 22 | 15,9 mm |
-| 20 mm | 7 | 2,50 mm | 35 | 18,3 mm |
+| 12 mm | 3 | 3,50 mm | 10 | 10,9 mm |
+| 14 mm | 5 | 2,25 mm | 18 | 13,1 mm |
+| 16 mm | 5 | 2,75 mm | 21 | 15,4 mm |
+| 18 mm | 5 | 3,25 mm | 24 | 17,8 mm |
+| 20 mm | 7 | 2,50 mm | 41 | 20,4 mm |
 
 Kanal aralığı 2,25 mm'de komşu tüpler arası duvar 0,75 mm kalır; PEEK için yeterlidir,
 üretim yöntemi belirlenince teyit edilir. Belge 07'deki karşılaştırmaya göre 5 kanal ile
@@ -112,35 +112,38 @@ Optik disk komşuluğundaki tümörler için 16, 18 ve 20 mm plakların posterio
 | Parametre | Değer | Gerekçe |
 |-----------|-------|---------|
 | Çentik biçimi | U, yarım daire tabanlı | Sinir kılıfına oturur, köşe yok |
-| Çentik genişliği | 8 mm | Sinir dural kılıfı globda 5 ile 7 mm; 5 mm altı çentik sinire sıkışır ve plağın posterior kenarı diske oturmaz (Eye Physics kılavuzu) |
-| Yarım daire merkezi | Plak merkezinden 9 mm posteriorda | Eye Physics / COMS çentik modeli; çentik dibi merkezden 5 mm'de |
+| Çentik genişliği | **10 mm** | Sinir dural kılıfı globda 5 ile 7 mm; COMS/Eye Physics modeli 8 mm'dir ancak cerrahi deneyimde 8 mm çentik kılıfa zor oturmaktadır. Parametredir (`NOTCH_W`), 9 ile 11 mm arasında cerrahın ölçümüne göre ayarlanabilir |
+| Yarım daire merkezi | Plak merkezinden 9 mm posteriorda | Çentik dibi merkezden 4 mm'de; disk merkezi çentik merkezinde |
 | Çentik kenarı | 0,5 mm altın kalkan çentik hattını izler | Kenar her yerde kapalı kalır |
 | Tümör yerleşimi | Tümörün posterior kenarı çentik dibinde; taban çapı ≤ plak çapı − 4 mm | Lateral ve anterior marj 2 mm'den büyük olur |
 | Sütür delikleri | 2 lateral, 1 anterior | Posterior kenar çentik nedeniyle kullanılamaz |
 
-Kanal düzeni çentikli sürümlerde değişir. Çentiğe giren üç iç kanal (x = 0 ve ± 2,65 mm) çentik
-sınırında kısaltılır; çentiğin iki yanında **tam boy yan kanallar** (x = ± 5,3 mm) sinirin iki
-yanından geçer ve disk komşuluğundaki tümör kenarını besler. 20 mm'de bir dış kanal çifti
-daha vardır (x = ± 7,3 mm).
+Kanal düzeni çentikli sürümlerde değişir. Çentiğe giren üç iç kanal (x = 0 ve ± 3,15 mm) çentik
+sınırında kısaltılır; çentiğin iki yanında **tam boy yan kanallar** (x = ± 6,3 mm: çentik yarıçapı
+5 mm + kalkan 0,5 mm + tüp yarıçapı 0,8 mm) sinirin iki yanından geçer ve disk komşuluğundaki
+tümör kenarını besler. 20 mm'de bir dış kanal çifti daha vardır (x = ± 8,3 mm).
 
-| Çap | Kanal | Kısaltılmış | Yan kanal | Bekleme pozisyonu |
-|-----|-------|-------------|-----------|-------------------|
-| 16 mm | 5 | 3 | 2 | 18 |
-| 18 mm | 5 | 3 | 2 | 20 |
-| 20 mm | 7 | 3 | 4 | 31 |
+| Çap | Kanal | Kısaltılmış | Yan kanal | Yan kanal bekleme pozisyonu | Toplam bekleme pozisyonu |
+|-----|-------|-------------|-----------|-----------------------------|--------------------------|
+| 16 mm | 5 | 3 | 2 | 2'şer | 16 |
+| 18 mm | 5 | 3 | 2 | 4'er | 20 |
+| 20 mm | 7 | 3 | 4 | 5'er ve 2'şer | 31 |
 
-14 mm çentikli sürüm yoktur: 8 mm çentiğin yanında yan kanala yer kalmaz. Disk komşuluğunda
-10 mm ve altı tabanlı tümörler 16 mm çentikli plakla tedavi edilir.
+16 mm çentiklide yan kanallar plak kenarına çok yakın olduğu için kısadır (2'şer bekleme
+pozisyonu); disk komşuluğu kapsaması 18 mm'de belirgin daha iyidir. Disk komşuluğunda tabanı
+12 mm'ye kadar olan tümörlerde 18 mm çentikli plak tercih edilmelidir.
+
+14 mm çentikli sürüm yoktur: 10 mm çentiğin yanında yan kanala yer kalmaz.
 
 `tools/optimize.py` çentikli karşılaştırması (nokta kaynak, LP optimizasyonu, tümör posterior
 kenarı çentik dibinde):
 
 | Plak | Düzen | Sklera/Rx | Disk merkezi/Rx |
 |------|-------|-----------|-----------------|
-| 16 mm | Yuvarlak, sinir yok sayılır | 3,8 | 0,63 |
-| 16 mm | **Çentikli** | 3,9 | 0,56 |
-| 20 mm | Yuvarlak, sinir yok sayılır | 3,5 | 1,14 |
-| 20 mm | **Çentikli** | 3,6 | 0,73 |
+| 16 mm | Yuvarlak, sinir yok sayılır | 3,7 | 0,64 |
+| 16 mm | **Çentikli, 10 mm** | 3,9 | 0,51 |
+| 20 mm | Yuvarlak, sinir yok sayılır | 3,3 | 1,23 |
+| 20 mm | **Çentikli, 10 mm** | 3,2 | 0,70 |
 
 Yan kanallar ve bekleme optimizasyonu sayesinde çentik, tümör kapsamasını bozmadan disk dozunu
 düşürür. Bu, seed çıkarılan LDR çentikli plaklara göre HDR'nin somut bir avantajıdır: eksik

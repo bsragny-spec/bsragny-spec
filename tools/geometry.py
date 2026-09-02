@@ -29,9 +29,10 @@ EDGE_MARGIN = 1.5     # mm, plak kenarından kanal merkezine
 TIP_DEAD = 2.0        # mm, kanal kör ucunda kaynağın ulaşamadığı boşluk
 RIM = 0.5             # mm, kenar kalkanı kalınlığı
 CH_OD = 1.6           # mm, kanal tüpü dış çapı
-# Çentik (optik sinir): U biçimli, genişlik 8 mm, yarım daire tabanı plak merkezinden
-# 9 mm'de (Eye Physics / COMS modeli); çentik dibi merkezden 5 mm'de. Posterior kenarda.
-NOTCH_W = 8.0
+# Çentik (optik sinir): U biçimli, genişlik 10 mm, yarım daire merkezi plak merkezinden
+# 9 mm'de; çentik dibi merkezden 4 mm'de. Posterior kenarda. (COMS/Eye Physics modeli 8 mm;
+# cerrahi deneyimle genişletildi: 8 mm çentik sinir kılıfına zor oturuyor.)
+NOTCH_W = 10.0
 NOTCH_CY = 9.0
 NOTCH_R = NOTCH_W / 2
 
@@ -63,7 +64,8 @@ def plaque_layout(diameter, notched=False):
         x_f = NOTCH_R + RIM + CH_OD / 2          # yan kanal: çentik + kenar kalkanı + tüp yarıçapı
         inner = x_f / 2.0                        # kısaltılmış iç kanallar 0, ±x_f/2
         xs = [-x_f, -inner, 0.0, inner, x_f]
-        if half - 1.0 >= x_f + 2.0:              # 20 mm: dış kanal çifti
+        r_in = diameter / 2.0 - RIM - 0.2
+        if x_f + 2.0 + CH_OD / 2 <= r_in:        # 20 mm: dış kanal çifti
             xs = [-(x_f + 2.0)] + xs + [x_f + 2.0]
         pitch = inner
     else:
@@ -72,10 +74,13 @@ def plaque_layout(diameter, notched=False):
         pitch = 2 * (half - 1.0) / (n_ch - 1) if n_ch > 1 else 0.0
         xs = [(-(n_ch - 1) / 2.0 + i) * pitch for i in range(n_ch)]
     channels = []
+    r_in = diameter / 2.0 - RIM - 0.2       # kenar kalkanı iç yüzeyi + 0,2 mm pay
     for x in xs:
-        chord_half = math.sqrt(max(half * half - x * x, 0.0))
-        # kanal girişi y=-chord_half tarafında; kör uç y=+chord_half - TIP_DEAD
-        y_tube_end = chord_half + EDGE_MARGIN - RIM - 0.3   # tüp kapalı ucu (plak kenarı - kalkan)
+        if abs(x) + CH_OD / 2 > r_in:
+            continue                          # tüp kalkana sığmıyor
+        chord_half = math.sqrt(max(r_in * r_in - x * x, 0.0))   # tüp kalkana kadar uzanır
+        # kanal girişi y=-chord_half tarafında; kör uç posteriorda
+        y_tube_end = chord_half - 0.3
         yn = notch_boundary_y(x) if notched else None
         if yn is not None:
             y_tube_end = min(y_tube_end, yn - RIM - 0.3)

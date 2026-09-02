@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.1.8 | 2026-09-02 | Çentik 8 → 10 mm (cerrahi deneyim: 8 mm kılıfa zor oturuyor); kanal tüpleri kalkan iç çemberine kadar uzatıldı, bekleme pozisyonu sayıları güncellendi; 18 mm çentikli disk komşuluğunda tercih notu |
 | v0.1.7 | 2026-09-02 | 22 mm çıkarıldı; çentikli 16, 18, 20 mm sürümler eklendi: 8 mm U çentik, kısaltılmış iç kanallar ve tam boy yan kanallar, çentikli/yuvarlak LP karşılaştırması |
 | v0.1.6 | 2026-09-02 | Plak ailesi 12 ile 22 mm; tools/draw_plaques.py ile her boy için üstten görünüş ve kesit çizimleri, tek sayfa aile çizimi |
 | v0.1.5 | 2026-09-02 | Mevcut cihaz GammaMedplus iX olarak sabitlendi; bildirilen 13 mm bükülme yarıçapı ile küreyi tam izleyen kanal ana tasarım, 17 mm yay yedek tasarım; belge 08 satın alma yalnızca Varian olumsuzsa |
