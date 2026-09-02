@@ -29,6 +29,9 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 
 ## Kaynakça
 
+- Flynn RT ve ark. Efficient ¹⁶⁹Yb HDR brachytherapy source production using reactivation. Med Phys 2019. Varian GammaMed Plus dahil kapsül formatları, gereken aktivite ve üretim ekonomisi.
+- Safaeipour E ve ark. Evaluation of dosimetric functions for a new ¹⁶⁹Yb HDR brachytherapy source. 2021. 0,9 mm kapsül formatında Yb-169 prototipi.
+
 - Dupere JM, Munro JJ III, Medich DC. Shielded high dose rate ocular brachytherapy using Yb-169. Phys Med Biol 2021;66(12). DOI 10.1088/1361-6560/ac02d6. Yb-169 ve altın koruma seçimini bağımsız olarak destekleyen referans tasarım; halka geometrisi ve pelet dizisi kullanır.
 
 ## Araçlar
@@ -45,6 +48,8 @@ pip install numpy scipy && python3 tools/optimize.py
 
 ## Tasarımın bir bakışta özeti
 
+- Cihaz: kurumdaki **Varian HDR afterloader**. Kaynak Varian 0,9 mm kapsül formatında Yb-169;
+  kanal yayı Varian kablosunun 17 mm bükülme sınırına göre. Varian ile kaynak anlaşması ön şarttır.
 - Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar tam yükseklikte altın kalkanla kapalı.
 - İç eğrilik yarıçapı 12,3 mm, çap ailesi 12 ile 20 mm, COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar

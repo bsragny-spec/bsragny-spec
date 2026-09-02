@@ -4,7 +4,7 @@
 
 | Faz | İçerik | Çıktı | Tahmini süre |
 |-----|--------|-------|--------------|
-| 0. Fizibilite | Afterloader üreticisiyle özel kaynak ve kanal uyumu görüşmesi; Yb-169 tedarikçi ve fiyat; tümör yükseklik dağılımının retrospektif analizi; radyobiyoloji danışmanlığı | Devam/dur kararı | 2 ile 3 ay |
+| 0. Fizibilite | Varian ile Yb-169 kaynak kablosu ve BrachyVision kaynak modeli görüşmesi (A2), cihaz modeli ve kablo bükülme yarıçapı teyidi (A2b); Yb-169 tedarikçi ve fiyat; tümör yükseklik dağılımının retrospektif analizi; radyobiyoloji danışmanlığı | Devam/dur kararı | 2 ile 3 ay |
 | 1. Tasarım dondurma | Monte Carlo ile katman kalınlıkları, bekleme ekseni, koruma faktörü; kablo bükülme yarıçapı teyidi; CAD | Üretim çizimleri, MC raporu | 3 ay |
 | 2. Prototip | 16 mm plak, 2 adet; ilk aşamada **Ir-192 ile** kanal geçişi ve pozisyon doğruluğu testleri (koruma hariç her şey aynı); film dozimetrisi | Kabul testi raporu | 3 ile 4 ay |
 | 3. Yb-169 kaynağı | Özel kaynak üretimi, kalibrasyon yöntemi, TG-43 parametreleri, TPS tanımı, plan kütüphanesi | Kaynak sertifikası, TPS komisyonlama raporu | 6 ay, faz 1 ile paralel |
@@ -21,13 +21,14 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | No | Soru | Etkisi | Sorumlu |
 |----|------|--------|---------|
 | A1 | Tek fraksiyonda sklera toleransı. LQ modeli 25 Gy apeks için 5 mm tümörde ~100 Gy sklera verir, bu 55 ile 65 Gy başlangıç sınırının üzerindedir | Reçeteyi ve endikasyon aralığını belirler. Faz I'de reçete sklera sınırıyla kesilir | Radyasyon onkolojisi + radyobiyoloji danışmanı |
-| A2 | Afterloader üreticisi özel Yb-169 kaynağını ve daha ince kabloyu cihazında kullanmayı kabul eder mi; bükülme yarıçapı ≤ 12 mm sağlanır mı | Sağlanmazsa plak yarıçapı büyütülemez; kanal düzleştirilemez; proje cihaz değişikliğine bağlanır | Fizik + üretici |
+| A2 | **Varian**, kendi kablo formatında Yb-169 kaynak kablosunun cihazda kullanılmasını kabul eder mi (kendi üretimi, onaylı üçüncü taraf veya araştırma izni); BrachyVision'a Yb-169 kaynak modeli eklenir mi | Projenin kaynak tarafındaki ön şartı. Olumsuzsa Yb-169 yolu kapanır, A8 senaryosu devreye girer | Fizik + Varian |
+| A2b | Varian modeli hangisi: GammaMedplus iX / Bravos (Yb-169 uygun) mu, VariSource iX (uygun değil) mi; GammaMed/Bravos kablosunun belgeli minimum bükülme yarıçapı | Kanal yarıçapı 17 mm tasarım değeri buna göre kesinleşir | Fizik |
 | A3 | Yb-169 kuyu odası kalibrasyon izlenebilirliği | Klinik kullanım ön şartı | Fizik + tedarikçi + kalibrasyon laboratuvarı |
 | A4 | Plak kalınlığı 4,2 mm orbitada tolere edilir mi, özellikle posterior yerleşimde | Kalınlık azaltılırsa koruma veya bekleme yüksekliği ödün verir | Cerrah |
 | A5 | Transfer tüpünün forniksten çıkışı: kapak ekartörü altında tüp yolu, konjonktiva basısı | Giriş bloğu ve kılıf tasarımı | Cerrah + tasarım |
 | A6 | Makula ve optik disk için tek fraksiyon kısıtları | Faz I'de kayıt, sonra sınır | Klinik |
 | A7 | Yıllık 6 ile 8 kaynak değişiminin maliyeti hasta sayısıyla karşılanıyor mu | Sürdürülebilirlik | Yönetim |
-| A8 | Kaynak tedarik zinciri kesilirse yedek plan: Ir-192 ile bunkerde tek seans (koruma ödünüyle) | Süreklilik | Fizik |
+| A8 | Yb-169 sağlanamazsa yedek plan: **aynı aplikatör, Varian'ın Ir-192 kaynağı, bunkerde tek seans**. Kanal geometrisi ve dikim aynı kalır; sırt koruması etkisiz olur, ameliyathane yerine bunker gerekir | Süreklilik; aplikatör geliştirmesi her iki senaryoda ortaktır | Fizik |
 | A9 | Kanal topolojisi: standart afterloader ile paralel kiriş mi, pelet dizili özel yükleyici ile spiral veya halka mı (belge 07) | Proje kapsamını ve cihaz bağımlılığını belirler | Klinik + fizik |
 
 ## Riskler
@@ -46,5 +47,6 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.1.3 | 2026-09-02 | Cihaz kısıtı: Varian HDR afterloader. Kaynak Varian 0,9 mm kapsül formatına bağlandı, kanal yayı 17 mm bükülme yarıçapına göre yeniden tanımlandı, A2 ve A8 güncellendi, Flynn 2019 ve Safaeipour 2021 referansları eklendi |
 | v0.1.2 | 2026-09-02 | Plak seçim kuralı taban + 4 mm, tam yükseklik kenar kalkanı, tek giriş ilkesi; optimize.py ile kanal düzeni karşılaştırması belge 07'ye eklendi |
 | v0.1.1 | 2026-09-02 | Belge 07 eklendi: Dupere 2021 Yb-169 halka aplikatörü referansı, spiral kanal analizi, topoloji karşılaştırması; A9 açık sorusu |

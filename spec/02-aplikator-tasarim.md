@@ -24,7 +24,7 @@ birbirinden bağımsız, tek bir giriş bloğunda toplanan paralel kör kanallar
 | Katman | Kalınlık | Malzeme | İşlev |
 |--------|----------|---------|-------|
 | 1. Ara katman | 0,85 mm | PEEK veya tıbbi silikon | Bekleme eksenini skleradan 1,5 mm'ye taşır, skleral sıcak noktayı düşürür |
-| 2. Kanal katmanı | 1,80 mm | PEEK gövde içinde 316L paslanmaz veya nitinol tüp | Kör kanallar; iç çap 1,1 mm (0,9 mm kaynak için), dış çap 1,5 mm |
+| 2. Kanal katmanı | 1,90 mm | PEEK gövde içinde 316L paslanmaz veya nitinol tüp | Kör kanallar; iç çap 1,2 mm (Varian 0,9 mm kapsül için), dış çap 1,6 mm |
 | 3. Sırt koruması | 1,50 mm | 18 ayar altın veya %95 W ağır alaşım | Yb-169 orbita dozunu keser; çevre dudak dahil tek parça |
 | 4. Kaplama | 10 ile 25 µm | Altın kaplama (tungsten alaşım kullanılırsa) veya parilen | Biyouyumluluk, korozyon |
 
@@ -57,10 +57,23 @@ oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
 - Kanallar plak tabanına paralel **kirişler** boyunca uzanır, hepsi anterior (limbal) kenardaki
   giriş bloğundan girer. Radyal yerleşim elendi: kanallar bir merkezde toplanınca giriş bloğu
   plak ortasına gelir ve bükülme yarıçapı sağlanamaz.
-- Kanallar sklera eğrisini izler; eksen yarıçapı 13,8 mm'lik küre kabuğu üzerindedir. Düz kiriş
-  seçilseydi 12 mm kirişte küreden sapma 1,4 mm olurdu, kabul edilemez.
-- Kanal boyunca bükülme yarıçapı bu nedenle **yaklaşık 13,8 mm**'dir. Kaynak kablosu
-  spesifikasyonunda ≤ 12 mm istenmesinin nedeni budur (belge 01).
+- Kanallar sklera eğrisini **yaklaşık** izler. Küre kabuğunun yarıçapı 13,8 mm'dir, ancak
+  Varian kaynak kablosunun izin verilen en küçük bükülme yarıçapı bundan büyüktür
+  (VariSource için 17 mm belgelidir; GammaMed/Bravos için Varian dokümanından teyit edilecek,
+  tasarım değeri 17 mm). Bu nedenle kanal ekseni **17 mm yarıçaplı yay** olarak yapılır,
+  kiriş ortası skleradan 1,5 mm'de tutulur, uçlar küreden dışa doğru hafifçe ayrılır:
+
+  | Kiriş uzunluğu | Düz kanal sapması | R = 17 mm kanal sapması |
+  |----------------|-------------------|-------------------------|
+  | 8 mm | 0,59 mm | 0,12 mm |
+  | 12 mm | 1,37 mm | 0,28 mm |
+  | 14 mm | 1,91 mm | 0,40 mm |
+  | 16 mm | 2,56 mm | 0,56 mm |
+
+  Sapma kanal katmanı içinde karşılanır; uçlarda bekleme yüksekliği 1,5 mm'den en fazla
+  0,6 mm artar ve plan kütüphanesinde gerçek koordinatlarla hesaba girer. Düz kanal seçilseydi
+  sapma kabul edilemez olurdu.
+- Giriş bloğu ile kanal arasında ek büküm yoktur; transfer tüpü bloğa kanal yayına teğet girer.
 - Kör uçta kaynağın ulaşamadığı boşluk **2,0 mm** kabul edilmiştir; kaynak modeline göre
   otoradyografiyle ölçülür ve TPS'e girilir.
 - Bekleme pozisyonu adımı 2,5 mm; planlama sistemi izin veriyorsa 1,0 mm adımla optimizasyon.

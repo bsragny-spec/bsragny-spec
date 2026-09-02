@@ -20,6 +20,8 @@ import math
 import sys
 
 R_SCLERA = 12.3       # mm, COMS ile uyumlu iç eğrilik yarıçapı
+# Not: Varian kablosu için kanal yayı 17 mm yarıçaplıdır; uçlardaki <=0,6 mm sapma bu
+# kaba modelde ihmal edilmiştir (bkz. spec/02).
 DWELL_OFFSET = 1.5    # mm, bekleme pozisyonu ile sklera arasındaki mesafe
 DWELL_STEP = 2.5      # mm, bekleme pozisyonu aralığı
 CHANNEL_PITCH = 3.0   # mm, komşu kanallar arasındaki mesafe
