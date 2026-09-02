@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.1.10 | 2026-09-02 | 3B konformal model eklendi (figures/3d-model.html): göz küresi, katmanlı plak, kanallar ve bekleme pozisyonları, çentik ve optik sinir, tümör kubbesi, kesit görünümü |
 | v0.1.9 | 2026-09-02 | Çentik merkezi plak kenarından 1 mm içeride sabitlendi (16: 7, 18: 8, 20: 9 mm); tümör modeli disk kenarına kadar uzatıldı, çentikli sklera/Rx artışı ve "bir boy büyük çentikli plak" kuralı eklendi |
 | v0.1.8 | 2026-09-02 | Çentik 8 → 10 mm (cerrahi deneyim: 8 mm kılıfa zor oturuyor); kanal tüpleri kalkan iç çemberine kadar uzatıldı, bekleme pozisyonu sayıları güncellendi; 18 mm çentikli disk komşuluğunda tercih notu |
 | v0.1.7 | 2026-09-02 | 22 mm çıkarıldı; çentikli 16, 18, 20 mm sürümler eklendi: 8 mm U çentik, kısaltılmış iç kanallar ve tam boy yan kanallar, çentikli/yuvarlak LP karşılaştırması |

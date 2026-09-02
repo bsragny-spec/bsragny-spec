@@ -28,6 +28,7 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 - [figures/plak-ailesi.svg](figures/plak-ailesi.svg): yuvarlak 12 ile 20 mm ve çentikli 16 ile 20 mm plakların üstten görünüş ve kesitleri tek sayfada
 - `figures/plak-12mm.svg` … `figures/plak-20mm.svg`: her yuvarlak boy için ölçülü çizim ve özellik listesi
 - `figures/plak-16mm-centik.svg` … `figures/plak-20mm-centik.svg`: disk komşuluğu için çentikli sürümler
+- [figures/3d-model.html](figures/3d-model.html): sklera üzerinde döndürülebilir 3B konformal model (Three.js); boy, çentik, tümör, kesit seçilebilir. Örnek görüntü: [figures/3d-model-16mm.png](figures/3d-model-16mm.png)
 - [figures/kesit.svg](figures/kesit.svg): kanal eksenine dik kesit, katmanlar ve tümör ilişkisi, etiketli
 - [figures/ustten.svg](figures/ustten.svg): 16 mm plak, üstten kanal ve bekleme pozisyonu yerleşimi, etiketli
 

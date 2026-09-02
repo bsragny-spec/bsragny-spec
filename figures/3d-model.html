@@ -1,0 +1,443 @@
+<title>Yb-169 Plak 3B Modeli</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+  :root {
+    --bg: #f1efe9;
+    --panel: #ffffff;
+    --ink: #1e2126;
+    --ink-2: #5a5f66;
+    --line: #d9d5cb;
+    --gold: #b8941f;
+    --gold-soft: #f3e9c8;
+    --polymer: #9dbfd2;
+    --tube: #5f7a8c;
+    --dwell: #c0392b;
+    --sclera: #e9dcc3;
+    --tumor: #b0563a;
+    --nerve: #d8c8a8;
+    --focus: #1f6fb2;
+    --scene-bg: #e8e5dd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17191d; --panel: #1f2227; --ink: #e8e6e0; --ink-2: #a3a7ad; --line: #34383f;
+      --gold: #d4b03a; --gold-soft: #3a3320; --scene-bg: #24272d; --focus: #6fb0ea;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17191d; --panel: #1f2227; --ink: #e8e6e0; --ink-2: #a3a7ad; --line: #34383f;
+    --gold: #d4b03a; --gold-soft: #3a3320; --scene-bg: #24272d; --focus: #6fb0ea;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 14px;
+    position: fixed; inset: 0; display: grid; grid-template-columns: 300px 1fr; grid-template-rows: auto 1fr;
+    grid-template-areas: "head head" "side scene";
+  }
+  header {
+    grid-area: head; display: flex; align-items: baseline; gap: 16px; padding: 12px 18px;
+    border-bottom: 1px solid var(--line); background: var(--panel);
+  }
+  header h1 {
+    margin: 0; font-family: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; font-weight: 600;
+    font-size: 19px; letter-spacing: 0.01em;
+  }
+  header .sub { color: var(--ink-2); font-size: 13px; }
+  header .ver { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-2); }
+  aside {
+    grid-area: side; background: var(--panel); border-right: 1px solid var(--line);
+    padding: 14px 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px;
+  }
+  .grp { display: flex; flex-direction: column; gap: 8px; }
+  .lbl { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+  .seg { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .seg button {
+    flex: 1; padding: 7px 0; border: 0; background: transparent; color: var(--ink); cursor: pointer;
+    font: inherit; font-family: "IBM Plex Mono", monospace; font-size: 13px;
+    border-right: 1px solid var(--line);
+  }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] { background: var(--gold-soft); color: var(--ink); font-weight: 500; box-shadow: inset 0 -2px 0 var(--gold); }
+  .seg button:disabled { color: var(--line); cursor: not-allowed; }
+  .seg button:focus-visible, input:focus-visible, .chk:focus-within { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
+  .row input[type=range] { width: 100%; accent-color: var(--gold); }
+  .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; min-width: 5.5ch; text-align: right; }
+  .chk { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
+  .chk input { accent-color: var(--gold); margin: 0; }
+  .sw { width: 12px; height: 12px; border-radius: 2px; border: 1px solid rgba(0,0,0,.15); flex: none; }
+  dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 13px; }
+  dt { color: var(--ink-2); }
+  dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; text-align: right; }
+  .note { font-size: 12px; color: var(--ink-2); line-height: 1.45; }
+  #scene { grid-area: scene; position: relative; background: var(--scene-bg); min-height: 0; }
+  #scene canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: var(--ink-2);
+    background: color-mix(in srgb, var(--panel) 80%, transparent); padding: 4px 8px; border-radius: 3px;
+  }
+  .axis {
+    position: absolute; right: 14px; top: 12px; font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    color: var(--ink-2); text-align: right; line-height: 1.5;
+  }
+  @media (max-width: 760px) {
+    body { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr; grid-template-areas: "head" "side" "scene"; }
+    aside { border-right: 0; border-bottom: 1px solid var(--line); max-height: 42vh; }
+  }
+  @media (prefers-reduced-motion: reduce) { .spin { display: none; } }
+</style>
+
+<header>
+  <h1>Yb-169 HDR episkleral aplikatör</h1>
+  <span class="sub">3B konformal model, sklera üzerinde</span>
+  <span class="ver">taslak v0.1.9</span>
+</header>
+
+<aside>
+  <div class="grp">
+    <div class="lbl">Plak çapı</div>
+    <div class="seg" id="sizeSeg" role="group" aria-label="Plak çapı">
+      <button data-d="12">12</button><button data-d="14">14</button><button data-d="16" aria-pressed="true">16</button><button data-d="18">18</button><button data-d="20">20</button>
+    </div>
+    <div class="seg" id="typeSeg" role="group" aria-label="Plak tipi">
+      <button data-t="round" aria-pressed="true">Yuvarlak</button><button data-t="notch">Çentikli</button>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="lbl">Tümör</div>
+    <div class="row"><input type="range" id="base" min="4" max="16" step="1" value="12" aria-label="Tümör tabanı"><span class="num" id="baseV">12 mm</span></div>
+    <div class="note">Taban çapı. Kural: plak = taban + 4 mm; çentiklide bir boy büyük.</div>
+    <div class="row"><input type="range" id="apex" min="2" max="10" step="0.5" value="5" aria-label="Apeks yüksekliği"><span class="num" id="apexV">5,0 mm</span></div>
+    <div class="note">Apeks yüksekliği, iç skleradan.</div>
+  </div>
+
+  <div class="grp">
+    <div class="lbl">Görünüm</div>
+    <label class="chk"><input type="checkbox" id="cEye" checked><span class="sw" style="background:var(--sclera)"></span>Göz küresi ve sklera</label>
+    <label class="chk"><input type="checkbox" id="cTumor" checked><span class="sw" style="background:var(--tumor)"></span>Tümör</label>
+    <label class="chk"><input type="checkbox" id="cNerve" checked><span class="sw" style="background:var(--nerve)"></span>Optik sinir (çentiklide)</label>
+    <label class="chk"><input type="checkbox" id="cChan" checked><span class="sw" style="background:var(--tube)"></span>Kanallar ve bekleme pozisyonları</label>
+    <label class="chk"><input type="checkbox" id="cShield" checked><span class="sw" style="background:var(--gold)"></span>Altın kalkan</label>
+    <label class="chk"><input type="checkbox" id="cGhost"><span class="sw" style="background:var(--gold-soft)"></span>Kalkanı saydamlaştır</label>
+    <label class="chk"><input type="checkbox" id="cCut"><span class="sw" style="background:var(--polymer)"></span>Kesit, kanal eksenine dik</label>
+    <label class="chk spin"><input type="checkbox" id="cSpin"><span class="sw" style="background:var(--line)"></span>Kendiliğinden döndür</label>
+  </div>
+
+  <div class="grp">
+    <div class="lbl">Bu plak</div>
+    <dl id="readout"></dl>
+  </div>
+
+  <div class="note">Şematik model; geometri kuralları tools/geometry.py ile aynıdır. Üretim çizimi değildir.</div>
+</aside>
+
+<div id="scene">
+  <div class="axis">posterior ↑ çentik tarafı<br>anterior ↓ giriş bloğu</div>
+  <div class="hint">Sürükle: döndür · Tekerlek: yakınlaştır · Sağ tık sürükle: kaydır</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  // ---------- geometri kuralları (tools/geometry.py ile aynı) ----------
+  const R_SCL = 12.3, R_IN = 11.3, OFF = 1.5, R_D = R_SCL + OFF, STEP = 2.5, EDGE = 1.5, TIP_DEAD = 2.0;
+  const RIM = 0.5, CH_OD = 1.6, CH_ID = 1.2, PITCH_NOM = 3.0;
+  const T_SPACER = 0.85, T_CHAN = 1.9, T_SHIELD = 1.5;
+  const R1 = R_SCL, R3 = R1 + T_SPACER + T_CHAN, R4 = R3 + T_SHIELD;
+  const NOTCH_R = 5.0, NOTCH_INSET = 1.0, DISC_EDGE = 1.5;
+  const notchCY = D => D / 2 - NOTCH_INSET;
+
+  function layout(D, notched) {
+    const half = D / 2 - EDGE, rIn = D / 2 - RIM - 0.2;
+    let xs, pitch;
+    if (notched) {
+      const xf = NOTCH_R + RIM + CH_OD / 2, inner = xf / 2;
+      xs = [-xf, -inner, 0, inner, xf]; pitch = inner;
+      if (xf + 2 + CH_OD / 2 <= rIn) xs = [-(xf + 2), ...xs, xf + 2];
+    } else {
+      const n = 2 * Math.floor((half - 1) / PITCH_NOM + 0.5) + 1;
+      pitch = n > 1 ? 2 * (half - 1) / (n - 1) : 0;
+      xs = Array.from({ length: n }, (_, i) => (-(n - 1) / 2 + i) * pitch);
+    }
+    const ch = [];
+    for (const x of xs) {
+      if (Math.abs(x) + CH_OD / 2 > rIn) continue;
+      const chordHalf = Math.sqrt(Math.max(rIn * rIn - x * x, 0));
+      let yEnd = chordHalf - 0.3, trunc = false;
+      if (notched && Math.abs(x) < NOTCH_R) {
+        const yn = notchCY(D) - Math.sqrt(NOTCH_R * NOTCH_R - x * x);
+        if (yn - RIM - 0.3 < yEnd) { yEnd = yn - RIM - 0.3; trunc = true; }
+      }
+      const yStart = -chordHalf + 0.5, yLast = yEnd - TIP_DEAD;
+      const k = Math.floor((yLast - yStart) / STEP) + 1;
+      const dw = Array.from({ length: Math.max(k, 0) }, (_, i) => yStart + i * STEP);
+      ch.push({ x, y0: -chordHalf, y1: yEnd, dwells: dw, trunc, pitch,
+                arc: 2 * R_D * Math.asin(Math.min(chordHalf / R_D, 1)) });
+    }
+    return ch;
+  }
+  // plak düzlemi (x,y) -> küre yüzeyi yönü; R yarıçapına ölçekle
+  function P(x, y, R) {
+    const z = Math.sqrt(Math.max(R_SCL * R_SCL - x * x - y * y, 0));
+    const k = R / R_SCL;
+    return new THREE.Vector3(x * k, y * k, z * k);
+  }
+  function yRange(D, notched, x) {
+    const r = D / 2, s = Math.sqrt(Math.max(r * r - x * x, 0));
+    let ymax = s;
+    if (notched && Math.abs(x) < NOTCH_R) ymax = Math.min(ymax, notchCY(D) - Math.sqrt(NOTCH_R * NOTCH_R - x * x));
+    return [-s, ymax];
+  }
+
+  // ---------- sahne ----------
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const host = document.getElementById('scene');
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.localClippingEnabled = true;
+  host.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.5, 400);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8478, 0.9));
+  const key = new THREE.DirectionalLight(0xffffff, 0.75); key.position.set(30, -20, 50); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.3); fill.position.set(-30, 25, 10); scene.add(fill);
+
+  // kamera kontrolü
+  const target = new THREE.Vector3(0, 0, 9);
+  let theta = 0.55, phi = 1.05, dist = 62, drag = null;
+  function placeCamera() {
+    camera.position.set(
+      target.x + dist * Math.sin(phi) * Math.sin(theta),
+      target.y - dist * Math.sin(phi) * Math.cos(theta),
+      target.z + dist * Math.cos(phi));
+    camera.lookAt(target);
+  }
+  const el = renderer.domElement;
+  el.addEventListener('contextmenu', e => e.preventDefault());
+  el.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, b: e.button }; el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointerup', () => drag = null);
+  el.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag.x = e.clientX; drag.y = e.clientY;
+    if (drag.b === 2) {
+      const right = new THREE.Vector3().setFromMatrixColumn(camera.matrix, 0);
+      const up = new THREE.Vector3().setFromMatrixColumn(camera.matrix, 1);
+      target.addScaledVector(right, -dx * dist * 0.0015).addScaledVector(up, dy * dist * 0.0015);
+    } else {
+      theta -= dx * 0.008; phi = Math.min(Math.max(phi - dy * 0.008, 0.05), Math.PI - 0.05);
+    }
+    placeCamera();
+  });
+  el.addEventListener('wheel', e => { e.preventDefault(); dist = Math.min(Math.max(dist * (1 + e.deltaY * 0.001), 18), 160); placeCamera(); }, { passive: false });
+
+  function resize() {
+    const w = host.clientWidth, h = host.clientHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize);
+
+  // ---------- malzemeler ----------
+  const cutPlane = new THREE.Plane(new THREE.Vector3(0, -1, 0), 0);   // y <= 0 tutulur
+  const mats = {};
+  function mkMats() {
+    const c = n => new THREE.Color(css(n));
+    mats.gold = new THREE.MeshStandardMaterial({ color: c('--gold'), metalness: 0.75, roughness: 0.32, side: THREE.DoubleSide });
+    mats.goldGhost = new THREE.MeshStandardMaterial({ color: c('--gold'), metalness: 0.6, roughness: 0.4, side: THREE.DoubleSide, transparent: true, opacity: 0.28, depthWrite: false });
+    mats.poly = new THREE.MeshStandardMaterial({ color: c('--polymer'), roughness: 0.7, side: THREE.DoubleSide });
+    mats.tube = new THREE.MeshStandardMaterial({ color: c('--tube'), roughness: 0.5, transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+    mats.lumen = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide, transparent: true, opacity: 0.3, depthWrite: false });
+    mats.lumenSolid = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+    mats.dwell = new THREE.MeshStandardMaterial({ color: c('--dwell'), roughness: 0.45 });
+    mats.sclera = new THREE.MeshStandardMaterial({ color: c('--sclera'), roughness: 0.85, side: THREE.DoubleSide });
+    mats.vitre = new THREE.MeshStandardMaterial({ color: 0xf6ecdc, roughness: 1, transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false });
+    mats.tumor = new THREE.MeshStandardMaterial({ color: c('--tumor'), roughness: 0.6, side: THREE.DoubleSide, transparent: true, opacity: 0.85 });
+    mats.nerve = new THREE.MeshStandardMaterial({ color: c('--nerve'), roughness: 0.9 });
+    mats.block = new THREE.MeshStandardMaterial({ color: 0x8fa3b1, roughness: 0.6 });
+    scene.background = c('--scene-bg');
+  }
+  mkMats();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { mkMats(); build(); });
+
+  // ---------- mesh yardımcıları ----------
+  function gridMesh(rows, mat) {   // rows: dizi dizisi Vector3 (n x m) -> yüzey
+    const n = rows.length, m = rows[0].length, pos = [], idx = [];
+    rows.forEach(r => r.forEach(p => pos.push(p.x, p.y, p.z)));
+    for (let i = 0; i < n - 1; i++) for (let j = 0; j < m - 1; j++) {
+      const a = i * m + j, b = a + m; idx.push(a, b, a + 1, a + 1, b, b + 1);
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+    return new THREE.Mesh(g, mat);
+  }
+  function shellSurfaces(D, notched) {
+    const r = D / 2, N = 140, M = 36, eps = 0.02;
+    const cols = [];
+    for (let i = 0; i <= N; i++) {
+      const x = -r + eps + (2 * r - 2 * eps) * i / N;
+      const [y0, y1] = yRange(D, notched, x);
+      cols.push({ x, y0, y1 });
+    }
+    const surface = R => cols.map(c => Array.from({ length: M + 1 }, (_, j) => P(c.x, c.y0 + (c.y1 - c.y0) * j / M, R)));
+    const wall = (Ra, Rb, side) => cols.map(c => { const y = side ? c.y1 : c.y0; return [P(c.x, y, Ra), P(c.x, y, Rb)]; });
+    return { surface, wall };
+  }
+
+  const group = new THREE.Group(); scene.add(group);
+  const state = { D: 16, notched: false, base: 12, apex: 5 };
+
+  function build() {
+    while (group.children.length) { const o = group.children.pop(); o.traverse(c => { if (c.geometry) c.geometry.dispose(); }); }
+    const { D, notched } = state, r = D / 2, ch = layout(D, notched);
+    const ghost = document.getElementById('cGhost').checked, cut = document.getElementById('cCut').checked;
+    const goldMat = ghost ? mats.goldGhost : mats.gold;
+    const clip = cut ? [cutPlane] : [];
+    Object.values(mats).forEach(m => { m.clippingPlanes = clip; m.needsUpdate = true; });
+
+    // göz
+    if (document.getElementById('cEye').checked) {
+      group.add(new THREE.Mesh(new THREE.SphereGeometry(R_SCL, 96, 64), mats.sclera));
+      group.add(new THREE.Mesh(new THREE.SphereGeometry(R_IN, 64, 48), mats.vitre));
+      if (cut) {
+        const ring = new THREE.Mesh(new THREE.RingGeometry(R_IN, R_SCL, 128), mats.sclera);
+        ring.rotation.x = Math.PI / 2; ring.position.y = -0.02; ring.material = mats.sclera.clone(); ring.material.clippingPlanes = []; group.add(ring);
+      }
+    }
+    // plak kabuğu
+    const S = shellSurfaces(D, notched);
+    if (document.getElementById('cShield').checked) {
+      group.add(gridMesh(S.surface(R4), goldMat));                 // sırt
+      group.add(gridMesh(S.wall(R1, R4, true), goldMat));          // posterior/çentik duvarı
+      group.add(gridMesh(S.wall(R1, R4, false), goldMat));         // anterior duvar
+      group.add(gridMesh(S.surface(R3 + 0.01), goldMat));          // kalkan alt yüzü
+    }
+    group.add(gridMesh(S.surface(R1 + 0.03), mats.poly));          // polimer iç yüz (sklera teması)
+    group.add(gridMesh(S.surface(R3 - 0.01), mats.poly));          // polimer üst yüz (kalkan altı)
+    // kanallar
+    if (document.getElementById('cChan').checked) {
+      for (const c of ch) {
+        const pts = []; const n = 24;
+        for (let i = 0; i <= n; i++) pts.push(P(c.x, c.y0 + (c.y1 - c.y0) * i / n, R_D));
+        const curve = new THREE.CatmullRomCurve3(pts);
+        group.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 40, CH_OD / 2, 14, false), mats.tube));
+        group.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 40, CH_ID / 2 - 0.05, 12, false), mats.lumen.clone()));
+        c.dwells.forEach((y, i) => {
+          const s = new THREE.Mesh(new THREE.SphereGeometry(0.32, 14, 10), mats.dwell);
+          s.position.copy(P(c.x, y, R_D)); group.add(s);
+        });
+      }
+      // giriş bloğu
+      const xs = ch.map(c => c.x), w = Math.max(...xs) - Math.min(...xs) + 3.0;
+      const pos = P(0, -(r + 1.1), R1 + 1.5), n = pos.clone().normalize();
+      const ty = P(0, -(r + 1.1) + 0.01, R1 + 1.5).sub(P(0, -(r + 1.1), R1 + 1.5)).normalize();
+      const tx = new THREE.Vector3().crossVectors(ty, n).normalize();
+      const blk = new THREE.Mesh(new THREE.BoxGeometry(w, 2.2, 3.0), mats.block);
+      blk.matrix.makeBasis(tx, ty, n); blk.matrix.setPosition(pos); blk.matrixAutoUpdate = false; group.add(blk);
+      for (const c of ch) {
+        const hole = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 2.4, 12), mats.lumenSolid.clone());
+        const hp = P(c.x, -(r + 1.1), R1 + 1.5);
+        hole.matrix.makeBasis(tx, n, ty.clone().negate()); hole.matrix.setPosition(hp); hole.matrixAutoUpdate = false; group.add(hole);
+      }
+      // kılıf: bloktan anteriora, yüzeye teğet uzaklaşır
+      const sh = [pos.clone().addScaledVector(ty, -1.2), pos.clone().addScaledVector(ty, -5).addScaledVector(n, 0.6),
+                  pos.clone().addScaledVector(ty, -10).addScaledVector(n, 3).addScaledVector(tx, 1.5)];
+      group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(sh), 16, 0.9, 12, false), mats.block));
+    }
+    // tümör
+    if (document.getElementById('cTumor').checked) {
+      const b = state.base, h = state.apex;
+      const yc = notched ? notchCY(D) - DISC_EDGE - b / 2 : 0;
+      const rows = [];
+      const NR = 18, NA = 48;
+      for (let i = 0; i <= NR; i++) {
+        const rho = (b / 2) * i / NR, hh = h * Math.sqrt(Math.max(1 - (rho / (b / 2)) ** 2, 0));
+        rows.push(Array.from({ length: NA + 1 }, (_, j) => {
+          const az = 2 * Math.PI * j / NA;
+          return P(rho * Math.cos(az), yc + rho * Math.sin(az), R_IN - hh);
+        }));
+      }
+      group.add(gridMesh(rows, mats.tumor));
+    }
+    // optik sinir
+    if (notched && document.getElementById('cNerve').checked) {
+      const base = P(0, notchCY(D), R_SCL - 0.5), dir = base.clone().normalize();
+      const cyl = new THREE.Mesh(new THREE.CylinderGeometry(2.75, 2.75, 12, 32), mats.nerve);
+      cyl.position.copy(base.clone().addScaledVector(dir, 6));
+      cyl.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir); group.add(cyl);
+    }
+    // kesit yüzleri (y = 0 düzlemi, kanal eksenine dik)
+    if (cut) {
+      const NX = 120, band = (Ra, Rb, xa, xb, mat) => {
+        const rows = [];
+        for (let i = 0; i <= NX; i++) { const x = xa + (xb - xa) * i / NX; rows.push([P(x, -0.02, Ra), P(x, -0.02, Rb)]); }
+        const m = gridMesh(rows, mat.clone()); m.material.clippingPlanes = []; group.add(m);
+      };
+      band(R1, R3, -(r - RIM), r - RIM, mats.poly);
+      if (document.getElementById('cShield').checked) {
+        band(R3, R4, -r, r, mats.gold); band(R1, R3, -r, -(r - RIM), mats.gold); band(R1, R3, r - RIM, r, mats.gold);
+      }
+      if (document.getElementById('cChan').checked) for (const c of ch) {
+        if (c.y0 > 0 || c.y1 < 0) continue;
+        const p = P(c.x, -0.03, R_D), t = P(c.x, 0.5, R_D).sub(P(c.x, -0.5, R_D)).normalize();
+        const ring = new THREE.Mesh(new THREE.RingGeometry(CH_ID / 2, CH_OD / 2, 24), mats.tube.clone());
+        ring.material.opacity = 1; ring.material.clippingPlanes = []; ring.position.copy(p); ring.lookAt(p.clone().add(t)); group.add(ring);
+        const lum = new THREE.Mesh(new THREE.CircleGeometry(CH_ID / 2, 24), mats.lumenSolid.clone()); lum.material.clippingPlanes = [];
+        lum.position.copy(p); lum.lookAt(p.clone().add(t)); group.add(lum);
+      }
+    }
+    readout(ch);
+  }
+
+  function readout(ch) {
+    const { D, notched } = state, dw = ch.reduce((s, c) => s + c.dwells.length, 0);
+    const rows = [
+      ['Plak', `${D} mm ${notched ? 'çentikli' : 'yuvarlak'}`],
+      ['Kanal', notched ? `${ch.length} (${ch.filter(c => c.trunc).length} kısa + ${ch.filter(c => !c.trunc).length} yan)` : `${ch.length} paralel`],
+      ['Kanal aralığı', `${ch[0].pitch.toFixed(2)} mm`],
+      ['Bekleme pozisyonu', `${dw}`],
+      ['En uzun kanal yayı', `${Math.max(...ch.map(c => c.arc)).toFixed(1)} mm`],
+      ['Toplam kalınlık', `${(R4 - R1).toFixed(2)} mm`],
+      ['İç eğrilik yarıçapı', `${R_SCL} mm`],
+      ['Bekleme ekseni', `skleradan ${OFF} mm`],
+    ];
+    if (notched) rows.push(['Sinir ekseni', `merkezden ${notchCY(D)} mm`], ['Çentik dibi', `merkezden ${notchCY(D) - NOTCH_R} mm`], ['Çentik genişliği', `${2 * NOTCH_R} mm`]);
+    rows.push(['Tümör tabanı', `${state.base} mm`], ['Apeks', `${state.apex.toFixed(1).replace('.', ',')} mm`],
+              ['Plak kuralı', `taban + ${notched ? 6 : 4} mm → ${notched ? state.base + 6 : state.base + 4} mm`]);
+    document.getElementById('readout').innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+  }
+
+  // ---------- UI ----------
+  const sizeSeg = document.getElementById('sizeSeg'), typeSeg = document.getElementById('typeSeg');
+  function syncSeg() {
+    sizeSeg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', +b.dataset.d === state.D));
+    typeSeg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', (b.dataset.t === 'notch') === state.notched));
+    typeSeg.querySelector('[data-t=notch]').disabled = state.D < 16;
+  }
+  sizeSeg.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    state.D = +b.dataset.d; if (state.D < 16) state.notched = false;
+    const def = state.notched ? state.D - 6 : state.D - 4;
+    state.base = def; document.getElementById('base').value = def; document.getElementById('baseV').textContent = `${def} mm`;
+    syncSeg(); build();
+  });
+  typeSeg.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.disabled) return;
+    state.notched = b.dataset.t === 'notch';
+    const def = state.notched ? state.D - 6 : state.D - 4;
+    state.base = def; document.getElementById('base').value = def; document.getElementById('baseV').textContent = `${def} mm`;
+    syncSeg(); build();
+  });
+  document.getElementById('base').addEventListener('input', e => { state.base = +e.target.value; document.getElementById('baseV').textContent = `${state.base} mm`; build(); });
+  document.getElementById('apex').addEventListener('input', e => { state.apex = +e.target.value; document.getElementById('apexV').textContent = `${state.apex.toFixed(1).replace('.', ',')} mm`; build(); });
+  ['cEye', 'cTumor', 'cNerve', 'cChan', 'cShield', 'cGhost', 'cCut'].forEach(id => document.getElementById(id).addEventListener('change', build));
+
+  syncSeg(); resize(); placeCamera(); build();
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (!reduced && document.getElementById('cSpin').checked && !drag) { theta += 0.004; placeCamera(); }
+    renderer.render(scene, camera);
+  })();
+})();
+</script>
