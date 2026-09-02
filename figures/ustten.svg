@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" width="560" height="480" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>Yb-169 HDR episkleral aplikatör, 16 mm plak üstten görünüş: kanallar, bekleme pozisyonları, giriş bloğu, sütür delikleri</title>
+  <rect width="560" height="480" fill="#ffffff"/>
+  <text x="280" y="22" text-anchor="middle" font-size="14" font-weight="bold">Üstten görünüş, 16 mm plak, ölçek 12 px = 1 mm</text>
+  <!-- plak kabuğu dış çap 16 mm -> r 96, dudak iç r 90 -->
+  <circle cx="200" cy="220" r="96" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.5"/>
+  <circle cx="200" cy="220" r="90" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.8"/>
+  <!-- sütür delikleri: 2 posterior (üst), 1 anterior blok yanı -->
+  <g fill="#ffffff" stroke="#8a6d1a" stroke-width="1">
+    <circle cx="134.2" cy="154.2" r="4.8"/>
+    <circle cx="265.8" cy="154.2" r="4.8"/>
+    <circle cx="118.0" cy="266.0" r="4.8"/>
+  </g>
+  <!-- kanallar: x ofset 0, ±33, ±66 px ; kiriş yarı uzunluğu (px): 78, 70.7, 41.5 ; kör uç 2 mm = 24 px -->
+  <g fill="#b8c7d1" stroke="#2b4c5e" stroke-width="1">
+    <rect x="125.0" y="202.5" width="18" height="60.5" rx="9"/>
+    <rect x="158.0" y="173.3" width="18" height="118.4" rx="9"/>
+    <rect x="191.0" y="166.0" width="18" height="133.0" rx="9"/>
+    <rect x="224.0" y="173.3" width="18" height="118.4" rx="9"/>
+    <rect x="257.0" y="202.5" width="18" height="60.5" rx="9"/>
+  </g>
+  <!-- kanal iç lümenleri -->
+  <g fill="#ffffff" stroke="none">
+    <rect x="128.5" y="206" width="11" height="57" rx="5.5"/>
+    <rect x="161.5" y="176.8" width="11" height="115" rx="5.5"/>
+    <rect x="194.5" y="169.5" width="11" height="129.5" rx="5.5"/>
+    <rect x="227.5" y="176.8" width="11" height="115" rx="5.5"/>
+    <rect x="260.5" y="206" width="11" height="57" rx="5.5"/>
+  </g>
+  <!-- kör uç ölü boşluk 2 mm işareti (merkez kanal) -->
+  <rect x="194.5" y="169.5" width="11" height="24" fill="#f3d1cc" stroke="none"/>
+  <!-- bekleme pozisyonları: girişten (alt) 0.5 mm içeride başlar, 2.5 mm = 30 px adım -->
+  <g fill="#c0392b" stroke="none">
+    <!-- kanal x=200: y_start = 220+78-6 = 292 ; ölü boşluk sınırı 220-78+24=166+... -> 193.5 -->
+    <circle cx="200" cy="292" r="3.2"/><circle cx="200" cy="262" r="3.2"/><circle cx="200" cy="232" r="3.2"/><circle cx="200" cy="202" r="3.2"/>
+    <!-- kanal x=±33: y_start 220+70.7-6 = 284.7 ; sınır 220-70.7+24 = 173.3 -->
+    <circle cx="167" cy="284.7" r="3.2"/><circle cx="167" cy="254.7" r="3.2"/><circle cx="167" cy="224.7" r="3.2"/><circle cx="167" cy="194.7" r="3.2"/>
+    <circle cx="233" cy="284.7" r="3.2"/><circle cx="233" cy="254.7" r="3.2"/><circle cx="233" cy="224.7" r="3.2"/><circle cx="233" cy="194.7" r="3.2"/>
+    <!-- kanal x=±66: y_start 220+41.5-6 = 255.5 ; sınır 220-41.5+24 = 202.5 -->
+    <circle cx="134" cy="255.5" r="3.2"/><circle cx="134" cy="225.5" r="3.2"/>
+    <circle cx="266" cy="255.5" r="3.2"/><circle cx="266" cy="225.5" r="3.2"/>
+  </g>
+  <!-- giriş bloğu, anterior kenar (alt) -->
+  <rect x="120" y="306" width="160" height="26" rx="4" fill="#9fb3c0" stroke="#2b4c5e" stroke-width="1.2"/>
+  <g fill="#ffffff" stroke="#2b4c5e" stroke-width="0.8">
+    <circle cx="134" cy="319" r="5"/><circle cx="167" cy="319" r="5"/><circle cx="200" cy="319" r="5"/><circle cx="233" cy="319" r="5"/><circle cx="266" cy="319" r="5"/>
+  </g>
+  <g font-size="8" fill="#2b4c5e" text-anchor="middle"><text x="134" y="322">1</text><text x="167" y="322">2</text><text x="200" y="322">3</text><text x="233" y="322">4</text><text x="266" y="322">5</text></g>
+  <!-- kanal giriş bağlantıları bloğa -->
+  <g stroke="#2b4c5e" stroke-width="1" fill="none">
+    <line x1="134" y1="263" x2="134" y2="306"/><line x1="167" y1="291.7" x2="167" y2="306"/><line x1="200" y1="299" x2="200" y2="306"/><line x1="233" y1="291.7" x2="233" y2="306"/><line x1="266" y1="263" x2="266" y2="306"/>
+  </g>
+  <!-- konektör ve kılıf -->
+  <rect x="150" y="340" width="100" height="18" rx="3" fill="#6f8797" stroke="#2b4c5e" stroke-width="1"/>
+  <text x="200" y="352" text-anchor="middle" font-size="9" fill="#fff">kilitli konektör</text>
+  <path d="M 200 358 C 200 400 230 410 260 440" stroke="#2b4c5e" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M 200 358 C 200 400 230 410 260 440" stroke="#dfe7ec" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- etiketler -->
+  <g font-size="11" fill="#222">
+    <text x="330" y="140">Sütür deliği (3 adet), 0,8 mm</text>
+    <line x1="328" y1="143" x2="271" y2="154" stroke="#8a6d1a" stroke-width="0.8"/>
+    <text x="330" y="180">Kör uç ölü boşluğu, 2 mm</text>
+    <line x1="328" y1="183" x2="206" y2="180" stroke="#7a3c3c" stroke-width="0.8"/>
+    <text x="330" y="215">Bekleme pozisyonları, 2,5 mm adım</text>
+    <line x1="328" y1="218" x2="237" y2="224" stroke="#c0392b" stroke-width="0.8"/>
+    <text x="330" y="250">Kör kanal, 5 adet, aralık 2,75 mm</text>
+    <line x1="328" y1="253" x2="276" y2="240" stroke="#2b4c5e" stroke-width="0.8"/>
+    <text x="330" y="290">Altın sırt kabuğu ve dudak</text>
+    <line x1="328" y1="293" x2="292" y2="270" stroke="#8a6d1a" stroke-width="0.8"/>
+    <text x="330" y="325">Giriş bloğu, anterior kenar, ≤ 3 mm çıkıntı</text>
+    <line x1="328" y1="328" x2="282" y2="320" stroke="#2b4c5e" stroke-width="0.8"/>
+    <text x="330" y="400">Transfer tüpleri tek kılıfta,</text>
+    <text x="330" y="414">forniksten kapaklar arasından çıkar</text>
+    <line x1="328" y1="403" x2="262" y2="425" stroke="#2b4c5e" stroke-width="0.8"/>
+    <text x="40" y="120" fill="#555">POSTERIOR</text>
+    <text x="40" y="330" fill="#555">ANTERIOR (limbus)</text>
+  </g>
+  <text x="280" y="468" text-anchor="middle" font-size="10" fill="#777">Şematik; kanallar sklera eğrisini izler (eksen yarıçapı 13,8 mm), üstten izdüşüm gösterilmiştir.</text>
+</svg>
