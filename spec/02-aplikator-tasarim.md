@@ -113,9 +113,9 @@ Optik disk komşuluğundaki tümörler için 16, 18 ve 20 mm plakların posterio
 |-----------|-------|---------|
 | Çentik biçimi | U, yarım daire tabanlı | Sinir kılıfına oturur, köşe yok |
 | Çentik genişliği | **10 mm** | Sinir dural kılıfı globda 5 ile 7 mm; COMS/Eye Physics modeli 8 mm'dir ancak cerrahi deneyimde 8 mm çentik kılıfa zor oturmaktadır. Parametredir (`NOTCH_W`), 9 ile 11 mm arasında cerrahın ölçümüne göre ayarlanabilir |
-| Yarım daire merkezi | Plak merkezinden 9 mm posteriorda | Çentik dibi merkezden 4 mm'de; disk merkezi çentik merkezinde |
+| Yarım daire merkezi (sinir ekseni) | Plak kenarından **1 mm içeride**: merkezden 16 mm'de 7, 18 mm'de 8, 20 mm'de 9 mm | Çentik derinliği bütün boylarda aynı (kenardan 6 mm); küçük plakta çentik plağın ortasına inmez ve plak sinire aynı biçimde oturur |
 | Çentik kenarı | 0,5 mm altın kalkan çentik hattını izler | Kenar her yerde kapalı kalır |
-| Tümör yerleşimi | Tümörün posterior kenarı çentik dibinde; taban çapı ≤ plak çapı − 4 mm | Lateral ve anterior marj 2 mm'den büyük olur |
+| Tümör yerleşimi | Tümörün posterior kenarı disk kenarında (sinir ekseninden 1,5 mm önde), yani tümör çentik bölgesine 3 ile 4 mm girer; taban çapı ≤ plak çapı − 4 mm | Jukstapapiller tümörün gerçek yerleşimi; çentik altındaki tümör kenarı yalnızca yan kanallardan doz alır |
 | Sütür delikleri | 2 lateral, 1 anterior | Posterior kenar çentik nedeniyle kullanılamaz |
 
 Kanal düzeni çentikli sürümlerde değişir. Çentiğe giren üç iç kanal (x = 0 ve ± 3,15 mm) çentik
@@ -123,31 +123,40 @@ sınırında kısaltılır; çentiğin iki yanında **tam boy yan kanallar** (x 
 5 mm + kalkan 0,5 mm + tüp yarıçapı 0,8 mm) sinirin iki yanından geçer ve disk komşuluğundaki
 tümör kenarını besler. 20 mm'de bir dış kanal çifti daha vardır (x = ± 8,3 mm).
 
-| Çap | Kanal | Kısaltılmış | Yan kanal | Yan kanal bekleme pozisyonu | Toplam bekleme pozisyonu |
-|-----|-------|-------------|-----------|-----------------------------|--------------------------|
-| 16 mm | 5 | 3 | 2 | 2'şer | 16 |
-| 18 mm | 5 | 3 | 2 | 4'er | 20 |
-| 20 mm | 7 | 3 | 4 | 5'er ve 2'şer | 31 |
-
-16 mm çentiklide yan kanallar plak kenarına çok yakın olduğu için kısadır (2'şer bekleme
-pozisyonu); disk komşuluğu kapsaması 18 mm'de belirgin daha iyidir. Disk komşuluğunda tabanı
-12 mm'ye kadar olan tümörlerde 18 mm çentikli plak tercih edilmelidir.
+| Çap | Sinir ekseni, merkezden | Çentik dibi, merkezden | Kanal | Kısaltılmış | Yan kanal | Yan kanal bekleme pozisyonu | Toplam bekleme pozisyonu |
+|-----|-------------------------|------------------------|-------|-------------|-----------|-----------------------------|--------------------------|
+| 16 mm | 7 mm | 2 mm | 5 | 3 | 2 | 2'şer | 13 |
+| 18 mm | 8 mm | 3 mm | 5 | 3 | 2 | 4'er | 20 |
+| 20 mm | 9 mm | 4 mm | 7 | 3 | 4 | 5'er ve 3'er | 31 |
 
 14 mm çentikli sürüm yoktur: 10 mm çentiğin yanında yan kanala yer kalmaz.
 
 `tools/optimize.py` çentikli karşılaştırması (nokta kaynak, LP optimizasyonu, tümör posterior
-kenarı çentik dibinde):
+kenarı disk kenarında, apeks 5 mm, taban = plak − 4 mm):
 
 | Plak | Düzen | Sklera/Rx | Disk merkezi/Rx |
 |------|-------|-----------|-----------------|
-| 16 mm | Yuvarlak, sinir yok sayılır | 3,7 | 0,64 |
-| 16 mm | **Çentikli, 10 mm** | 3,9 | 0,51 |
-| 20 mm | Yuvarlak, sinir yok sayılır | 3,3 | 1,23 |
-| 20 mm | **Çentikli, 10 mm** | 3,2 | 0,70 |
+| 16 mm | Yuvarlak, sinir yok sayılır | 3,7 | 0,98 |
+| 16 mm | **Çentikli** | 5,9 | 0,77 |
+| 18 mm | Yuvarlak, sinir yok sayılır | 3,2 | 0,81 |
+| 18 mm | **Çentikli** | 4,6 | 0,79 |
+| 20 mm | Yuvarlak, sinir yok sayılır | 2,7 | 1,00 |
+| 20 mm | **Çentikli** | 3,7 | 0,80 |
 
-Yan kanallar ve bekleme optimizasyonu sayesinde çentik, tümör kapsamasını bozmadan disk dozunu
-düşürür. Bu, seed çıkarılan LDR çentikli plaklara göre HDR'nin somut bir avantajıdır: eksik
-seed'in yerini bekleme süreleri doldurur.
+Okuma:
+
+- Çentik altındaki tümör kenarı yalnızca yan kanallardan doz aldığı için, o kenarı reçeteye
+  çıkarmak yan kanalların altındaki sklerayı ısıtır. Sklera/Rx çentikli plakta yuvarlağa göre
+  %35 ile 60 yükselir. Bu, jukstapapiller tümörlerin bilinen sorunudur; LDR çentikli plakta da
+  vardır ve orada seed çıkarıldığı için daha kötüdür.
+- 16 mm çentiklide yan kanallar 2'şer bekleme pozisyonuyla çok kısadır; sklera/Rx 5,9 kabul
+  edilemez. **Kural: jukstapapiller tümörde çentikli plak bir boy büyük seçilir.** Taban 12 mm
+  için 18 mm çentikli, taban 14 mm için 20 mm çentikli. 16 mm çentikli yalnızca tabanı 10 mm
+  ve altındaki tümörler içindir.
+- Disk merkezi dozu reçetenin %77 ile 80'i düzeyinde kalır. Tümör diske bitişik olduğu için
+  bunun altına inilemez; disk dozu kısıtı jukstapapiller tümörde gevşetilmiş kabul edilir.
+- HDR'nin çentikte avantajı, yan kanal bekleme sürelerinin tümör kenarına göre optimize
+  edilebilmesidir; LDR'de bu serbestlik yoktur.
 
 ## Giriş bloğu ve transfer tüpleri
 

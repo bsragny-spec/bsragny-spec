@@ -150,15 +150,16 @@ def tumor_points_offset(b, h, yc, n_rho=7, n_az=12):
     return np.array(out)
 
 def run_notched(D, h):
-    """Jukstapapiller tümör: taban çapı D-4, posterior kenarı çentik dibinde (y=+5)."""
+    """Jukstapapiller tümör: taban çapı D-4, posterior kenarı disk kenarında
+    (sinir ekseninden DISC_EDGE kadar önde); tümör çentik bölgesine girer."""
     import geometry as G
     b = D - 4
-    yc = (G.NOTCH_CY - G.NOTCH_R) - b / 2.0   # tümör posterior kenarı çentik dibinde
+    ncy = G.notch_center_y(D)
+    yc = (ncy - G.DISC_EDGE) - b / 2.0
     tp = tumor_points_offset(b, h, yc)
     sp = sclera_points(D)
-    disc = np.array([on_sphere(0, 0, R_IN)])
-    disc = tumor_points_offset(0.01, 0.0, G.NOTCH_CY)[:1]  # disk merkezi: çentik merkezi, iç sklera
-    print(f"\nÇentikli karşılaştırma: plak {D} mm, tümör tabanı {b} mm, apeks {h} mm, tümör merkezi y={yc:+.1f} mm, disk y=+{G.NOTCH_CY:.0f} mm")
+    disc = tumor_points_offset(0.01, 0.0, ncy)[:1]  # disk merkezi: sinir ekseni, iç sklera
+    print(f"\nÇentikli karşılaştırma: plak {D} mm, tümör tabanı {b} mm, apeks {h} mm, tümör merkezi y={yc:+.1f} mm, tümör posterior kenarı y=+{ncy-G.DISC_EDGE:.1f} mm, disk y=+{ncy:.0f} mm")
     print(f"{'Düzen':<34}{'Dwell':>6}{'Sklera/Rx opt.':>16}{'Disk/Rx opt.':>14}")
     for notched in (False, True):
         ch = G.plaque_layout(D, notched=notched)
@@ -180,7 +181,7 @@ def run_notched(D, h):
 if __name__ == "__main__":
     for b, h in ((8, 3), (12, 5), (12, 8), (16, 5)):
         run(b, h)
-    for D, h in ((16, 5), (20, 5)):
+    for D, h in ((16, 5), (18, 5), (20, 5)):
         run_notched(D, h)
     print("\nSklera/Rx: plak altındaki en yüksek dış sklera dozu / tümör yüzeyindeki en düşük doz (reçete).")
     print("Süre: aynı reçete için toplam bekleme süresi, ilk satıra göre. Bükülme R < 12 mm kablo sürücülü kaynakla uygulanamaz.")

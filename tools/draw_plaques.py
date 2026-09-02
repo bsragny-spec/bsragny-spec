@@ -23,7 +23,7 @@ def notched_outline(r, ox, oy, S, inset=0.0):
     """U çentikli plak dış hattı (posterior = üst). inset: kenar kalkanı iç hattı için."""
     R = (r - inset)
     nr = G.NOTCH_R + inset            # çentik yarıçapı iç hatta büyür
-    cy_n = G.NOTCH_CY                 # çentik yarım daire merkezi (merkezden posterior)
+    cy_n = G.notch_center_y(2 * r)    # çentik yarım daire merkezi (merkezden posterior)
     # çentik kolları dış çemberi kestiği nokta: x = ±nr, y = sqrt(R^2 - nr^2)
     if nr >= R:
         return None
@@ -88,9 +88,11 @@ def top_view(D, S, ox, oy, full=True, notched=False):
     n_dw = sum(len(c["dwells"]) for c in ch)
     if notched and full:
         # çentik ölçüleri
-        e.append(f'<line x1="{ox + G.NOTCH_R*S*0.6:.1f}" y1="{oy - (G.NOTCH_CY - 1.0)*S:.1f}" x2="{ox + (r + 1.5)*S:.1f}" y2="{oy - (r - 0.5)*S:.1f}" stroke="#7a3c3c" stroke-width="0.7"/>')
+        ncy = G.notch_center_y(D)
+        e.append(f'<line x1="{ox + G.NOTCH_R*S*0.6:.1f}" y1="{oy - (ncy - 1.0)*S:.1f}" x2="{ox + (r + 1.5)*S:.1f}" y2="{oy - (r - 0.5)*S:.1f}" stroke="#7a3c3c" stroke-width="0.7"/>')
         e.append(f'<text x="{ox + (r + 1.7)*S:.1f}" y="{oy - (r - 0.5)*S:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}" fill="#7a3c3c">çentik {G.NOTCH_W:.0f} mm</text>')
-        e.append(f'<text x="{ox + (r + 1.7)*S:.1f}" y="{oy - (r - 0.5)*S + 12:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}" fill="#7a3c3c">dip merkezden {G.NOTCH_CY - G.NOTCH_R:.0f} mm</text>')
+        e.append(f'<text x="{ox + (r + 1.7)*S:.1f}" y="{oy - (r - 0.5)*S + 12:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}" fill="#7a3c3c">sinir ekseni merkezden {G.notch_center_y(D):.0f} mm</text>')
+        e.append(f'<text x="{ox + (r + 1.7)*S:.1f}" y="{oy - (r - 0.5)*S + 24:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}" fill="#7a3c3c">dip merkezden {ncy - G.NOTCH_R:.0f} mm</text>')
     return "\n".join(e), dict(n=len(ch), pitch=pitch, n_dw=n_dw, arc=max(c["arc"] for c in ch),
                              n_trunc=sum(1 for c in ch if c["truncated"]))
 
@@ -156,10 +158,10 @@ def single(D, notched=False):
     sc, sinfo = section(D, S, 470, 300, notched=notched)
     body.append(sc)
     body.append(f'<text x="200" y="{190 + (D/2 + 11.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş bloğu) altta</text>')
-    body.append(f'<text x="470" y="{300 - (R_SCL + 4.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>')
+    body.append(f'<text x="470" y="{300 - (R_SCL + 6.0) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>')
     y = 440
     rows = [
-        (f"Çap {D} mm, çentikli: jukstapapiller tümör, taban ≤ {D-4} mm, posterior kenarı çentik dibinde" if notched
+        (f"Çap {D} mm, çentikli: jukstapapiller tümör, taban ≤ {D-4} mm, posterior kenarı disk kenarında; bir boy büyük seçilir" if notched
          else f"Çap {D} mm, tümör tabanı ≤ {D-4} mm için"),
         (f"Kanal: {info['n']} kör kiriş; {info['n_trunc']} tanesi çentikte kısaltılmış, {info['n']-info['n_trunc']} yan kanal tam boy; iç çap {CH_ID} mm" if notched
          else f"Kanal: {info['n']} paralel kör kiriş, aralık {info['pitch']:.2f} mm, iç çap {CH_ID} mm"),
@@ -168,7 +170,7 @@ def single(D, notched=False):
         f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm tam yükseklik",
         f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm",
         "Sütür deliği 3 adet, Ø 0,8 mm. Tek giriş bloğu, tek kilitli konektör, tek kılıf.",
-    ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, yarım daire merkezi plak merkezinden {G.NOTCH_CY:.0f} mm, dip merkezden {G.NOTCH_CY-G.NOTCH_R:.0f} mm; kenar kalkanı çentiği izler"] if notched else [])
+    ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, sinir ekseni plak merkezinden {G.notch_center_y(D):.0f} mm (kenardan {G.NOTCH_INSET:.0f} mm içeride), dip merkezden {G.notch_center_y(D)-G.NOTCH_R:.0f} mm; kalkan çentiği izler"] if notched else [])
     for i, t in enumerate(rows):
         body.append(f'<text x="30" y="{y + i*17}" font-size="10.5" fill="#222">{t}</text>')
     body.append(f'<text x="{W/2}" y="{H-14}" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>')

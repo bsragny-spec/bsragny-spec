@@ -89,7 +89,8 @@
 <text x="200" y="70.0" text-anchor="middle" font-size="10" font-weight="bold">Ø 20 mm</text>
 <line x1="230.0" y1="110.0" x2="315.0" y2="95.0" stroke="#7a3c3c" stroke-width="0.7"/>
 <text x="317.0" y="95.0" text-anchor="start" font-size="9" fill="#7a3c3c">çentik 10 mm</text>
-<text x="317.0" y="107.0" text-anchor="start" font-size="9" fill="#7a3c3c">dip merkezden 4 mm</text>
+<text x="317.0" y="107.0" text-anchor="start" font-size="9" fill="#7a3c3c">sinir ekseni merkezden 9 mm</text>
+<text x="317.0" y="119.0" text-anchor="start" font-size="9" fill="#7a3c3c">dip merkezden 4 mm</text>
 <circle cx="470" cy="300" r="113.0" fill="#fdf3e7"/>
 <path d="M 351.5 267.0 A 123.0 123.0 0 0 1 588.5 267.0 L 578.9 269.7 A 113.0 113.0 0 0 0 361.1 269.7 Z" fill="#e8dcc8" stroke="#8a7a60" stroke-width="0.8"/>
 <path d="M 370.0 228.4 A 123.0 123.0 0 0 1 570.0 228.4 L 576.9 223.4 A 131.5 131.5 0 0 0 363.1 223.4 Z" fill="#d9ecf5" stroke="#4a7c96" stroke-width="0.8"/>
@@ -117,14 +118,14 @@
 <line x1="592.0" y1="177.0" x2="598.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
 <text x="600.0" y="158.8" text-anchor="start" font-size="9">4.25 mm</text>
 <text x="200" y="405" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş bloğu) altta</text>
-<text x="470" y="132" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>
-<text x="30" y="440" font-size="10.5" fill="#222">Çap 20 mm, çentikli: jukstapapiller tümör, taban ≤ 16 mm, posterior kenarı çentik dibinde</text>
+<text x="470" y="117" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>
+<text x="30" y="440" font-size="10.5" fill="#222">Çap 20 mm, çentikli: jukstapapiller tümör, taban ≤ 16 mm, posterior kenarı disk kenarında; bir boy büyük seçilir</text>
 <text x="30" y="457" font-size="10.5" fill="#222">Kanal: 7 kör kiriş; 3 tanesi çentikte kısaltılmış, 4 yan kanal tam boy; iç çap 1.2 mm</text>
 <text x="30" y="474" font-size="10.5" fill="#222">Bekleme pozisyonu: 31 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
 <text x="30" y="491" font-size="10.5" fill="#222">En uzun kanal yayı 20.4 mm; eksen skleradan 1.5 mm, küre yarıçapı 13.8 mm</text>
 <text x="30" y="508" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
 <text x="30" y="525" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 5.1 mm, yarım açı 54°; iç eğrilik yarıçapı 12.3 mm</text>
 <text x="30" y="542" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Tek giriş bloğu, tek kilitli konektör, tek kılıf.</text>
-<text x="30" y="559" font-size="10.5" fill="#222">Çentik: U biçimli, genişlik 10 mm, yarım daire merkezi plak merkezinden 9 mm, dip merkezden 4 mm; kenar kalkanı çentiği izler</text>
+<text x="30" y="559" font-size="10.5" fill="#222">Çentik: U biçimli, genişlik 10 mm, sinir ekseni plak merkezinden 9 mm (kenardan 1 mm içeride), dip merkezden 4 mm; kalkan çentiği izler</text>
 <text x="320.0" y="586" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
 </svg>

@@ -29,18 +29,23 @@ EDGE_MARGIN = 1.5     # mm, plak kenarından kanal merkezine
 TIP_DEAD = 2.0        # mm, kanal kör ucunda kaynağın ulaşamadığı boşluk
 RIM = 0.5             # mm, kenar kalkanı kalınlığı
 CH_OD = 1.6           # mm, kanal tüpü dış çapı
-# Çentik (optik sinir): U biçimli, genişlik 10 mm, yarım daire merkezi plak merkezinden
-# 9 mm'de; çentik dibi merkezden 4 mm'de. Posterior kenarda. (COMS/Eye Physics modeli 8 mm;
-# cerrahi deneyimle genişletildi: 8 mm çentik sinir kılıfına zor oturuyor.)
+# Çentik (optik sinir): U biçimli, genişlik 10 mm. Yarım daire merkezi (sinir ekseni) plak
+# kenarından NOTCH_INSET kadar içeride; çentik derinliği bütün boylarda aynı kalır
+# (20 mm'de merkezden 9 mm, 18'de 8, 16'da 7). Posterior kenarda.
+# COMS/Eye Physics modeli 8 mm; cerrahi deneyimle genişletildi: 8 mm sinir kılıfına zor oturuyor.
 NOTCH_W = 10.0
-NOTCH_CY = 9.0
 NOTCH_R = NOTCH_W / 2
+NOTCH_INSET = 1.0
+DISC_EDGE = 1.5       # sinir ekseninden disk kenarına (tümörün posterior sınırı), mm
 
-def notch_boundary_y(x):
+def notch_center_y(diameter):
+    return diameter / 2.0 - NOTCH_INSET
+
+def notch_boundary_y(x, diameter):
     """Verilen x'te çentik sınırının y'si (posterior yön +y); çentik dışında None."""
     if abs(x) >= NOTCH_R:
         return None
-    return NOTCH_CY - math.sqrt(NOTCH_R ** 2 - x * x)
+    return notch_center_y(diameter) - math.sqrt(NOTCH_R ** 2 - x * x)
 
 # Yb-169 radyal doz fonksiyonu için kaba yaklaşım (literatür, g(r) 1 cm'de 1)
 # 0.5 cm'de ~0.98, 1 cm'de 1.0, 2 cm'de ~1.04 (yumuşak spektrumda saçılma birikimi)
@@ -81,7 +86,7 @@ def plaque_layout(diameter, notched=False):
         chord_half = math.sqrt(max(r_in * r_in - x * x, 0.0))   # tüp kalkana kadar uzanır
         # kanal girişi y=-chord_half tarafında; kör uç posteriorda
         y_tube_end = chord_half - 0.3
-        yn = notch_boundary_y(x) if notched else None
+        yn = notch_boundary_y(x, diameter) if notched else None
         if yn is not None:
             y_tube_end = min(y_tube_end, yn - RIM - 0.3)
         y_end = y_tube_end - TIP_DEAD

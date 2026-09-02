@@ -34,7 +34,7 @@ kısıtlar; bu hastalar ilk iki kademede alınmaz.
 |------|---------------|------------------|
 | Sklera | Bekleme pozisyonu altı, dış sklera yüzeyi | ≤ 55 ile 65 Gy, kademeye göre |
 | Makula | Fovea merkezi | Mümkün olan en düşük; 10 Gy üstü retinopati riski olarak kaydedilir |
-| Optik disk | Disk merkezi | Aynı |
+| Optik disk | Disk merkezi | Aynı. Jukstapapiller tümörde çentikli plakla reçetenin %80'i kaçınılmazdır (belge 02); kısıt bu hastalarda uygulanmaz, kaydedilir |
 | Lens | Arka kapsül merkezi | ≤ 5 Gy hedef |
 | Karşı göz | Lens | ≤ 0,1 Gy; sırt korumasının doğrulaması |
 | Orbita kemiği, plak arkası | Sırt yüzeyinden 5 mm | Korumasızın ≤ %10'u |
