@@ -8,27 +8,47 @@ import math, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import geometry as G
 
-SIZES = (12, 14, 16, 18, 20, 22)
+SIZES = (12, 14, 16, 18, 20)
+NOTCHED = (16, 18, 20)      # çentikli sürümler (14 mm'de yan kanallara yer kalmaz)
 R_SCL = G.R_SCLERA          # 12.3
 OFF = G.DWELL_OFFSET        # 1.5
 T_SPACER, T_CHAN, T_SHIELD = 0.85, 1.90, 1.50
 CH_ID, CH_OD = 1.2, 1.6
 RIM = 0.5
 
-def layout(D):
-    return G.plaque_layout(D)
+def layout(D, notched=False):
+    return G.plaque_layout(D, notched=notched)
 
-def top_view(D, S, ox, oy, full=True):
+def notched_outline(r, ox, oy, S, inset=0.0):
+    """U çentikli plak dış hattı (posterior = üst). inset: kenar kalkanı iç hattı için."""
+    R = (r - inset)
+    nr = G.NOTCH_R + inset            # çentik yarıçapı iç hatta büyür
+    cy_n = G.NOTCH_CY                 # çentik yarım daire merkezi (merkezden posterior)
+    # çentik kolları dış çemberi kestiği nokta: x = ±nr, y = sqrt(R^2 - nr^2)
+    if nr >= R:
+        return None
+    yk = math.sqrt(R * R - nr * nr)
+    # piksel: +y posterior = yukarı (oy - y*S)
+    P = lambda x, y: f"{ox + x*S:.1f} {oy - y*S:.1f}"
+    d = (f"M {P(nr, yk)} A {R*S:.1f} {R*S:.1f} 0 1 1 {P(-nr, yk)} "      # büyük yay (saat yönü tersi, sol kola)
+         f"L {P(-nr, cy_n)} A {nr*S:.1f} {nr*S:.1f} 0 0 0 {P(nr, cy_n)} Z")  # çentik yarım dairesi
+    return d
+
+def top_view(D, S, ox, oy, full=True, notched=False):
     """Üstten görünüş. S: px/mm. (ox,oy): plak merkezi."""
     e = []
     r = D / 2
-    ch = layout(D)
+    ch = layout(D, notched)
     pitch = ch[0]["pitch"]
     # kabuk ve kenar
-    e.append(f'<circle cx="{ox}" cy="{oy}" r="{r*S:.1f}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>')
-    e.append(f'<circle cx="{ox}" cy="{oy}" r="{(r-RIM)*S:.1f}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>')
-    # sütür delikleri: 2 posterior 45°, 1 anterior sol
-    for ang in (45, 135, 200):
+    if notched:
+        e.append(f'<path d="{notched_outline(r, ox, oy, S)}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>')
+        e.append(f'<path d="{notched_outline(r, ox, oy, S, RIM)}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>')
+    else:
+        e.append(f'<circle cx="{ox}" cy="{oy}" r="{r*S:.1f}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>')
+        e.append(f'<circle cx="{ox}" cy="{oy}" r="{(r-RIM)*S:.1f}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>')
+    # sütür delikleri: yuvarlakta 2 posterior 45°, 1 anterior sol; çentiklide 2 lateral, 1 anterior
+    for ang in ((10, 170, 200) if notched else (45, 135, 200)):
         a = math.radians(ang)
         e.append(f'<circle cx="{ox + (r-0.9)*S*math.cos(a):.1f}" cy="{oy - (r-0.9)*S*math.sin(a):.1f}" r="{0.4*S:.1f}" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>')
     # kanallar (anterior = alt)
@@ -36,8 +56,8 @@ def top_view(D, S, ox, oy, full=True):
     for c in ch:
         x = c["x"]; chalf = c["chord"] / 2
         x0 = ox + x * S
-        y_top = oy - chalf * S          # kör uç tarafı (posterior, üst)
-        y_bot = oy + chalf * S          # giriş tarafı (anterior, alt)
+        y_top = oy - c["y_tube_end"] * S   # kör uç tarafı (posterior, üst)
+        y_bot = oy + chalf * S             # giriş tarafı (anterior, alt)
         e.append(f'<rect x="{x0 - CH_OD/2*S:.1f}" y="{y_top:.1f}" width="{CH_OD*S:.1f}" height="{(y_bot-y_top):.1f}" rx="{CH_OD/2*S:.1f}" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>')
         e.append(f'<rect x="{x0 - CH_ID/2*S:.1f}" y="{y_top + 0.2*S:.1f}" width="{CH_ID*S:.1f}" height="{(y_bot-y_top-0.2*S):.1f}" rx="{CH_ID/2*S:.1f}" fill="#fff"/>')
         # ölü boşluk
@@ -66,9 +86,15 @@ def top_view(D, S, ox, oy, full=True):
     e.append(f'<line x1="{ox + r*S:.1f}" y1="{yd-0.5*S:.1f}" x2="{ox + r*S:.1f}" y2="{yd+0.5*S:.1f}" stroke="#333" stroke-width="0.7"/>')
     e.append(f'<text x="{ox}" y="{yd - 0.4*S:.1f}" text-anchor="middle" font-size="{max(10, 0.95*S):.0f}" font-weight="bold">Ø {D} mm</text>')
     n_dw = sum(len(c["dwells"]) for c in ch)
-    return "\n".join(e), dict(n=len(ch), pitch=pitch, n_dw=n_dw, arc=max(c["arc"] for c in ch))
+    if notched and full:
+        # çentik ölçüleri
+        e.append(f'<line x1="{ox + G.NOTCH_R*S*0.6:.1f}" y1="{oy - (G.NOTCH_CY - 1.0)*S:.1f}" x2="{ox + (r + 1.5)*S:.1f}" y2="{oy - (r - 0.5)*S:.1f}" stroke="#7a3c3c" stroke-width="0.7"/>')
+        e.append(f'<text x="{ox + (r + 1.7)*S:.1f}" y="{oy - (r - 0.5)*S:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}" fill="#7a3c3c">çentik {G.NOTCH_W:.0f} mm</text>')
+        e.append(f'<text x="{ox + (r + 1.7)*S:.1f}" y="{oy - (r - 0.5)*S + 12:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}" fill="#7a3c3c">dip merkezden {G.NOTCH_CY - G.NOTCH_R:.0f} mm</text>')
+    return "\n".join(e), dict(n=len(ch), pitch=pitch, n_dw=n_dw, arc=max(c["arc"] for c in ch),
+                             n_trunc=sum(1 for c in ch if c["truncated"]))
 
-def section(D, S, ox, cy, label=True):
+def section(D, S, ox, cy, label=True, notched=False):
     """Kanal eksenine dik kesit. (ox, cy): küre merkezi (px)."""
     e = []
     r = D / 2
@@ -97,7 +123,7 @@ def section(D, S, ox, cy, label=True):
         e.append(f'<path d="M {xa:.1f} {ya:.1f} L {xb:.1f} {yb:.1f} L {xc:.1f} {yc:.1f} L {xd:.1f} {yd:.1f} Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>')
     # kanallar
     Rd = R_SCL + OFF
-    for c in layout(D):
+    for c in layout(D, notched):
         a = math.asin(c["x"] / Rd)
         x, y = pt(Rd, a)
         e.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{CH_OD/2*S:.1f}" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>')
@@ -120,47 +146,56 @@ def svg_wrap(w, h, body, title):
             f'font-family="Arial, Helvetica, sans-serif" font-size="11">\n<title>{title}</title>\n'
             f'<rect width="{w}" height="{h}" fill="#ffffff"/>\n{body}\n</svg>\n')
 
-def single(D):
+def single(D, notched=False):
     S = 10
-    W, H = 640, 640
-    body = [f'<text x="{W/2}" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, {D} mm plak (ölçek 10 px = 1 mm)</text>']
-    tv, info = top_view(D, S, 200, 190)
+    W, H = 640, 600
+    ttl = f"{D} mm {'çentikli ' if notched else ''}plak"
+    body = [f'<text x="{W/2}" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, {ttl} (ölçek 10 px = 1 mm)</text>']
+    tv, info = top_view(D, S, 200, 190, notched=notched)
     body.append(tv)
-    sc, sinfo = section(D, S, 470, 300)
+    sc, sinfo = section(D, S, 470, 300, notched=notched)
     body.append(sc)
     body.append(f'<text x="200" y="{190 + (D/2 + 11.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş bloğu) altta</text>')
     body.append(f'<text x="470" y="{300 - (R_SCL + 4.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>')
-    y = 470
+    y = 440
     rows = [
-        f"Çap {D} mm, tümör tabanı ≤ {D-4} mm için",
-        f"Kanal: {info['n']} paralel kör kiriş, aralık {info['pitch']:.2f} mm, iç çap {CH_ID} mm",
+        (f"Çap {D} mm, çentikli: jukstapapiller tümör, taban ≤ {D-4} mm, posterior kenarı çentik dibinde" if notched
+         else f"Çap {D} mm, tümör tabanı ≤ {D-4} mm için"),
+        (f"Kanal: {info['n']} kör kiriş; {info['n_trunc']} tanesi çentikte kısaltılmış, {info['n']-info['n_trunc']} yan kanal tam boy; iç çap {CH_ID} mm" if notched
+         else f"Kanal: {info['n']} paralel kör kiriş, aralık {info['pitch']:.2f} mm, iç çap {CH_ID} mm"),
         f"Bekleme pozisyonu: {info['n_dw']} adet, adım {G.DWELL_STEP} mm, kör uç ölü boşluğu {G.TIP_DEAD} mm",
         f"En uzun kanal yayı {info['arc']:.1f} mm; eksen skleradan {OFF} mm, küre yarıçapı {R_SCL+OFF} mm",
         f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm tam yükseklik",
         f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm",
         "Sütür deliği 3 adet, Ø 0,8 mm. Tek giriş bloğu, tek kilitli konektör, tek kılıf.",
-    ]
+    ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, yarım daire merkezi plak merkezinden {G.NOTCH_CY:.0f} mm, dip merkezden {G.NOTCH_CY-G.NOTCH_R:.0f} mm; kenar kalkanı çentiği izler"] if notched else [])
     for i, t in enumerate(rows):
-        body.append(f'<text x="40" y="{y + i*18}" font-size="11" fill="#222">{t}</text>')
+        body.append(f'<text x="30" y="{y + i*17}" font-size="10.5" fill="#222">{t}</text>')
     body.append(f'<text x="{W/2}" y="{H-14}" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>')
-    return svg_wrap(W, H, "\n".join(body), f"{D} mm plak"), info, sinfo
+    return svg_wrap(W, H, "\n".join(body), ttl), info, sinfo
 
 def family():
     S = 6
-    cols, cw, chh = 3, 330, 400
-    W, H = cols * cw + 40, 2 * chh + 70
-    body = [f'<text x="{W/2}" y="26" text-anchor="middle" font-size="16" font-weight="bold">Yb-169 HDR episkleral aplikatör ailesi, 12 ile 22 mm (ölçek 6 px = 1 mm)</text>']
-    for i, D in enumerate(SIZES):
+    cols, cw, chh = 4, 250, 400
+    items = [(D, False) for D in SIZES] + [(D, True) for D in NOTCHED]
+    rows = math.ceil(len(items) / cols)
+    W, H = cols * cw + 40, rows * chh + 70
+    body = [f'<text x="{W/2}" y="26" text-anchor="middle" font-size="16" font-weight="bold">Yb-169 HDR episkleral aplikatör ailesi: yuvarlak 12 ile 20 mm, çentikli 16 ile 20 mm (ölçek 6 px = 1 mm)</text>']
+    for i, (D, notched) in enumerate(items):
         cx = 20 + (i % cols) * cw + cw / 2
         cy = 60 + (i // cols) * chh
-        tv, info = top_view(D, S, cx, cy + 105, full=False)
+        tv, info = top_view(D, S, cx, cy + 105, full=False, notched=notched)
         body.append(tv)
-        sc, sinfo = section(D, S, cx, cy + 370)
+        sc, sinfo = section(D, S, cx, cy + 370, notched=notched)
         body.append(sc)
-        body.append(f'<text x="{cx}" y="{cy + 105 + (D/2 + 10) * S:.0f}" text-anchor="middle" font-size="10" fill="#333">'
-                    f"{info['n']} kanal, aralık {info['pitch']:.2f} mm, {info['n_dw']} dwell, taban ≤ {D-4} mm</text>")
-    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
-    return svg_wrap(W, H, "\n".join(body), "Plak ailesi 12 ile 22 mm")
+        l1 = f"{D} mm {'çentikli' if notched else ''}: {info['n']} kanal, {info['n_dw']} dwell"
+        l2 = (f"{info['n_trunc']} kısa + {info['n']-info['n_trunc']} yan kanal" if notched
+              else f"aralık {info['pitch']:.2f} mm, taban ≤ {D-4} mm")
+        yl = cy + 105 + (D/2 + 10) * S
+        body.append(f'<text x="{cx}" y="{yl:.0f}" text-anchor="middle" font-size="9.5" fill="#333">{l1}</text>')
+        body.append(f'<text x="{cx}" y="{yl+12:.0f}" text-anchor="middle" font-size="9.5" fill="#555">{l2}</text>')
+    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, giriş bloğu anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
+    return svg_wrap(W, H, "\n".join(body), "Plak ailesi")
 
 if __name__ == "__main__":
     out = os.path.join(os.path.dirname(__file__), "..", "figures")
@@ -170,5 +205,9 @@ if __name__ == "__main__":
         svg, info, sinfo = single(D)
         open(os.path.join(out, f"plak-{D}mm.svg"), "w").write(svg)
         print(f"{D:>4} {info['n']:>5} {info['pitch']:>7.2f} {info['n_dw']:>5} {info['arc']:>6.1f} {sinfo['sag']:>7.1f} {sinfo['th']:>8.0f}°")
+    for D in NOTCHED:
+        svg, info, sinfo = single(D, notched=True)
+        open(os.path.join(out, f"plak-{D}mm-centik.svg"), "w").write(svg)
+        print(f"{D:>4}N {info['n']:>4} {info['pitch']:>7.2f} {info['n_dw']:>5} {info['arc']:>6.1f}   ({info['n_trunc']} kısa kanal)")
     open(os.path.join(out, "plak-ailesi.svg"), "w").write(family())
     print("yazıldı:", out)

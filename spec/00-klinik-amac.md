@@ -46,4 +46,3 @@ ilk hastalarda doz kademeli artırılır.
 
 - Afterloader cihazının kendisi ve yazılımı
 - Yb-169 kaynağının üretim süreci (yalnızca kaynağın karşılaması gereken şartlar yazılır)
-- Peripapiller çentikli plak varyantı (v0.2'ye ertelendi)

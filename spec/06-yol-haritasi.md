@@ -11,7 +11,7 @@
 | 4. Mevzuat | NDK lisans değişikliği, ameliyathane koruma projesi, etik kurul, klinik araştırma başvurusu, cihaz için araştırma amaçlı kullanım izni | Onaylar | 6 ile 9 ay, paralel |
 | 5. Hazırlık | Tatbikatlar, formlar, ekip eğitimi, kadavra veya göz fantomunda dikim ve ultrason provası | Hazırlık kontrol listesi | 1 ay |
 | 6. Faz I klinik | 9 ile 15 hasta, belge 03 doz kademesi | 6 aylık toksisite raporu | 12 ile 18 ay |
-| 7. v0.2 | Çentikli plak, 14 ve 18 mm boyutlar, tungsten alaşım seçeneği | | |
+| 7. v0.2 | Tungsten alaşım seçeneği, kanal başına konik kolimasyon (belge 07) | | |
 
 Kritik yol: **kaynak üretimi ve kalibrasyonu**. Aplikatör tasarımı bundan bağımsız
 ilerleyebilir ve Ir-192 ile test edilebilir.
@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.1.7 | 2026-09-02 | 22 mm çıkarıldı; çentikli 16, 18, 20 mm sürümler eklendi: 8 mm U çentik, kısaltılmış iç kanallar ve tam boy yan kanallar, çentikli/yuvarlak LP karşılaştırması |
 | v0.1.6 | 2026-09-02 | Plak ailesi 12 ile 22 mm; tools/draw_plaques.py ile her boy için üstten görünüş ve kesit çizimleri, tek sayfa aile çizimi |
 | v0.1.5 | 2026-09-02 | Mevcut cihaz GammaMedplus iX olarak sabitlendi; bildirilen 13 mm bükülme yarıçapı ile küreyi tam izleyen kanal ana tasarım, 17 mm yay yedek tasarım; belge 08 satın alma yalnızca Varian olumsuzsa |
 | v0.1.4 | 2026-09-02 | Cihaz proje ile alınacak: belge 08 afterloader seçim ölçütleri, adaylar ve kabul testi; A2 üreticiden bağımsız yazıldı |

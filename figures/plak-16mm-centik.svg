@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 600" width="640" height="600" font-family="Arial, Helvetica, sans-serif" font-size="11">
+<title>16 mm çentikli plak</title>
+<rect width="640" height="600" fill="#ffffff"/>
+<text x="320.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, 16 mm çentikli plak (ölçek 10 px = 1 mm)</text>
+<path d="M 240.0 120.7 A 80.0 80.0 0 1 1 160.0 120.7 L 160.0 100.0 A 40.0 40.0 0 0 0 240.0 100.0 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>
+<path d="M 245.0 130.0 A 75.0 75.0 0 1 1 155.0 130.0 L 155.0 100.0 A 45.0 45.0 0 0 0 245.0 100.0 Z" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>
+<circle cx="269.9" cy="177.7" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
+<circle cx="130.1" cy="177.7" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
+<circle cx="133.3" cy="214.3" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
+<rect x="139.0" y="145.4" width="16.0" height="82.3" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="141.0" y="147.4" width="12.0" height="80.3" rx="6.0" fill="#fff"/>
+<rect x="141.0" y="147.4" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
+<circle cx="147.0" cy="222.6" r="2.8" fill="#c0392b"/>
+<circle cx="147.0" cy="197.6" r="2.8" fill="#c0392b"/>
+<circle cx="147.0" cy="172.6" r="2.8" fill="#c0392b"/>
+<line x1="147.0" y1="227.6" x2="147.0" y2="280.0" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="165.5" y="138.0" width="16.0" height="111.4" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="167.5" y="140.0" width="12.0" height="109.4" rx="6.0" fill="#fff"/>
+<rect x="167.5" y="140.0" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
+<circle cx="173.5" cy="244.4" r="2.8" fill="#c0392b"/>
+<circle cx="173.5" cy="219.4" r="2.8" fill="#c0392b"/>
+<circle cx="173.5" cy="194.4" r="2.8" fill="#c0392b"/>
+<circle cx="173.5" cy="169.4" r="2.8" fill="#c0392b"/>
+<line x1="173.5" y1="249.4" x2="173.5" y2="280.0" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="192.0" y="148.0" width="16.0" height="107.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="194.0" y="150.0" width="12.0" height="105.0" rx="6.0" fill="#fff"/>
+<rect x="194.0" y="150.0" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
+<circle cx="200.0" cy="250.0" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="225.0" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="200.0" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="175.0" r="2.8" fill="#c0392b"/>
+<line x1="200.0" y1="255.0" x2="200.0" y2="280.0" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="218.5" y="138.0" width="16.0" height="111.4" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="220.5" y="140.0" width="12.0" height="109.4" rx="6.0" fill="#fff"/>
+<rect x="220.5" y="140.0" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
+<circle cx="226.5" cy="244.4" r="2.8" fill="#c0392b"/>
+<circle cx="226.5" cy="219.4" r="2.8" fill="#c0392b"/>
+<circle cx="226.5" cy="194.4" r="2.8" fill="#c0392b"/>
+<circle cx="226.5" cy="169.4" r="2.8" fill="#c0392b"/>
+<line x1="226.5" y1="249.4" x2="226.5" y2="280.0" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="245.0" y="145.4" width="16.0" height="82.3" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="247.0" y="147.4" width="12.0" height="80.3" rx="6.0" fill="#fff"/>
+<rect x="247.0" y="147.4" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
+<circle cx="253.0" cy="222.6" r="2.8" fill="#c0392b"/>
+<circle cx="253.0" cy="197.6" r="2.8" fill="#c0392b"/>
+<circle cx="253.0" cy="172.6" r="2.8" fill="#c0392b"/>
+<line x1="253.0" y1="227.6" x2="253.0" y2="280.0" stroke="#2b4c5e" stroke-width="0.8"/>
+<rect x="132.0" y="280.0" width="136.0" height="22.0" rx="4.0" fill="#9fb3c0" stroke="#2b4c5e" stroke-width="1"/>
+<circle cx="147.0" cy="291.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
+<text x="147.0" y="294.0" text-anchor="middle" font-size="7" fill="#2b4c5e">1</text>
+<circle cx="173.5" cy="291.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
+<text x="173.5" y="294.0" text-anchor="middle" font-size="7" fill="#2b4c5e">2</text>
+<circle cx="200.0" cy="291.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
+<text x="200.0" y="294.0" text-anchor="middle" font-size="7" fill="#2b4c5e">3</text>
+<circle cx="226.5" cy="291.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
+<text x="226.5" y="294.0" text-anchor="middle" font-size="7" fill="#2b4c5e">4</text>
+<circle cx="253.0" cy="291.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
+<text x="253.0" y="294.0" text-anchor="middle" font-size="7" fill="#2b4c5e">5</text>
+<path d="M 200 302.0 C 200 332.0 220.0 342.0 240.0 362.0" stroke="#2b4c5e" stroke-width="8.0" fill="none" stroke-linecap="round"/>
+<path d="M 200 302.0 C 200 332.0 220.0 342.0 240.0 362.0" stroke="#dfe7ec" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+<line x1="120.0" y1="94.0" x2="280.0" y2="94.0" stroke="#333" stroke-width="0.7"/>
+<line x1="120.0" y1="89.0" x2="120.0" y2="99.0" stroke="#333" stroke-width="0.7"/>
+<line x1="280.0" y1="89.0" x2="280.0" y2="99.0" stroke="#333" stroke-width="0.7"/>
+<text x="200" y="90.0" text-anchor="middle" font-size="10" font-weight="bold">Ø 16 mm</text>
+<line x1="224.0" y1="110.0" x2="295.0" y2="115.0" stroke="#7a3c3c" stroke-width="0.7"/>
+<text x="297.0" y="115.0" text-anchor="start" font-size="9" fill="#7a3c3c">çentik 8 mm</text>
+<text x="297.0" y="127.0" text-anchor="start" font-size="9" fill="#7a3c3c">dip merkezden 5 mm</text>
+<circle cx="470" cy="300" r="113.0" fill="#fdf3e7"/>
+<path d="M 362.8 239.7 A 123.0 123.0 0 0 1 577.2 239.7 L 568.5 244.6 A 113.0 113.0 0 0 0 371.5 244.6 Z" fill="#e8dcc8" stroke="#8a7a60" stroke-width="0.8"/>
+<path d="M 390.0 206.6 A 123.0 123.0 0 0 1 550.0 206.6 L 555.5 200.1 A 131.5 131.5 0 0 0 384.5 200.1 Z" fill="#d9ecf5" stroke="#4a7c96" stroke-width="0.8"/>
+<path d="M 384.5 200.1 A 131.5 131.5 0 0 1 555.5 200.1 L 567.9 185.7 A 150.5 150.5 0 0 0 372.1 185.7 Z" fill="#eef4f7" stroke="#4a7c96" stroke-width="0.8"/>
+<path d="M 372.1 185.7 A 150.5 150.5 0 0 1 567.9 185.7 L 577.6 174.3 A 165.5 165.5 0 0 0 362.4 174.3 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
+<path d="M 362.4 174.3 L 390.0 206.6 L 395.0 202.5 L 369.1 168.8 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
+<path d="M 577.6 174.3 L 550.0 206.6 L 545.0 202.5 L 570.9 168.8 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
+<circle cx="417.0" cy="172.6" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="417.0" cy="172.6" r="6.0" fill="#fff"/>
+<circle cx="443.5" cy="164.6" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="443.5" cy="164.6" r="6.0" fill="#fff"/>
+<circle cx="470.0" cy="162.0" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="470.0" cy="162.0" r="6.0" fill="#fff"/>
+<circle cx="496.5" cy="164.6" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="496.5" cy="164.6" r="6.0" fill="#fff"/>
+<circle cx="523.0" cy="172.6" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="523.0" cy="172.6" r="6.0" fill="#fff"/>
+<circle cx="470.0" cy="162.0" r="3.5" fill="#c0392b"/>
+<line x1="575.0" y1="134.5" x2="575.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
+<line x1="572.0" y1="134.5" x2="578.0" y2="134.5" stroke="#333" stroke-width="0.7"/>
+<line x1="572.0" y1="177.0" x2="578.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
+<text x="580.0" y="158.8" text-anchor="start" font-size="9">4.25 mm</text>
+<text x="200" y="385" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş bloğu) altta</text>
+<text x="470" y="132" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>
+<text x="30" y="440" font-size="10.5" fill="#222">Çap 16 mm, çentikli: jukstapapiller tümör, taban ≤ 12 mm, posterior kenarı çentik dibinde</text>
+<text x="30" y="457" font-size="10.5" fill="#222">Kanal: 5 kör kiriş; 3 tanesi çentikte kısaltılmış, 2 yan kanal tam boy; iç çap 1.2 mm</text>
+<text x="30" y="474" font-size="10.5" fill="#222">Bekleme pozisyonu: 18 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
+<text x="30" y="491" font-size="10.5" fill="#222">En uzun kanal yayı 13.5 mm; eksen skleradan 1.5 mm, küre yarıçapı 13.8 mm</text>
+<text x="30" y="508" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
+<text x="30" y="525" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 3.0 mm, yarım açı 41°; iç eğrilik yarıçapı 12.3 mm</text>
+<text x="30" y="542" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Tek giriş bloğu, tek kilitli konektör, tek kılıf.</text>
+<text x="30" y="559" font-size="10.5" fill="#222">Çentik: U biçimli, genişlik 8 mm, yarım daire merkezi plak merkezinden 9 mm, dip merkezden 5 mm; kenar kalkanı çentiği izler</text>
+<text x="320.0" y="586" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
+</svg>

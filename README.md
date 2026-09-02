@@ -25,8 +25,9 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 
 ## Çizimler
 
-- [figures/plak-ailesi.svg](figures/plak-ailesi.svg): 12, 14, 16, 18, 20, 22 mm plakların üstten görünüş ve kesitleri tek sayfada
-- `figures/plak-12mm.svg` … `figures/plak-22mm.svg`: her boy için ölçülü çizim ve özellik listesi
+- [figures/plak-ailesi.svg](figures/plak-ailesi.svg): yuvarlak 12 ile 20 mm ve çentikli 16 ile 20 mm plakların üstten görünüş ve kesitleri tek sayfada
+- `figures/plak-12mm.svg` … `figures/plak-20mm.svg`: her yuvarlak boy için ölçülü çizim ve özellik listesi
+- `figures/plak-16mm-centik.svg` … `figures/plak-20mm-centik.svg`: disk komşuluğu için çentikli sürümler
 - [figures/kesit.svg](figures/kesit.svg): kanal eksenine dik kesit, katmanlar ve tümör ilişkisi, etiketli
 - [figures/ustten.svg](figures/ustten.svg): 16 mm plak, üstten kanal ve bekleme pozisyonu yerleşimi, etiketli
 
@@ -57,7 +58,7 @@ pip install numpy scipy && python3 tools/optimize.py
   formatında Yb-169; Varian ile kaynak anlaşması ön şart, olmazsa belge 08'e göre cihaz alımı.
   Kablo bükülme yarıçapı 13 mm bildiriliyor; teyit edilirse kanallar sklera küresini tam izler.
 - Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar tam yükseklikte altın kalkanla kapalı.
-- İç eğrilik yarıçapı 12,3 mm, çap ailesi 12 ile 22 mm, COMS ile aynı dikim tekniği.
+- İç eğrilik yarıçapı 12,3 mm, yuvarlak 12 ile 20 mm, çentikli 16 ile 20 mm, COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar
   (bekleme ekseni skleradan 1,5 mm), 1,5 mm altın veya tungsten sırt koruması.
 - Plağa tek giriş; içeride 3, 5 veya 7 paralel kör kanal. Kabloyla uygulanabilen düzenler

@@ -137,8 +137,50 @@ def run(b, h):
         ostr = f"{opt:.1f}" if opt else "-"
         print(f"{name:<30}{len(dw):>6}{bend:>9.1f}mm{eq:>16.1f}{ostr:>16}{tstr:>15}{feas}")
 
+def tumor_points_offset(b, h, yc, n_rho=7, n_az=12):
+    """Tümör merkezi plak ekseninden yc kadar kaymış (küre üzerinde y yönünde)."""
+    pts = tumor_points(b, h, n_rho, n_az)
+    out = []
+    ang = yc / R_IN
+    for x, y, z in pts:
+        # y-z düzleminde ang kadar döndür
+        y2 = y * math.cos(ang) + z * math.sin(ang)
+        z2 = -y * math.sin(ang) + z * math.cos(ang)
+        out.append([x, y2, z2])
+    return np.array(out)
+
+def run_notched(D, h):
+    """Jukstapapiller tümör: taban çapı D-4, posterior kenarı çentik dibinde (y=+5)."""
+    import geometry as G
+    b = D - 4
+    yc = 5.0 - b / 2.0
+    tp = tumor_points_offset(b, h, yc)
+    sp = sclera_points(D)
+    disc = np.array([on_sphere(0, 0, R_IN)])
+    disc = tumor_points_offset(0.01, 0.0, G.NOTCH_CY)[:1]  # disk merkezi: çentik merkezi, iç sklera
+    print(f"\nÇentikli karşılaştırma: plak {D} mm, tümör tabanı {b} mm, apeks {h} mm, tümör merkezi y={yc:+.1f} mm, disk y=+{G.NOTCH_CY:.0f} mm")
+    print(f"{'Düzen':<34}{'Dwell':>6}{'Sklera/Rx opt.':>16}{'Disk/Rx opt.':>14}")
+    for notched in (False, True):
+        ch = G.plaque_layout(D, notched=notched)
+        dw = np.array([d for c in ch for d in c["dwells"]])
+        A_t = np.array([[kernel(p, q) for q in dw] for p in tp])
+        A_s = np.array([[kernel(p, q) for q in dw] for p in sp])
+        A_d = np.array([[kernel(p, q) for q in dw] for p in disc])
+        n = len(dw)
+        c = np.zeros(n + 1); c[-1] = 1
+        A_ub = np.vstack([np.hstack([-A_t, np.zeros((len(tp), 1))]),
+                          np.hstack([A_s, -np.ones((len(sp), 1))])])
+        b_ub = np.hstack([-np.ones(len(tp)), np.zeros(len(sp))])
+        res = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=[(0, None)] * (n + 1), method="highs")
+        w = res.x[:n]
+        rx = (A_t @ w).min()
+        name = ("çentikli, " if notched else "yuvarlak (sinir yok sayılır), ") + f"{len(ch)} kanal"
+        print(f"{name:<34}{n:>6}{(A_s @ w).max() / rx:>16.1f}{(A_d @ w).max() / rx:>14.2f}")
+
 if __name__ == "__main__":
     for b, h in ((8, 3), (12, 5), (12, 8), (16, 5)):
         run(b, h)
+    for D, h in ((16, 5), (20, 5)):
+        run_notched(D, h)
     print("\nSklera/Rx: plak altındaki en yüksek dış sklera dozu / tümör yüzeyindeki en düşük doz (reçete).")
     print("Süre: aynı reçete için toplam bekleme süresi, ilk satıra göre. Bükülme R < 12 mm kablo sürücülü kaynakla uygulanamaz.")

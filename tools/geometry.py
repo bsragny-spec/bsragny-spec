@@ -27,6 +27,19 @@ DWELL_STEP = 2.5      # mm, bekleme pozisyonu aralığı
 CHANNEL_PITCH = 3.0   # mm, komşu kanallar arasındaki mesafe
 EDGE_MARGIN = 1.5     # mm, plak kenarından kanal merkezine
 TIP_DEAD = 2.0        # mm, kanal kör ucunda kaynağın ulaşamadığı boşluk
+RIM = 0.5             # mm, kenar kalkanı kalınlığı
+CH_OD = 1.6           # mm, kanal tüpü dış çapı
+# Çentik (optik sinir): U biçimli, genişlik 8 mm, yarım daire tabanı plak merkezinden
+# 9 mm'de (Eye Physics / COMS modeli); çentik dibi merkezden 5 mm'de. Posterior kenarda.
+NOTCH_W = 8.0
+NOTCH_CY = 9.0
+NOTCH_R = NOTCH_W / 2
+
+def notch_boundary_y(x):
+    """Verilen x'te çentik sınırının y'si (posterior yön +y); çentik dışında None."""
+    if abs(x) >= NOTCH_R:
+        return None
+    return NOTCH_CY - math.sqrt(NOTCH_R ** 2 - x * x)
 
 # Yb-169 radyal doz fonksiyonu için kaba yaklaşım (literatür, g(r) 1 cm'de 1)
 # 0.5 cm'de ~0.98, 1 cm'de 1.0, 2 cm'de ~1.04 (yumuşak spektrumda saçılma birikimi)
@@ -39,21 +52,34 @@ def dose_rate(rel, d_mm):
     d = max(d_mm, 0.5)
     return rel * g_r(d) / (d * d)
 
-def plaque_layout(diameter):
+def plaque_layout(diameter, notched=False):
     """Paralel kiriş kanalları ve bekleme pozisyonlarını üretir.
-    Koordinatlar plak tabanı düzleminde (x,y), z sklera normalinde.
-    Küre üzerine projeksiyon: z = sqrt(Rd^2 - x^2 - y^2) - Rd + ... """
+    Koordinatlar plak tabanı düzleminde (x,y), z sklera normalinde; +y posterior.
+    notched=True: posterior kenarda U çentik; çentiğe giren kirişler kısaltılır,
+    çentiğin iki yanında tam boy yan kanallar bulunur."""
     Rd = R_SCLERA + DWELL_OFFSET
     half = diameter / 2.0 - EDGE_MARGIN
-    # tek sayıda kanal, en dış kanal kenar payının 1 mm içinde
-    n_ch = 2 * int((half - 1.0) / CHANNEL_PITCH + 0.5) + 1
-    pitch = 2 * (half - 1.0) / (n_ch - 1) if n_ch > 1 else 0.0
-    xs = [(-(n_ch - 1) / 2.0 + i) * pitch for i in range(n_ch)]
+    if notched:
+        x_f = NOTCH_R + RIM + CH_OD / 2          # yan kanal: çentik + kenar kalkanı + tüp yarıçapı
+        inner = x_f / 2.0                        # kısaltılmış iç kanallar 0, ±x_f/2
+        xs = [-x_f, -inner, 0.0, inner, x_f]
+        if half - 1.0 >= x_f + 2.0:              # 20 mm: dış kanal çifti
+            xs = [-(x_f + 2.0)] + xs + [x_f + 2.0]
+        pitch = inner
+    else:
+        # tek sayıda kanal, en dış kanal kenar payının 1 mm içinde
+        n_ch = 2 * int((half - 1.0) / CHANNEL_PITCH + 0.5) + 1
+        pitch = 2 * (half - 1.0) / (n_ch - 1) if n_ch > 1 else 0.0
+        xs = [(-(n_ch - 1) / 2.0 + i) * pitch for i in range(n_ch)]
     channels = []
     for x in xs:
-        chord_half = math.sqrt(half * half - x * x)
+        chord_half = math.sqrt(max(half * half - x * x, 0.0))
         # kanal girişi y=-chord_half tarafında; kör uç y=+chord_half - TIP_DEAD
-        y_end = chord_half - TIP_DEAD
+        y_tube_end = chord_half + EDGE_MARGIN - RIM - 0.3   # tüp kapalı ucu (plak kenarı - kalkan)
+        yn = notch_boundary_y(x) if notched else None
+        if yn is not None:
+            y_tube_end = min(y_tube_end, yn - RIM - 0.3)
+        y_end = y_tube_end - TIP_DEAD
         y_start = -chord_half + 0.5
         n = int((y_end - y_start) // DWELL_STEP) + 1
         ys = [y_start + i * DWELL_STEP for i in range(n)]
@@ -65,7 +91,9 @@ def plaque_layout(diameter):
         # kanal boyunca eğrilik yarıçapı: küre kabuğunda kiriş -> Rd*... yaklaşık Rd
         arc_len = 2 * Rd * math.asin(min(chord_half / Rd, 1.0))
         channels.append({"x": x, "chord": 2 * chord_half, "arc": arc_len,
-                         "pitch": pitch, "dwells": dwells})
+                         "pitch": pitch, "dwells": dwells,
+                         "y_start": -chord_half, "y_tube_end": y_tube_end,
+                         "truncated": yn is not None})
     return channels
 
 def evaluate(diameter, tumor_heights=(3, 5, 8, 10)):
