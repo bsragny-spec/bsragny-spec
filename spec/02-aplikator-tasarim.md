@@ -116,7 +116,7 @@ Optik disk komşuluğundaki tümörler için 16, 18 ve 20 mm plakların posterio
 | Yarım daire merkezi (sinir ekseni) | Plak kenarından **1 mm içeride**: merkezden 16 mm'de 7, 18 mm'de 8, 20 mm'de 9 mm | Çentik derinliği bütün boylarda aynı (kenardan 6 mm); küçük plakta çentik plağın ortasına inmez ve plak sinire aynı biçimde oturur |
 | Çentik kenarı | 0,5 mm altın kalkan çentik hattını izler | Kenar her yerde kapalı kalır |
 | Tümör yerleşimi | Tümörün posterior kenarı disk kenarında (sinir ekseninden 1,5 mm önde), yani tümör çentik bölgesine 3 ile 4 mm girer; taban çapı ≤ plak çapı − 4 mm | Jukstapapiller tümörün gerçek yerleşimi; çentik altındaki tümör kenarı yalnızca yan kanallardan doz alır |
-| Sütür delikleri | 2 lateral, 1 anterior | Posterior kenar çentik nedeniyle kullanılamaz |
+| Sütür delikleri | 2 lateral, 1 anterior sapın yanında | Posterior kenar çentik nedeniyle kullanılamaz |
 
 Kanal düzeni çentikli sürümlerde değişir. Çentiğe giren üç iç kanal (x = 0 ve ± 3,15 mm) çentik
 sınırında kısaltılır; çentiğin iki yanında **tam boy yan kanallar** (x = ± 6,3 mm: çentik yarıçapı
@@ -158,16 +158,25 @@ Okuma:
 - HDR'nin çentikte avantajı, yan kanal bekleme sürelerinin tümör kenarına göre optimize
   edilebilmesidir; LDR'de bu serbestlik yoktur.
 
-## Giriş bloğu ve transfer tüpleri
+## Giriş sapı ve transfer tüpleri
 
-- **Plağa tek giriş vardır.** Kenar kalkanında tek bir yuva açılır; transfer tüpleri tek kılıf
-  ve tek kilitli konektörle bu yuvaya bağlanır. Kaynak, afterloader tarafından her kör kanala
-  sırayla gönderilir; cerrahın gördüğü tek bir kablo çıkışıdır.
-- Giriş bloğu plağın anterior kenarında, plak yüzeyinden **≤ 3 mm** çıkıntı yapar.
-  Kanal girişleri blokta yan yana dizilir; her giriş numaralı ve renk kodludur.
-- Kanallar bloğa **teğet** girer; blokta ek büküm yoktur. Tüm büküm kanal içindeki küre
+Dış görünüş Dupere 2021'in aplikatörünü (belge 07, şekil B) örnek alır: pürüzsüz altın kabuk ve
+plak kenarına **teğet tek sap**, plak yüzeyinden çıkıntı yok. İki fark: kabuk düz disk değil
+sklera eğrisinde kubbedir; sap tek lümenli yuvarlak boru değil **yassı ve çok lümenlidir**.
+
+- **Plağa tek giriş vardır.** Kenar kalkanında tek bir yuva açılır; sap bu yuvadan çıkar.
+  Kaynak, afterloader tarafından her kör kanala sırayla gönderilir; cerrahın gördüğü tek bir
+  sap ve tek bir kılıftır.
+- Sap plağın anterior kenarında, kabuğa teğet ve sklera eğrisini izler, **kalınlık ≤ 2,0 mm**
+  (lümen 1,2 mm + 0,4 mm duvarlar), genişlik kanal yayılımı + 1,6 mm, plak dışında 4 mm uzunluk;
+  ucunda tek kilitli konektör. Kanal lümenleri sapta kiriş
+  aralığıyla yan yana dizilir; her lümen numaralı ve renk kodludur.
+- Lümenler yuvarlak tek boruya toplanmaz: kiriş aralığındaki lümenleri 13 mm bükülme
+  yarıçapıyla bir araya getirmek yaklaşık 15 mm uzunluk ister, bu da orbita içinde kalır.
+  Tüpler ancak forniks dışında, kılıf içinde birleşir.
+- Kanallar sapa **teğet** girer; sapta ek büküm yoktur. Tüm büküm kanal içindeki küre
   kabuğu eğrisidir.
-- Transfer tüpleri bloğa tek bir kilitli konektörle bağlanır (tek hareketle 3 ile 7 kanal).
+- Transfer tüpleri sapın ucuna tek bir kilitli konektörle bağlanır (tek hareketle 3 ile 7 kanal).
   Konektörden sonra tüpler 20 cm boyunca tek kılıf içinde gider, sonra afterloader
   bağlantıları için ayrılır. Toplam uzunluk cihazın standart transfer tüpü uzunluğuna eşittir.
 - Konektör kilitli değilken afterloader kanal kontrolü hata verir (tüp uzunluğu ölçümü ile).
@@ -179,8 +188,8 @@ Okuma:
 - Sırt kabuğunun dudağında 3 sütür deliği: 2 posterior yarıda simetrik, 1 anterior kenarda
   giriş bloğunun yanında. Delik çapı 0,8 mm, kenarları yuvarlatılmış; 5-0 naylon veya
   merşilen için.
-- Giriş bloğu tarafı anteriorda kalacak şekilde dikilir; posterior tümörlerde blok ekvator
-  civarında olur, tüp fornikse yönlenir.
+- Sap tarafı anteriorda kalacak şekilde dikilir; posterior tümörlerde sap ekvator
+  civarında olur, kılıf fornikse yönlenir.
 - Plak konumu ameliyat sırasında B-mod ultrason ile doğrulanır. Metal kabuk ultrasonda
   net görülür; ayrıca ek parçaya 3 adet ekojen işaret (hava kapsülü veya cam boncuk)
   yerleştirilerek plak yönelimi kesitte tanınabilir kılınır.

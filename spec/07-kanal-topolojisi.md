@@ -95,6 +95,19 @@ Bunun bedelleri:
 - Optik sinir ve iris doz azalmalarının bizim geometride de elde edilip edilmediği,
   belge 03'teki Monte Carlo çalışmasında I-125 COMS karşılaştırması eklenerek kontrol edilecek.
 
+## Dupere aplikatörünün iki yüzü: dış görünüş alınır, kanal alınmaz
+
+Makaledeki şekil, 12 mm aplikatörü iki görünüşte verir. **A**: "9" biçimli halka kanal, içinde
+on altı ayrık kaynak peleti, tek teğet giriş. **B**: dıştan pürüzsüz altın kabuk ve kenara
+teğet tek sap.
+
+- **Kanal (A)**: halka yarıçapı yaklaşık 4 mm. GammaMedplus kablosunun sınırı 13 mm; kapsül
+  bu halkaya giremez. Makale bu yüzden pelet dizisi kullanır. Elimizdeki cihazla uygulanamaz.
+  Bu, yukarıdaki spiral analizinin halka biçimli halidir.
+- **Dış görünüş (B)**: benimsenmiştir (belge 02, giriş sapı). Kubbe kabuk, kenara teğet yassı
+  çok lümenli sap, çıkıntısız. Tek boru yerine yassı sap gerekmesinin nedeni yine bükülme
+  yarıçapıdır: lümenleri tek boruya toplamak orbita içinde 15 mm düz uzunluk ister.
+
 ## Sayısal karşılaştırma: hangi düzen en iyi
 
 `tools/optimize.py`: plak çapı = taban + 4 mm; tümör yüzeyinin her noktası ≥ reçete olacak

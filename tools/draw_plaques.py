@@ -157,7 +157,7 @@ def single(D, notched=False):
     body.append(tv)
     sc, sinfo = section(D, S, 470, 300, notched=notched)
     body.append(sc)
-    body.append(f'<text x="200" y="{190 + (D/2 + 11.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş bloğu) altta</text>')
+    body.append(f'<text x="200" y="{190 + (D/2 + 11.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş sapı) altta</text>')
     body.append(f'<text x="470" y="{300 - (R_SCL + 6.0) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>')
     y = 440
     rows = [
@@ -169,7 +169,7 @@ def single(D, notched=False):
         f"En uzun kanal yayı {info['arc']:.1f} mm; eksen skleradan {OFF} mm, küre yarıçapı {R_SCL+OFF} mm",
         f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm tam yükseklik",
         f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm",
-        "Sütür deliği 3 adet, Ø 0,8 mm. Tek giriş bloğu, tek kilitli konektör, tek kılıf.",
+        "Sütür deliği 3 adet, Ø 0,8 mm. Kenara teğet yassı giriş sapı, tek kilitli konektör, tek kılıf.",
     ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, sinir ekseni plak merkezinden {G.notch_center_y(D):.0f} mm (kenardan {G.NOTCH_INSET:.0f} mm içeride), dip merkezden {G.notch_center_y(D)-G.NOTCH_R:.0f} mm; kalkan çentiği izler"] if notched else [])
     for i, t in enumerate(rows):
         body.append(f'<text x="30" y="{y + i*17}" font-size="10.5" fill="#222">{t}</text>')
@@ -196,7 +196,7 @@ def family():
         yl = cy + 105 + (D/2 + 10) * S
         body.append(f'<text x="{cx}" y="{yl:.0f}" text-anchor="middle" font-size="9.5" fill="#333">{l1}</text>')
         body.append(f'<text x="{cx}" y="{yl+12:.0f}" text-anchor="middle" font-size="9.5" fill="#555">{l2}</text>')
-    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, giriş bloğu anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
+    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, giriş sapı anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
     return svg_wrap(W, H, "\n".join(body), "Plak ailesi")
 
 if __name__ == "__main__":
