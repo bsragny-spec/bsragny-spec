@@ -1,6 +1,18 @@
 # 02. Aplikatör tasarımı
 
-Kesit çizimi: [figures/kesit.svg](../figures/kesit.svg). Üstten görünüş: [figures/ustten.svg](../figures/ustten.svg).
+Çizimler: plak ailesi tek sayfa [figures/plak-ailesi.svg](../figures/plak-ailesi.svg); her boy için
+üstten görünüş ve kesit `figures/plak-12mm.svg` … `figures/plak-22mm.svg`; ayrıntılı etiketli
+kesit [figures/kesit.svg](../figures/kesit.svg). Çizimler `tools/draw_plaques.py` ile geometri
+kurallarından üretilir; parametre değişince yeniden çalıştırılır.
+
+| Çap | Kubbe derinliği (sagitta) | Yarım açı | Not |
+|-----|---------------------------|-----------|-----|
+| 12 mm | 1,6 mm | 29° | |
+| 14 mm | 2,2 mm | 35° | |
+| 16 mm | 3,0 mm | 41° | |
+| 18 mm | 3,9 mm | 47° | |
+| 20 mm | 5,1 mm | 54° | |
+| 22 mm | 6,8 mm | 63° | Kas yapışma yerleri ve optik sinirle çakışma; cerrahi yerleşim sınırı |
 
 ## Temel ilke
 
@@ -13,7 +25,7 @@ birbirinden bağımsız, tek bir giriş bloğunda toplanan paralel kör kanallar
 | Parametre | Değer | Not |
 |-----------|-------|-----|
 | İç eğrilik yarıçapı | 12,3 mm | COMS ile aynı, mevcut dikim tekniği geçerli |
-| Çap ailesi | 12, 14, 16, 18, 20 mm | COMS eşdeğeri; 14 ve 18 ilk üretimde atlanabilir |
+| Çap ailesi | 12, 14, 16, 18, 20, 22 mm | Tümör tabanı 8 ile 18 mm; her boyun çizimi figures/plak-XXmm.svg |
 | Toplam kalınlık (kenar hariç) | ≤ 4,2 mm hedef, ≤ 4,5 mm üst sınır | COMS yaklaşık 3,5 mm; orbita toleransı cerrahi ekiple teyit edilecek |
 | Kenar kalkanı | Sırt kabuğuyla tek parça altın, **tam yükseklikte** sklera temasına kadar iner, kalınlık 0,5 mm | Plak kenarı her yönde kapalıdır; yalnızca giriş bloğu yuvası açıktır. Yanal doz kolimasyonu |
 | Plak seçim kuralı | **Tümör tabanının en geniş çapı + 4 mm** | Her yönde 2 mm marj; sklera/apeks oranını düşürmenin en etkili yolu (belge 07) |
@@ -87,6 +99,7 @@ oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
 | 16 mm | 5 | 2,75 mm | 17 | 13,5 mm |
 | 18 mm | 5 | 3,25 mm | 20 | 15,9 mm |
 | 20 mm | 7 | 2,50 mm | 34 | 18,3 mm |
+| 22 mm | 7 | 2,83 mm | 39 | 21,0 mm |
 
 Kanal aralığı 2,25 mm'de komşu tüpler arası duvar 0,75 mm kalır; PEEK için yeterlidir,
 üretim yöntemi belirlenince teyit edilir. Belge 07'deki karşılaştırmaya göre 5 kanal ile

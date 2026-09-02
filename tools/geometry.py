@@ -111,7 +111,7 @@ if __name__ == "__main__":
         print(f"{'Çap':>4} {'Kanal':>5} {'Aralık':>6} {'Dwell':>5} {'Yay(max)':>9} | "
               f"{'h=3':>11} {'h=5':>11} {'h=8':>11} {'h=10':>11}")
         print(" " * 36 + "| sklera/apeks oranı (merkez / sıcak nokta)")
-        for dia in (12, 14, 16, 18, 20):
+        for dia in (12, 14, 16, 18, 20, 22):
             r = evaluate(dia)
             cells = []
             for h in (3, 5, 8, 10):
