@@ -108,7 +108,9 @@ Kaç kanal gerektiği sorusunun cevabı (sklera maks / reçete, konumlar her say
   Teyit edilene kadar yedek tasarım 17 mm yaylı kanaldır (uç sapması 16 mm kirişte 0,56 mm).
 - Kanal tüpü her iki uçta kenar kalkanının 0,5 mm içine kadar uzanır; kör uçta kaynağın
   ulaşamadığı boşluk **2,0 mm**; bekleme adımı 2,5 mm (TPS izin verirse 1 mm).
-- Kanal iç çapı 1,2 mm (Varian 0,9 mm kapsül), tüp dış çapı 1,6 mm.
+- Kanal iç çapı 1,2 mm (Varian 0,9 mm kapsül), tüp dış çapı 1,6 mm. Sert kapsülün 13,8 mm yaydaki
+  kiriş sapması 0,18 mm olduğundan iç çapın 1,3 mm'ye çıkarılması önerilir (belge 09); kabul testi
+  sahte kaynak turu bunu kesinleştirir.
 
 Çentikli plakta dış kanallar sinirin iki yanından geçer (x = ± 6,3 mm), iç kanallar çentik
 sınırında kısaltılır. Çentiklide kanal sayısı: 16 ve 18 mm'de **4** (x = ± 3,15, ± 6,3; merkez

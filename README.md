@@ -22,6 +22,7 @@ plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliy
 | 06 | [Geliştirme yol haritası ve açık sorular](spec/06-yol-haritasi.md) | Fazlar, mevzuat, riskler, karar bekleyen konular |
 | 07 | [Kanal topolojisi](spec/07-kanal-topolojisi.md) | Dupere 2021 Yb-169 halka aplikatörü ile karşılaştırma, spiral kanalın bükülme yarıçapı analizi |
 | 08 | [Afterloader seçimi](spec/08-cihaz-secimi.md) | Cihaz proje ile alınacaksa seçim ölçütleri, adaylar, kabul testi |
+| 09 | [GammaMedplus iX uyumu](spec/09-varian-uyum.md) | Kanal sisteminin mevcut cihazla uyum maddeleri ve Ir-192 ile bugün yapılabilecek test dizisi |
 
 ## Çizimler
 
