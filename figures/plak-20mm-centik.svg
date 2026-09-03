@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 600" width="640" height="600" font-family="Arial, Helvetica, sans-serif" font-size="11">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" font-family="Arial, Helvetica, sans-serif" font-size="11">
 <title>20 mm çentikli plak</title>
-<rect width="640" height="600" fill="#ffffff"/>
+<rect width="640" height="640" fill="#ffffff"/>
 <text x="320.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, 20 mm çentikli plak (ölçek 10 px = 1 mm)</text>
 <path d="M 132.5 278.0 L 267.5 278.0 C 267.5 328.0 224.0 338.0 224.0 370.0 L 224.0 385.0 A 24.0 24.0 0 0 1 176.0 385.0 L 176.0 370.0 C 176.0 338.0 132.5 328.0 132.5 278.0 Z" fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>
 <circle cx="149.0" cy="298.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
@@ -113,5 +113,5 @@
 <text x="30" y="537" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 5.1 mm, yarım açı 54°; iç eğrilik yarıçapı 12.3 mm</text>
 <text x="30" y="554" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.</text>
 <text x="30" y="571" font-size="10.5" fill="#222">Çentik: U biçimli, genişlik 10 mm, sinir ekseni plak merkezinden 9 mm (kenardan 1 mm içeride), dip merkezden 4 mm; kalkan çentiği izler</text>
-<text x="320.0" y="586" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
+<text x="320.0" y="626" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
 </svg>

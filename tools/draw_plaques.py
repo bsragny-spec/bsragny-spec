@@ -150,7 +150,7 @@ def svg_wrap(w, h, body, title):
 
 def single(D, notched=False):
     S = 10
-    W, H = 640, 600
+    W, H = 640, 640
     ttl = f"{D} mm {'çentikli ' if notched else ''}plak"
     body = [f'<text x="{W/2}" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, {ttl} (ölçek 10 px = 1 mm)</text>']
     tv, info = top_view(D, S, 200, 190, notched=notched)

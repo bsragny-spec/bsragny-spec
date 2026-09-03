@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 600" width="640" height="600" font-family="Arial, Helvetica, sans-serif" font-size="11">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" font-family="Arial, Helvetica, sans-serif" font-size="11">
 <title>14 mm plak</title>
-<rect width="640" height="600" fill="#ffffff"/>
+<rect width="640" height="640" fill="#ffffff"/>
 <text x="320.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, 14 mm plak (ölçek 10 px = 1 mm)</text>
 <path d="M 149.5 248.0 L 250.5 248.0 C 250.5 298.0 224.0 308.0 224.0 340.0 L 224.0 355.0 A 24.0 24.0 0 0 1 176.0 355.0 L 176.0 340.0 C 176.0 308.0 149.5 298.0 149.5 248.0 Z" fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>
 <circle cx="166.0" cy="268.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
@@ -82,5 +82,5 @@
 <text x="30" y="520" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
 <text x="30" y="537" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 2.2 mm, yarım açı 35°; iç eğrilik yarıçapı 12.3 mm</text>
 <text x="30" y="554" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.</text>
-<text x="320.0" y="586" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
+<text x="320.0" y="626" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
 </svg>
