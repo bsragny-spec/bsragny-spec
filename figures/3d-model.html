@@ -91,7 +91,7 @@
 <header>
   <h1>Yb-169 HDR episkleral aplikatör</h1>
   <span class="sub">3B konformal model, sklera üzerinde</span>
-  <span class="ver">taslak v0.3.2</span>
+  <span class="ver">taslak v0.3.4</span>
 </header>
 
 <aside>
@@ -116,6 +116,7 @@
   <div class="grp">
     <div class="lbl">Görünüm</div>
     <label class="chk"><input type="checkbox" id="cEye" checked><span class="sw" style="background:var(--sclera)"></span>Göz küresi ve sklera</label>
+    <label class="chk"><input type="checkbox" id="cSclGhost" checked><span class="sw" style="background:var(--sclera); opacity:.5"></span>Sklerayı saydamlaştır (tümör görünsün)</label>
     <label class="chk"><input type="checkbox" id="cTumor" checked><span class="sw" style="background:var(--tumor)"></span>Tümör</label>
     <label class="chk"><input type="checkbox" id="cNerve" checked><span class="sw" style="background:var(--nerve)"></span>Optik sinir (çentiklide)</label>
     <label class="chk"><input type="checkbox" id="cChan" checked><span class="sw" style="background:var(--tube)"></span>Kanallar ve bekleme pozisyonları</label>
@@ -201,7 +202,7 @@
 
   // kamera kontrolü
   const target = new THREE.Vector3(0, 0, 9);
-  let theta = 0.55, phi = 1.05, dist = 62, drag = null;
+  let theta = 0.75, phi = 1.25, dist = 60, drag = null;
   function placeCamera() {
     camera.position.set(
       target.x + dist * Math.sin(phi) * Math.sin(theta),
@@ -246,8 +247,9 @@
     mats.lumenSolid = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
     mats.dwell = new THREE.MeshStandardMaterial({ color: c('--dwell'), roughness: 0.45 });
     mats.sclera = new THREE.MeshStandardMaterial({ color: c('--sclera'), roughness: 0.85, side: THREE.DoubleSide });
-    mats.vitre = new THREE.MeshStandardMaterial({ color: 0xf6ecdc, roughness: 1, transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false });
-    mats.tumor = new THREE.MeshStandardMaterial({ color: c('--tumor'), roughness: 0.6, side: THREE.DoubleSide, transparent: true, opacity: 0.85 });
+    mats.scleraGhost = new THREE.MeshStandardMaterial({ color: c('--sclera'), roughness: 0.85, side: THREE.FrontSide, transparent: true, opacity: 0.38, depthWrite: false });
+    mats.vitre = new THREE.MeshStandardMaterial({ color: 0xf6ecdc, roughness: 1, transparent: true, opacity: 0.12, side: THREE.FrontSide, depthWrite: false });
+    mats.tumor = new THREE.MeshStandardMaterial({ color: c('--tumor'), roughness: 0.55, side: THREE.DoubleSide });
     mats.nerve = new THREE.MeshStandardMaterial({ color: c('--nerve'), roughness: 0.9 });
     mats.block = new THREE.MeshStandardMaterial({ color: 0x8fa3b1, roughness: 0.6 });
     scene.background = c('--scene-bg');
@@ -302,8 +304,10 @@
 
     // göz
     if (document.getElementById('cEye').checked) {
-      group.add(new THREE.Mesh(new THREE.SphereGeometry(R_SCL, 96, 64), mats.sclera));
-      group.add(new THREE.Mesh(new THREE.SphereGeometry(R_IN, 64, 48), mats.vitre));
+      const ghost = document.getElementById('cSclGhost').checked;
+      const scl = new THREE.Mesh(new THREE.SphereGeometry(R_SCL, 96, 64), ghost ? mats.scleraGhost : mats.sclera);
+      scl.renderOrder = 10; group.add(scl);                                   // saydam sklera en son çizilir
+      const vit = new THREE.Mesh(new THREE.SphereGeometry(R_IN, 64, 48), mats.vitre); vit.renderOrder = 9; group.add(vit);
       if (cut) {
         const ring = new THREE.Mesh(new THREE.RingGeometry(R_IN, R_SCL, 128), mats.sclera);
         ring.rotation.x = Math.PI / 2; ring.position.y = -0.02; ring.material = mats.sclera.clone(); ring.material.clippingPlanes = []; group.add(ring);
@@ -460,7 +464,7 @@
   });
   document.getElementById('base').addEventListener('input', e => { state.base = +e.target.value; document.getElementById('baseV').textContent = `${state.base} mm`; build(); });
   document.getElementById('apex').addEventListener('input', e => { state.apex = +e.target.value; document.getElementById('apexV').textContent = `${state.apex.toFixed(1).replace('.', ',')} mm`; build(); });
-  ['cEye', 'cTumor', 'cNerve', 'cChan', 'cShield', 'cGhost', 'cCut'].forEach(id => document.getElementById(id).addEventListener('change', build));
+  ['cEye', 'cSclGhost', 'cTumor', 'cNerve', 'cChan', 'cShield', 'cGhost', 'cCut'].forEach(id => document.getElementById(id).addEventListener('change', build));
 
   syncSeg(); resize(); placeCamera(); build();
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
