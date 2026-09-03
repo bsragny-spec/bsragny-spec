@@ -82,6 +82,7 @@ Bunun bedelleri:
 | Tek C halkası + merkez kiriş | 5,5 ile 7,2 mm | Hayır, özel kablo ile belki 20 mm plakta | İyi | Merkez kirişle | 20 mm için v0.2'de değerlendirilebilir |
 | Eş merkezli C halkaları | İç halka 2 ile 3 mm | Hayır | Mükemmel | Evet | Yalnızca pelet dizisiyle |
 | Dupere halkası, pelet dizisi | Sınırsız | Hayır, pelet yükleyici | Mükemmel, statik | Konik kolimasyonla | Referans; G6 nedeniyle elendi |
+| Disk biçimli açık hazne, tek giriş | Yol tanımsız | **Hayır**: kablo haznede bükülür, bekleme pozisyonu ve konum doğruluğu tanımlanamaz | Yalnızca sıvı/jel kaynakla homojen disk; optimize dağılımdan %20 ile 30 kötü | Evet | Elendi. Sıvı kaynak LDR sınıfıdır, HDR aktivitesinde sızıntı riski gözde kabul edilemez |
 | Yelpaze, dar giriş sırasından ± 45° düz ışınlar | Işınlar düz, 13,8 mm | Evet | Optimizasyonla paralel kirişe eş | Evet | v0.2'de denendi; tek giriş hattı istenmediği için paralel kirişe dönüldü |
 
 ## Paralel kiriş tasarımına referanstan alınacaklar
