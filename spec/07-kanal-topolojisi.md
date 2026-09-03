@@ -77,7 +77,7 @@ Bunun bedelleri:
 
 | Topoloji | Bükülme yarıçapı | Standart afterloader | Doz simetrisi | Merkez kapsama | Karar |
 |----------|------------------|----------------------|---------------|----------------|-------|
-| **Paralel kirişler, 3 veya 5 kanal, konumlar LP ile** | 13,8 mm | **Evet** | Kanallar arası vadi, optimizasyonla kapanır | Evet | **Seçildi (v0.3)**: her kanal kendi ağzı ve kateteriyle |
+| **Paralel kirişler, her plakta 3 kanal, konumlar LP ile** | 13,8 mm | **Evet** | Kanallar arası vadi, optimizasyonla kapanır | Evet | **Seçildi (v0.4)**: her kanal kendi ağzı ve kateteriyle; 3 kanallı cihazla uyumlu |
 | Spiral, tek kanal | 0 ile 6 mm | Hayır | Mükemmel | Evet, ama ulaşılamaz | Elendi |
 | Tek C halkası + merkez kiriş | 5,5 ile 7,2 mm | Hayır, özel kablo ile belki 20 mm plakta | İyi | Merkez kirişle | 20 mm için v0.2'de değerlendirilebilir |
 | Eş merkezli C halkaları | İç halka 2 ile 3 mm | Hayır | Mükemmel | Evet | Yalnızca pelet dizisiyle |
@@ -134,8 +134,9 @@ Okuma:
   iyileridir. Her kanalın kendi ağzı ve kateteriyle çıkması istendiğinden paralel kiriş
   seçilmiştir; yelpazenin tek avantajı olan dar giriş sırası bu durumda gerekmez.
 - Kanal **sayısı** ayrıca incelenmiştir (belge 02 tablosu): tek kanal iki kat kötü, iki kanal
-  %10 ile 25 kötü, üç kanal 12 ile 16 mm'de beş kanala %3 ile 11 yakın. Karar: 12 ile 16 mm'de 3,
-  18 ile 20 mm'de ve çentiklilerde 5 kanal.
+  %10 ile 25 kötü, üç kanal 12 ile 16 mm'de beş kanala %3 ile 11 yakın. Karar: her plakta 3 kanal;
+  18 ile 20 mm'de beş kanalın %10 ile 15 kazancı, tek cihaz yapılandırması ve sade iş akışı
+  karşılığında bırakılmıştır.
 - **Halka ve eş merkezli düzenler**, pelet dizili özel yükleyici gerektirir ve 5 kirişe göre
   %5 ile 25 kazandırır. En büyük fark 20 mm plak ve kalın tümörde görülür. Bu kazanç, özel
   cihaz geliştirmenin bedeliyle karşılaştırılmalıdır (A9).

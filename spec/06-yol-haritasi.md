@@ -23,7 +23,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | A1 | Tek fraksiyonda sklera toleransı. LQ modeli 25 Gy apeks için 5 mm tümörde ~100 Gy sklera verir, bu 55 ile 65 Gy başlangıç sınırının üzerindedir | Reçeteyi ve endikasyon aralığını belirler. Faz I'de reçete sklera sınırıyla kesilir | Radyasyon onkolojisi + radyobiyoloji danışmanı |
 | A2 | Varian, GammaMedplus iX kablo formatında Yb-169 kaynağını sağlar veya onaylar mı; BrachyVision'a Yb-169 kaynak modeli eklenir mi | Projenin kaynak tarafındaki ön şartı. Olumsuzsa belge 08'e göre başka cihaz alımı, o da olmazsa A8 | Fizik + Varian |
 | A2b | GammaMedplus iX kablosunun bildirilen 13 mm minimum bükülme yarıçapının Varian teknik föyünden teyidi | Teyit edilirse kanallar 13,8 mm küreyi tam izler; edilmezse 17 mm yaylı yedek tasarım | Fizik |
-| A2c | Cihazın kanal yapılandırması: 3 kanallı mı, 24 kanallı mı | 3 kanallıysa 18 ve 20 mm ile çentikli plaklar için yükseltme gerekir (belge 09) | Fizik |
+| A2c | ~~Cihazın kanal yapılandırması~~ Kapatıldı: her plak 3 kanal olarak tasarlandı, 3 kanallı yapılandırma yeterli | | |
 | A3 | Yb-169 kuyu odası kalibrasyon izlenebilirliği | Klinik kullanım ön şartı | Fizik + tedarikçi + kalibrasyon laboratuvarı |
 | A4 | Plak kalınlığı 4,2 mm orbitada tolere edilir mi, özellikle posterior yerleşimde | Kalınlık azaltılırsa koruma veya bekleme yüksekliği ödün verir | Cerrah |
 | A5 | Transfer tüpünün forniksten çıkışı: kapak ekartörü altında tüp yolu, konjonktiva basısı | Giriş bloğu ve kılıf tasarımı | Cerrah + tasarım |
@@ -48,6 +48,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.4.0 | 2026-09-03 | Karar: her plakta 3 kanal (3 kanallı cihaz yapılandırması). 18 ve 20 mm 3 kanala indirildi (dış kanal kenardan 3,5 mm), çentikliler 3 kanal (0, ±6,3); tablolar, çizimler ve 3B model güncellendi |
 | v0.3.3 | 2026-09-03 | Belge 09: GammaMedplus iX ile kanal sistemi uyum maddeleri, kanal iç çapı 1,3 mm önerisi, Ir-192 ile test dizisi; A2c kanal yapılandırması sorusu |
 | v0.3.2 | 2026-09-03 | Kanal konumları tek kurala bağlandı: dış kanal kenardan 3,0 mm içeride, iç kanallar ±2,5 mm (LP optimumunun %5 içinde); 18 ve 20 mm arasındaki tutarsız aralıklar giderildi |
 | v0.3.1 | 2026-09-03 | Çentikli 16 ve 18 mm 4 kanala indirildi; bütün plaklara dış ağızların yanında 2 sütür küpesi eklendi, kenar delikleri kaldırıldı |

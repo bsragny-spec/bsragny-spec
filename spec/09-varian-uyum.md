@@ -8,7 +8,7 @@ kullanılarak bugün test edilebilir**. Yb-169 sorusu (A2) kanal sisteminden ba�
 
 | Konu | Cihazın şartı | Tasarım | Durum |
 |------|---------------|---------|-------|
-| Kanal sayısı | 3/24 iX modelinde 3 veya 24 kanal | Yuvarlak 12 ile 16 mm: 3; 18 ile 20 mm ve çentikli: 4 veya 5 | 3 kanallı cihazda yalnızca 3 kanallı plaklar; 4 ve 5 kanal için 24 kanallı yapılandırma gerekir. **Cihazın kanal sayısı teyit edilecek** |
+| Kanal sayısı | 3/24 iX modelinde 3 veya 24 kanal | Her plakta 3 kanal | 3 kanallı yapılandırma bütün plak ailesi için yeterlidir |
 | Kaynak kapsülü | 0,9 mm dış çap, yaklaşık 4,5 mm uzunluk, örgülü kablo | Kanal iç çapı 1,2 mm | Sert kapsülün 13,8 mm yaylı kanaldaki kiriş sapması 4,5² / (8 × 13,8) = 0,18 mm; 1,2 mm iç çap geçer ama pay 0,15 mm'dir. **Öneri: iç çap 1,3 mm**, sürtünme payı için |
 | Bükülme yarıçapı | Bildirilen minimum 13 mm (teyit edilecek, A2b) | Kanal yayı 13,8 mm | Sınıra yakın; kabul testi sahte kaynak turu ile (20 tekrar). Olumsuzsa 17 mm yaylı yedek tasarım |
 | Kör uç ve ilk pozisyon | Kaynak kanalın kapalı ucuna kadar gider; pozisyonlar uçtan geriye doğru tanımlanır | Kör uçta 2,0 mm ölü boşluk varsayımı | Gerçek değer = kapsül ucu ile aktif merkez arası + kateter uç kalınlığı; **otoradyografi ile ölçülür**, TPS'e girilir |
@@ -38,8 +38,6 @@ kaynak kararından bağımsız olarak olgunlaştırır.
 
 ## Sınırlar
 
-- 3 kanallı cihaz yapılandırmasında 18 ve 20 mm ile çentikli plaklar kullanılamaz; 24 kanallı
-  yapılandırma veya yükseltme gerekir.
 - Aplikatör araştırma amaçlı cihaz sayılır; CE işaretli afterloader ile kullanımı etik kurul ve
   NDK iznine bağlıdır (belge 06, faz 4).
 - Ir-192 ile klinik kullanım ancak bunkerde ve sırt koruması olmadan mümkündür (A8 senaryosu).

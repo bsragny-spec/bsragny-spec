@@ -59,17 +59,16 @@ def dose_rate(rel, d_mm):
     return rel * g_r(d) / (d * d)
 
 # Kanal konumları (mm, plak taban düzlemi x): sayı ve konum LP optimizasyonuyla seçildi
-# (tools/optimize.py, sklera maks / reçete). Yuvarlak 12-16 mm: 3 kanal; 18-20 mm: 5 kanal;
-# çentikli 16-18 mm: 4 kanal (merkez kanal çentikte zaten kısa), 20 mm: 5 kanal.
+# (tools/optimize.py, sklera maks / reçete).
 # Sütür küpeleri: 2 adet, dış kanal ağızlarının hemen yanında (anterior kenar).
 EYELET_R, EYELET_HOLE, EYELET_OFFSET = 1.2, 0.4, 2.6   # mm: küpe yarıçapı, delik yarıçapı, dış ağızdan yanal uzaklık
 # Çentiklide dış kanallar sinirin iki yanından geçer (|x| = çentik yarıçapı + kalkan + tüp yarıçapı).
-# Tek kural: dış kanal plak kenarından 3,0 mm içeride (x = r - 3,0); 5 kanallıda iç kanallar ±2,5 mm.
-# Bu kural her boyda LP optimumunun %5 içinde kalır (1 mm bekleme adımıyla tarama, belge 02).
-OUTER_INSET, INNER_X = 3.0, 2.5
+# Karar: her plakta 3 kanal (cihaz 3 kanallı). Kural: merkez kanal 0, dış kanallar plak kenarından
+# 12-16 mm'de 3,0 mm, 18-20 mm'de 3,5 mm içeride (1 mm bekleme adımıyla tarama, belge 02).
+# Çentiklide dış kanallar sinirin iki yanından geçer (±6,3), merkez kanal çentikte kısaltılır.
 CHANNEL_X = {12: [-3.0, 0.0, 3.0], 14: [-4.0, 0.0, 4.0], 16: [-5.0, 0.0, 5.0],
-             18: [-6.0, -2.5, 0.0, 2.5, 6.0], 20: [-7.0, -2.5, 0.0, 2.5, 7.0]}
-CHANNEL_X_NOTCHED = {16: [-6.3, -3.15, 3.15, 6.3], 18: [-6.3, -3.15, 3.15, 6.3], 20: [-6.3, -3.15, 0.0, 3.15, 6.3]}
+             18: [-5.5, 0.0, 5.5], 20: [-6.5, 0.0, 6.5]}
+CHANNEL_X_NOTCHED = {16: [-6.3, 0.0, 6.3], 18: [-6.3, 0.0, 6.3], 20: [-6.3, 0.0, 6.3]}
 
 def plaque_layout(diameter, notched=False):
     """Paralel kiriş kanalları ve bekleme pozisyonlarını üretir.

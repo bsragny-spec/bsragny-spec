@@ -66,42 +66,39 @@ oranını verir:
 Bu sayılar nokta kaynak ve eşit bekleme süresi varsayımıyladır; optimizasyon ve gerçek kaynak
 geometrisi ile değişir.
 
-## Kanal yerleşimi: paralel kirişler, sayı ve konum optimizasyonla
+## Kanal yerleşimi: her plakta 3 paralel kiriş
 
-Tasarım kararı (belge 07): **paralel kör kirişler; kanal sayısı ve konumları doğrusal programlama
-ile seçilir; her kanal anterior kenardan kendi altın ağzıyla çıkar ve kendi kateteri, kendi
-transfer tüpü vardır.** Yelpaze ve tek giriş hattı düzenleri kaldırılmıştır (belge 07).
+Tasarım kararı (belge 07, 09): **her plakta 3 kör kanal** (merkez + iki dış); kanal konumları
+doğrusal programlama taramasıyla, bekleme süreleri hasta başına optimizasyonla seçilir. Her kanal
+anterior kenardan kendi altın ağzıyla çıkar ve kendi kateteri, kendi transfer tüpü vardır. Üç
+kanal, kurumdaki GammaMedplus iX'in 3 kanallı yapılandırmasıyla doğrudan uyumludur.
 
-Kaç kanal gerektiği sorusunun cevabı (sklera maks / reçete, konumlar her sayı için optimize):
+Kanal sayısı çalışması (sklera maks / reçete, konumlar her sayı için optimize, 2,5 mm adım):
 
-| Plak, apeks | 1 kanal | 2 kanal | 3 kanal | 4 kanal | 5 kanal |
-|-------------|---------|---------|---------|---------|---------|
+| Plak, apeks | 1 kanal | 2 kanal | **3 kanal** | 4 kanal | 5 kanal |
+|-------------|---------|---------|-------------|---------|---------|
 | 12 mm, 3 mm | 5,6 | 4,1 | **3,4** | 3,4 | 3,5 |
 | 14 mm, 5 mm | 9,5 | 5,2 | **4,8** | 4,5 | 4,4 |
 | 16 mm, 5 mm | 7,9 | 4,3 | **3,9** | 3,8 | 3,5 |
 | 16 mm, 8 mm | 13,8 | 7,2 | **6,4** | 6,2 | 5,8 |
-| 18 mm, 5 mm | 8,3 | 4,1 | 3,6 | 3,3 | **3,2** |
-| 20 mm, 5 mm | 8,2 | 3,7 | 3,0 | 2,7 | **2,6** |
-| 20 mm, 8 mm | 9,6 | 5,5 | 4,4 | 4,0 | **4,0** |
+| 18 mm, 5 mm | 8,3 | 4,1 | **3,6** | 3,3 | 3,2 |
+| 20 mm, 5 mm | 8,2 | 3,7 | **3,0** | 2,7 | 2,6 |
+| 20 mm, 8 mm | 9,6 | 5,5 | **4,4** | 4,0 | 4,0 |
 
-- **Tek kanal yetmez**: sklera oranı iki kat. **İki kanal** üç kanaldan %10 ile 25 kötü.
-- **Üç kanal**, 12 ile 16 mm plaklarda beş kanala %3 ile 11 yakındır ve seçilmiştir.
-- **Beş kanal** 18 ve 20 mm'de %10 ile 15 kazandırır ve orada seçilmiştir.
-- Optimum konumlar dış kanalları kenara yakın koyar (halka benzeri dağılım); eski eşit aralık
-  kuralı terk edilmiştir.
-- Optimum bölge düzdür: 1 mm bekleme adımıyla yapılan taramada dış kanalın kenardan 2,5 ile
-  3,5 mm, iç kanalın 2,0 ile 3,0 mm arasındaki konumları sklera oranını %5'ten az değiştirir.
-  Bu yüzden konumlar **tek bir kurala** bağlanmıştır: **dış kanal kenardan 3,0 mm içeride
-  (x = r − 3,0), 5 kanallıda iç kanallar ± 2,5 mm, merkez kanal 0.** Kural her boyda LP
-  optimumunun %5 içindedir.
+- Tek kanal yetmez (sklera oranı iki kat); iki kanal üç kanaldan %10 ile 25 kötüdür.
+- Üç kanal, beş kanala 12 ile 16 mm'de %3 ile 11, 18 ile 20 mm'de %10 ile 15 yakındır. Bu fark,
+  tek cihaz yapılandırması ve üç kateterlik sade iş akışı karşılığında kabul edilmiştir.
+- Optimum konum dış kanalları kenara yakın koyar (halka benzeri dağılım). 1 mm bekleme adımıyla
+  yapılan taramada optimum bölge düzdür; konumlar tek kurala bağlanmıştır: **dış kanallar plak
+  kenarından 12 ile 16 mm'de 3,0 mm, 18 ile 20 mm'de 3,5 mm içeride; merkez kanal 0.**
 
-| Çap | Kanal | Konumlar x (mm) | Bekleme pozisyonu | En uzun kanal yayı |
-|-----|-------|-----------------|-------------------|--------------------|
-| 12 mm | 3 | 0, ± 3,0 | 10 | 10,9 mm |
-| 14 mm | 3 | 0, ± 4,0 | 10 | 13,1 mm |
-| 16 mm | 3 | 0, ± 5,0 | 13 | 15,4 mm |
-| 18 mm | 5 | 0, ± 2,5, ± 6,0 | 26 | 17,8 mm |
-| 20 mm | 5 | 0, ± 2,5, ± 7,0 | 29 | 20,4 mm |
+| Çap | Konumlar x (mm) | Bekleme pozisyonu (2,5 mm adım) | En uzun kanal yayı | Sklera/Rx, apeks 5 mm (1 mm adım) |
+|-----|-----------------|--------------------------------|--------------------|-----------------------------------|
+| 12 mm | 0, ± 3,0 | 10 | 10,9 mm | 3,6 (apeks 3 mm) |
+| 14 mm | 0, ± 4,0 | 10 | 13,1 mm | 4,7 |
+| 16 mm | 0, ± 5,0 | 13 | 15,4 mm | 3,9 |
+| 18 mm | 0, ± 5,5 | 16 | 17,8 mm | 3,4 |
+| 20 mm | 0, ± 6,5 | 19 | 20,4 mm | 3,0 |
 
 - Kanallar sklera eğrisini izler; eksen yarıçapı 13,8 mm'lik küre kabuğu üzerindedir.
   GammaMedplus iX kablosunun bildirilen minimum bükülme yarıçapı 13 mm'dir (belge 01, A2b).
@@ -112,15 +109,9 @@ Kaç kanal gerektiği sorusunun cevabı (sklera maks / reçete, konumlar her say
   kiriş sapması 0,18 mm olduğundan iç çapın 1,3 mm'ye çıkarılması önerilir (belge 09); kabul testi
   sahte kaynak turu bunu kesinleştirir.
 
-Çentikli plakta dış kanallar sinirin iki yanından geçer (x = ± 6,3 mm), iç kanallar çentik
-sınırında kısaltılır. Çentiklide kanal sayısı: 16 ve 18 mm'de **4** (x = ± 3,15, ± 6,3; merkez
-kanal çentikte zaten kısa olduğu için katkısı küçük), 20 mm'de **5**.
-
-| Çentikli plak | 3 kanal | 4 kanal | 5 kanal |
-|---------------|---------|---------|---------|
-| 16 mm | 7,7 | **6,4** | 5,9 |
-| 18 mm | 5,4 | **4,7** | 4,6 |
-| 20 mm | | | **3,8** |
+Çentikli plakta dış kanallar sinirin iki yanından geçer (x = ± 6,3 mm), merkez kanal çentik
+sınırında kısaltılır. Üç kanal çentiklide de yeterlidir (1 mm adımla 16 mm: 5,7; 18 mm: 4,8;
+20 mm: 3,8; beş kanalla 5,9 / 4,6 / 3,8).
 
 ## Kanal ağızları ve kateterler
 
@@ -138,9 +129,9 @@ parçaları ortadan kaldırır.
 | Toplam uzunluk | Aplikatör + transfer tüpü 1300 mm sabit (GammaMedplus) | Cihaz kuralı |
 | Fornikste | 3 veya 5 kateter yan yana, konjonktiva altından fornikse; kapağa steril bantla tespit | Plağa yük binmez |
 
-- Kanal sayısı kadar transfer tüpü bağlanır: yuvarlak 12 ile 16 mm'de 3, 18 ile 20 mm'de 5; çentikli 16 ile 18 mm'de 4, 20 mm'de 5.
+- Her plakta 3 transfer tüpü bağlanır; 3 kanallı GammaMedplus iX yapılandırması yeterlidir.
   Her kanal numaralı ve renk kodludur; cihazda kanal indeksi ile eşleşir.
-- Ağızlar anterior kenarda, kanal konumlarında (x = 0, ± 3,5 … ± 6,6 mm) yer alır; kenar kalkanı
+- Ağızlar anterior kenarda, kanal konumlarında (x = 0 ve ± 3,0 … ± 6,5 mm) yer alır; kenar kalkanı
   ağızlar arasında kesintisizdir.
 - **Ortadan (kubbe sırtından, skleraya dik) giriş elenmiştir.** Kaynağın dik saptan yüzeye
   paralel kanallara geçmesi 4 mm kalınlık içinde 90° dönüş, yani 2 ile 3 mm bükülme yarıçapı

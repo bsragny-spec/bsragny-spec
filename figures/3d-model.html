@@ -91,7 +91,7 @@
 <header>
   <h1>Yb-169 HDR episkleral aplikatör</h1>
   <span class="sub">3B konformal model, sklera üzerinde</span>
-  <span class="ver">taslak v0.3.4</span>
+  <span class="ver">taslak v0.4.0</span>
 </header>
 
 <aside>
@@ -108,7 +108,7 @@
   <div class="grp">
     <div class="lbl">Tümör</div>
     <div class="row"><input type="range" id="base" min="4" max="16" step="1" value="12" aria-label="Tümör tabanı"><span class="num" id="baseV">12 mm</span></div>
-    <div class="note">Taban çapı. Kural: plak = taban + 4 mm; çentiklide bir boy büyük.</div>
+    <div class="note">Taban çapı. Kural: plak = taban + 4 mm; çentiklide bir boy büyük. Her plak 3 kanal.</div>
     <div class="row"><input type="range" id="apex" min="2" max="10" step="0.5" value="5" aria-label="Apeks yüksekliği"><span class="num" id="apexV">5,0 mm</span></div>
     <div class="note">Apeks yüksekliği, iç skleradan.</div>
   </div>
@@ -151,8 +151,8 @@
   const notchCY = D => D / 2 - NOTCH_INSET;
 
   // Kanal konumları (LP optimizasyonu, tools/geometry.py CHANNEL_X ile aynı)
-  const CHANNEL_X = { 12: [-3, 0, 3], 14: [-4, 0, 4], 16: [-5, 0, 5], 18: [-6, -2.5, 0, 2.5, 6], 20: [-7, -2.5, 0, 2.5, 7] };   // dış = r - 3,0; iç ±2,5
-  const CHANNEL_X_NOTCHED = { 16: [-6.3, -3.15, 3.15, 6.3], 18: [-6.3, -3.15, 3.15, 6.3], 20: [-6.3, -3.15, 0, 3.15, 6.3] };
+  const CHANNEL_X = { 12: [-3, 0, 3], 14: [-4, 0, 4], 16: [-5, 0, 5], 18: [-5.5, 0, 5.5], 20: [-6.5, 0, 6.5] };   // her plak 3 kanal
+  const CHANNEL_X_NOTCHED = { 16: [-6.3, 0, 6.3], 18: [-6.3, 0, 6.3], 20: [-6.3, 0, 6.3] };
   const EYELET_R = 1.2, EYELET_HOLE = 0.4, EYELET_OFFSET = 2.6;   // sütür küpesi (mm)
   function layout(D, notched) {
     // Paralel kör kirişler; her kanal anterior kenardan kendi ağzıyla çıkar.

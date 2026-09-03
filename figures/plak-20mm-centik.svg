@@ -6,18 +6,10 @@
 <path d="M 152.0 288.4 C 152.0 328.4 142.6 348.4 136.2 378.4" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
 <path d="M 152.0 288.4 C 152.0 328.4 142.6 348.4 136.2 378.4" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
 <circle cx="152.0" cy="282.4" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
-<rect x="171.5" y="267.5" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
-<path d="M 183.5 307.5 C 183.5 347.5 178.8 367.5 175.6 397.5" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
-<path d="M 183.5 307.5 C 183.5 347.5 178.8 367.5 175.6 397.5" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
-<circle cx="183.5" cy="301.5" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
 <rect x="203.0" y="273.0" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
 <path d="M 215.0 313.0 C 215.0 353.0 215.0 373.0 215.0 403.0" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
 <path d="M 215.0 313.0 C 215.0 353.0 215.0 373.0 215.0 403.0" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
 <circle cx="215.0" cy="307.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
-<rect x="234.5" y="267.5" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
-<path d="M 246.5 307.5 C 246.5 347.5 251.2 367.5 254.4 397.5" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
-<path d="M 246.5 307.5 C 246.5 347.5 251.2 367.5 254.4 397.5" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
-<circle cx="246.5" cy="301.5" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
 <rect x="266.0" y="248.4" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
 <path d="M 278.0 288.4 C 278.0 328.4 287.4 348.4 293.8 378.4" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
 <path d="M 278.0 288.4 C 278.0 328.4 287.4 348.4 293.8 378.4" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
@@ -38,14 +30,6 @@
 <circle cx="152.0" cy="203.4" r="2.8" fill="#c0392b"/>
 <circle cx="152.0" cy="178.4" r="2.8" fill="#c0392b"/>
 <circle cx="152.0" cy="153.4" r="2.8" fill="#c0392b"/>
-<rect x="-3.0" y="-8.0" width="133.7" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(183.5,277.5) rotate(-90.00)"/>
-<rect x="-3.0" y="-6.0" width="131.7" height="12.0" rx="6.0" fill="#fff" transform="translate(183.5,277.5) rotate(-90.00)"/>
-<rect x="108.7" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(183.5,277.5) rotate(-90.00)"/>
-<circle cx="183.5" cy="272.5" r="2.8" fill="#c0392b"/>
-<circle cx="183.5" cy="247.5" r="2.8" fill="#c0392b"/>
-<circle cx="183.5" cy="222.5" r="2.8" fill="#c0392b"/>
-<circle cx="183.5" cy="197.5" r="2.8" fill="#c0392b"/>
-<circle cx="183.5" cy="172.5" r="2.8" fill="#c0392b"/>
 <rect x="-3.0" y="-8.0" width="128.0" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(215.0,283.0) rotate(-90.00)"/>
 <rect x="-3.0" y="-6.0" width="126.0" height="12.0" rx="6.0" fill="#fff" transform="translate(215.0,283.0) rotate(-90.00)"/>
 <rect x="103.0" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(215.0,283.0) rotate(-90.00)"/>
@@ -54,14 +38,6 @@
 <circle cx="215.0" cy="228.0" r="2.8" fill="#c0392b"/>
 <circle cx="215.0" cy="203.0" r="2.8" fill="#c0392b"/>
 <circle cx="215.0" cy="178.0" r="2.8" fill="#c0392b"/>
-<rect x="-3.0" y="-8.0" width="133.7" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(246.5,277.5) rotate(-90.00)"/>
-<rect x="-3.0" y="-6.0" width="131.7" height="12.0" rx="6.0" fill="#fff" transform="translate(246.5,277.5) rotate(-90.00)"/>
-<rect x="108.7" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(246.5,277.5) rotate(-90.00)"/>
-<circle cx="246.5" cy="272.5" r="2.8" fill="#c0392b"/>
-<circle cx="246.5" cy="247.5" r="2.8" fill="#c0392b"/>
-<circle cx="246.5" cy="222.5" r="2.8" fill="#c0392b"/>
-<circle cx="246.5" cy="197.5" r="2.8" fill="#c0392b"/>
-<circle cx="246.5" cy="172.5" r="2.8" fill="#c0392b"/>
 <rect x="-3.0" y="-8.0" width="136.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(278.0,258.4) rotate(-90.00)"/>
 <rect x="-3.0" y="-6.0" width="134.8" height="12.0" rx="6.0" fill="#fff" transform="translate(278.0,258.4) rotate(-90.00)"/>
 <rect x="111.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(278.0,258.4) rotate(-90.00)"/>
@@ -87,12 +63,8 @@
 <path d="M 550.0 187.5 L 550.0 228.4 L 545.0 221.9 L 545.0 183.3 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
 <circle cx="387.0" cy="177.2" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
 <circle cx="387.0" cy="177.2" r="6.0" fill="#fff"/>
-<circle cx="418.5" cy="165.6" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="418.5" cy="165.6" r="6.0" fill="#fff"/>
 <circle cx="450.0" cy="162.0" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
 <circle cx="450.0" cy="162.0" r="6.0" fill="#fff"/>
-<circle cx="481.5" cy="165.6" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="481.5" cy="165.6" r="6.0" fill="#fff"/>
 <circle cx="513.0" cy="177.2" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
 <circle cx="513.0" cy="177.2" r="6.0" fill="#fff"/>
 <circle cx="450.0" cy="162.0" r="3.5" fill="#c0392b"/>
@@ -104,8 +76,8 @@
 <text x="215" y="448" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (kanal ağızları) altta</text>
 <text x="450" y="117" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik; duvar eksene paralel</text>
 <text x="30" y="452" font-size="10.5" fill="#222">Çap 20 mm, çentikli: jukstapapiller tümör, taban ≤ 16 mm, posterior kenarı disk kenarında; bir boy büyük seçilir</text>
-<text x="30" y="469" font-size="10.5" fill="#222">Kanal: 5 paralel kör kiriş, x = -6.3, -3.1, +0.0, +3.1, +6.3 mm; 3 tanesi çentikte kısaltılmış; iç çap 1.2 mm</text>
-<text x="30" y="486" font-size="10.5" fill="#222">Bekleme pozisyonu: 25 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
+<text x="30" y="469" font-size="10.5" fill="#222">Kanal: 3 paralel kör kiriş, x = -6.3, +0.0, +6.3 mm; 1 tanesi çentikte kısaltılmış; iç çap 1.2 mm</text>
+<text x="30" y="486" font-size="10.5" fill="#222">Bekleme pozisyonu: 15 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
 <text x="30" y="503" font-size="10.5" fill="#222">En uzun kanal yayı 20.4 mm; eğrilik yalnızca küreden (13.8 mm); eksen skleradan 1.5 mm</text>
 <text x="30" y="520" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm; dış kenar 1.5 mm yuvarlatılmış</text>
 <text x="30" y="537" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 5.1 mm, yarım açı 54°; iç eğrilik yarıçapı 12.3 mm; kenar duvar yüksekliği 6.0 mm</text>
