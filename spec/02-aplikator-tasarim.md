@@ -176,6 +176,13 @@ sklera eğrisinde kubbedir; sap tek lümenli yuvarlak boru değil **yassı ve ç
   Tüpler ancak forniks dışında, kılıf içinde birleşir.
 - Kanallar sapa **teğet** girer; sapta ek büküm yoktur. Tüm büküm kanal içindeki küre
   kabuğu eğrisidir.
+- **Ortadan (kubbe sırtından, skleraya dik) giriş elenmiştir.** Kaynağın dik saptan yüzeye
+  paralel kanallara geçmesi 4 mm kalınlık içinde 90° dönüş, yani 2 ile 3 mm bükülme yarıçapı
+  ister; kablo sınırı 13 mm'dir. Ayrıca dik sap orbita duvarına bakar ve fornikse ulaşmak için
+  orbita içinde kıvrılması gerekir. Yalnızca pelet dizili sistemde mümkündür.
+- **Sapın kenardaki yeri serbesttir.** Varsayılan anterior kenar (fornikse en yakın). Tümör
+  kas yapışma yerinin altındaysa plak döndürülür ve sap lateral kenardan çıkar; kanallar sapa
+  paralel olduğu için doz düzeni değişmez. Çentikli plakta sap çentiğin karşısında sabittir.
 - Transfer tüpleri sapın ucuna tek bir kilitli konektörle bağlanır (tek hareketle 3 ile 7 kanal).
   Konektörden sonra tüpler 20 cm boyunca tek kılıf içinde gider, sonra afterloader
   bağlantıları için ayrılır. Toplam uzunluk cihazın standart transfer tüpü uzunluğuna eşittir.
