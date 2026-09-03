@@ -91,7 +91,7 @@
 <header>
   <h1>Yb-169 HDR episkleral aplikatör</h1>
   <span class="sub">3B konformal model, sklera üzerinde</span>
-  <span class="ver">taslak v0.2.1</span>
+  <span class="ver">taslak v0.2.2</span>
 </header>
 
 <aside>
@@ -268,17 +268,27 @@
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
     return new THREE.Mesh(g, mat);
   }
+  const FILLET = 1.5;   // dış kenar yuvarlatma yarıçapı (mm); dik duvar yalnızca R1..R4-FILLET
+  function edgeDist(D, notched, x, y) {   // dış hatta uzaklık (mm), içeride pozitif
+    const r = D / 2; let d = r - Math.hypot(x, y);
+    if (notched) d = Math.min(d, Math.hypot(x, y - notchCY(D)) - NOTCH_R);
+    return Math.max(d, 0);
+  }
+  const topR = (Rtop, d) => d >= FILLET ? Rtop : (Rtop - FILLET) + Math.sqrt(Math.max(FILLET * FILLET - (FILLET - d) ** 2, 0));
   function shellSurfaces(D, notched) {
-    const r = D / 2, N = 140, M = 36, eps = 0.02;
+    const r = D / 2, N = 200, M = 64, eps = 0.02;
     const cols = [];
     for (let i = 0; i <= N; i++) {
-      const x = -r + eps + (2 * r - 2 * eps) * i / N;
+      const u = 0.5 - 0.5 * Math.cos(Math.PI * i / N);            // kenarlarda sık örnekleme
+      const x = -r + eps + (2 * r - 2 * eps) * u;
       const [y0, y1] = yRange(D, notched, x);
       cols.push({ x, y0, y1 });
     }
-    const surface = R => cols.map(c => Array.from({ length: M + 1 }, (_, j) => P(c.x, c.y0 + (c.y1 - c.y0) * j / M, R)));
+    const ys = c => Array.from({ length: M + 1 }, (_, j) => c.y0 + (c.y1 - c.y0) * (0.5 - 0.5 * Math.cos(Math.PI * j / M)));
+    const surface = R => cols.map(c => ys(c).map(y => P(c.x, y, R)));
+    const filletTop = R => cols.map(c => ys(c).map(y => P(c.x, y, topR(R, edgeDist(D, notched, c.x, y)))));
     const wall = (Ra, Rb, side) => cols.map(c => { const y = side ? c.y1 : c.y0; return [P(c.x, y, Ra), P(c.x, y, Rb)]; });
-    return { surface, wall };
+    return { surface, filletTop, wall };
   }
 
   const group = new THREE.Group(); scene.add(group);
@@ -304,9 +314,9 @@
     // plak kabuğu
     const S = shellSurfaces(D, notched);
     if (document.getElementById('cShield').checked) {
-      group.add(gridMesh(S.surface(R4), goldMat));                 // sırt
-      group.add(gridMesh(S.wall(R1, R4, true), goldMat));          // posterior/çentik duvarı
-      group.add(gridMesh(S.wall(R1, R4, false), goldMat));         // anterior duvar
+      group.add(gridMesh(S.filletTop(R4), goldMat));               // sırt, 1,5 mm yuvarlatılmış kenarla
+      group.add(gridMesh(S.wall(R1, R4 - FILLET, true), goldMat)); // posterior/çentik duvarı (dik kısım)
+      group.add(gridMesh(S.wall(R1, R4 - FILLET, false), goldMat));// anterior duvar (dik kısım)
       group.add(gridMesh(S.surface(R3 + 0.01), goldMat));          // kalkan alt yüzü
     }
     group.add(gridMesh(S.surface(R1 + 0.03), mats.poly));          // polimer iç yüz (sklera teması)
@@ -368,14 +378,14 @@
     }
     // kesit yüzleri (y = 0 düzlemi, kanal eksenine dik)
     if (cut) {
-      const NX = 120, band = (Ra, Rb, xa, xb, mat) => {
+      const NX = 160, band = (Ra, Rb, xa, xb, mat, fil) => {
         const rows = [];
-        for (let i = 0; i <= NX; i++) { const x = xa + (xb - xa) * i / NX; rows.push([P(x, -0.02, Ra), P(x, -0.02, Rb)]); }
+        for (let i = 0; i <= NX; i++) { const x = xa + (xb - xa) * i / NX; const Rt = fil ? topR(Rb, edgeDist(D, notched, x, 0)) : Rb; rows.push([P(x, -0.02, Ra), P(x, -0.02, Rt)]); }
         const m = gridMesh(rows, mat.clone()); m.material.clippingPlanes = []; group.add(m);
       };
       band(R1, R3, -(r - RIM), r - RIM, mats.poly);
       if (document.getElementById('cShield').checked) {
-        band(R3, R4, -r, r, mats.gold); band(R1, R3, -r, -(r - RIM), mats.gold); band(R1, R3, r - RIM, r, mats.gold);
+        band(R3, R4, -r, r, mats.gold, true); band(R1, R3, -r, -(r - RIM), mats.gold); band(R1, R3, r - RIM, r, mats.gold);
       }
       if (document.getElementById('cChan').checked) for (const c of ch) {
         const [xa, ya] = c.pt(0), [xb, yb] = c.pt(c.tEnd); if (ya >= 0 || yb <= 0) continue;
@@ -402,6 +412,7 @@
       ['Bekleme pozisyonu', `${dw}`],
       ['En uzun kanal', `${Math.max(...ch.map(c => c.arc)).toFixed(1)} mm`],
       ['Toplam kalınlık', `${(R4 - R1).toFixed(2)} mm`],
+      ['Kenar', `${FILLET} mm yuvarlatılmış`],
       ['İç eğrilik yarıçapı', `${R_SCL} mm`],
       ['Bekleme ekseni', `skleradan ${OFF} mm`],
     ];

@@ -27,7 +27,8 @@ birbirinden bağımsız, tek bir giriş bloğunda toplanan paralel kör kanallar
 | İç eğrilik yarıçapı | 12,3 mm | COMS ile aynı, mevcut dikim tekniği geçerli |
 | Çap ailesi | Yuvarlak 12, 14, 16, 18, 20 mm; çentikli 16, 18, 20 mm | Tümör tabanı 8 ile 16 mm; her boyun çizimi figures/plak-XXmm.svg ve plak-XXmm-centik.svg |
 | Toplam kalınlık (kenar hariç) | ≤ 4,2 mm hedef, ≤ 4,5 mm üst sınır | COMS yaklaşık 3,5 mm; orbita toleransı cerrahi ekiple teyit edilecek |
-| Kenar kalkanı | Sırt kabuğuyla tek parça altın, **tam yükseklikte** sklera temasına kadar iner, kalınlık 0,5 mm | Plak kenarı her yönde kapalıdır; yalnızca giriş bloğu yuvası açıktır. Yanal doz kolimasyonu |
+| Kenar kalkanı | Sırt kabuğuyla tek parça altın, sklera temasına kadar iner, kalınlık 0,5 mm | Plak kenarı her yönde kapalıdır; yalnızca giriş hattı yuvası açıktır. Yanal doz kolimasyonu |
+| Kenar profili | Dış kenar **1,5 mm yarıçaplı yuvarlatılmış** (fillet) sırta bağlanır; dik duvar yalnızca alt 2,75 mm'de, keskin köşe yok. Alt kenar 0,3 mm yuvarlatılmış | Dupere 2021 aplikatörünün kabuk görünüşü; Tenon ve konjonktiva için pürüzsüz kenar, dikişte takılma yok. Fillet tam olarak altın sırt kalınlığı kadardır, koruma kalınlığı kenarda azalmaz |
 | Plak seçim kuralı | **Tümör tabanının en geniş çapı + 4 mm** | Her yönde 2 mm marj; sklera/apeks oranını düşürmenin en etkili yolu (belge 07) |
 | Kütle, 16 mm | Yaklaşık 4 ile 6 g | Altın sırt ile; tungsten alaşım daha hafif |
 

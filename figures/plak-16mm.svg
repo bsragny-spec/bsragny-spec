@@ -9,8 +9,9 @@
 <circle cx="217.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
 <circle cx="234.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
 <text x="200.0" y="402.0" text-anchor="middle" font-size="9" fill="#555">giriş hattı: kök 10.1 × 2,6 mm oval, 10 mm sonra Ø 4,8 mm yuvarlak</text>
-<circle cx="200" cy="190" r="80.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>
-<circle cx="200" cy="190" r="75.0" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>
+<circle cx="200" cy="190" r="80.0" fill="#efdca0" stroke="#8a6d1a" stroke-width="1.4"/>
+<circle cx="200" cy="190" r="65.0" fill="#e6c96a" stroke="#c9ad4f" stroke-width="0.6"/>
+<circle cx="200" cy="190" r="75.0" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7" opacity="0.92"/>
 <circle cx="250.2" cy="139.8" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
 <circle cx="149.8" cy="139.8" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
 <circle cx="133.3" cy="214.3" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
@@ -60,9 +61,9 @@
 <path d="M 362.8 239.7 A 123.0 123.0 0 0 1 577.2 239.7 L 568.5 244.6 A 113.0 113.0 0 0 0 371.5 244.6 Z" fill="#e8dcc8" stroke="#8a7a60" stroke-width="0.8"/>
 <path d="M 390.0 206.6 A 123.0 123.0 0 0 1 550.0 206.6 L 555.5 200.1 A 131.5 131.5 0 0 0 384.5 200.1 Z" fill="#d9ecf5" stroke="#4a7c96" stroke-width="0.8"/>
 <path d="M 384.5 200.1 A 131.5 131.5 0 0 1 555.5 200.1 L 567.9 185.7 A 150.5 150.5 0 0 0 372.1 185.7 Z" fill="#eef4f7" stroke="#4a7c96" stroke-width="0.8"/>
-<path d="M 372.1 185.7 A 150.5 150.5 0 0 1 567.9 185.7 L 577.6 174.3 A 165.5 165.5 0 0 0 362.4 174.3 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
-<path d="M 362.4 174.3 L 390.0 206.6 L 395.0 202.5 L 369.1 168.8 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
-<path d="M 577.6 174.3 L 550.0 206.6 L 545.0 202.5 L 570.9 168.8 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
+<path d="M 372.1 185.7 A 150.5 150.5 0 0 1 567.9 185.7 L 567.9 185.7 A 15.0 15.0 0 0 0 565.8 165.1 A 165.5 165.5 0 0 0 374.2 165.1 A 15.0 15.0 0 0 0 372.1 185.7 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
+<path d="M 372.1 185.7 L 390.0 206.6 L 395.0 202.5 L 378.2 180.7 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
+<path d="M 567.9 185.7 L 550.0 206.6 L 545.0 202.5 L 561.8 180.7 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
 <circle cx="426.4" cy="169.1" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
 <circle cx="426.4" cy="169.1" r="6.0" fill="#fff"/>
 <circle cx="447.8" cy="163.8" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
@@ -84,8 +85,8 @@
 <text x="30" y="469" font-size="10.5" fill="#222">Kanal: 5 yelpaze ışını, ±45°, giriş sırası aralığı 1.7 mm, iç çap 1.2 mm</text>
 <text x="30" y="486" font-size="10.5" fill="#222">Bekleme pozisyonu: 23 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
 <text x="30" y="503" font-size="10.5" fill="#222">En uzun kanal 13.2 mm; düzlemde düz, eğrilik yalnızca küreden (13.8 mm); eksen skleradan 1.5 mm</text>
-<text x="30" y="520" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
+<text x="30" y="520" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm; dış kenar 1.5 mm yuvarlatılmış</text>
 <text x="30" y="537" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 3.0 mm, yarım açı 41°; iç eğrilik yarıçapı 12.3 mm</text>
-<text x="30" y="554" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.</text>
+<text x="30" y="554" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabuk kenarından tek giriş hattı: oval kök, 10 mm sonra Ø 4,8 mm yuvarlak kılıf, ucunda tek konektör.</text>
 <text x="320.0" y="626" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
 </svg>

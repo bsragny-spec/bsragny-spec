@@ -15,6 +15,7 @@ OFF = G.DWELL_OFFSET        # 1.5
 T_SPACER, T_CHAN, T_SHIELD = 0.85, 1.90, 1.50
 CH_ID, CH_OD = 1.2, 1.6
 RIM = 0.5
+FILLET = 1.5   # dış kenar yuvarlatma yarıçapı
 
 def layout(D, notched=False):
     return G.fan_layout(D, notched=notched)
@@ -56,11 +57,13 @@ def top_view(D, S, ox, oy, full=True, notched=False):
         e.append(f'<text x="{ox:.1f}" y="{y1 + 5.2*S:.1f}" text-anchor="middle" font-size="{max(9, 0.8*S):.0f}" fill="#555">giriş hattı: kök {W:.1f} × 2,6 mm oval, 10 mm sonra Ø 4,8 mm yuvarlak</text>')
     # kabuk ve kenar
     if notched:
-        e.append(f'<path d="{notched_outline(r, ox, oy, S)}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>')
-        e.append(f'<path d="{notched_outline(r, ox, oy, S, RIM)}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>')
+        e.append(f'<path d="{notched_outline(r, ox, oy, S)}" fill="#efdca0" stroke="#8a6d1a" stroke-width="1.4"/>')     # yuvarlatılmış kenar bandı
+        e.append(f'<path d="{notched_outline(r, ox, oy, S, FILLET)}" fill="#e6c96a" stroke="#c9ad4f" stroke-width="0.6"/>')  # düz sırt
+        e.append(f'<path d="{notched_outline(r, ox, oy, S, RIM)}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7" opacity="0.92"/>')
     else:
-        e.append(f'<circle cx="{ox}" cy="{oy}" r="{r*S:.1f}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>')
-        e.append(f'<circle cx="{ox}" cy="{oy}" r="{(r-RIM)*S:.1f}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>')
+        e.append(f'<circle cx="{ox}" cy="{oy}" r="{r*S:.1f}" fill="#efdca0" stroke="#8a6d1a" stroke-width="1.4"/>')
+        e.append(f'<circle cx="{ox}" cy="{oy}" r="{(r-FILLET)*S:.1f}" fill="#e6c96a" stroke="#c9ad4f" stroke-width="0.6"/>')
+        e.append(f'<circle cx="{ox}" cy="{oy}" r="{(r-RIM)*S:.1f}" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7" opacity="0.92"/>')
     # sütür delikleri: yuvarlakta 2 posterior 45°, 1 anterior sol; çentiklide 2 lateral, 1 anterior
     for ang in ((10, 170, 200) if notched else (45, 135, 200)):
         a = math.radians(ang)
@@ -114,11 +117,17 @@ def section(D, S, ox, cy, label=True, notched=False):
     R1 = R_SCL; R2 = R1 + T_SPACER; R3 = R2 + T_CHAN; R4 = R3 + T_SHIELD
     e.append(sector(R1, R2, "#d9ecf5", "#4a7c96", 0.8))
     e.append(sector(R2, R3, "#eef4f7", "#4a7c96", 0.8))
-    e.append(sector(R3, R4, "#e6c96a", "#8a6d1a", 1.2))
-    # kenar kalkanı: tam yükseklik, 0,5 mm
+    # altın sırt: dış köşeler FILLET yarıçapıyla yuvarlatılmış (dik duvar yalnızca R4-FILLET'e kadar)
+    f = FILLET; da = f / R4          # fillet'in sırt yayında kapladığı açı
+    p1 = pt(R3, -th); p2 = pt(R3, th); p3 = pt(R4 - f, th); p4 = pt(R4, th - da); p5 = pt(R4, -th + da); p6 = pt(R4 - f, -th)
+    e.append(f'<path d="M {p1[0]:.1f} {p1[1]:.1f} A {R3*S:.1f} {R3*S:.1f} 0 0 1 {p2[0]:.1f} {p2[1]:.1f} '
+             f'L {p3[0]:.1f} {p3[1]:.1f} A {f*S:.1f} {f*S:.1f} 0 0 0 {p4[0]:.1f} {p4[1]:.1f} '
+             f'A {R4*S:.1f} {R4*S:.1f} 0 0 0 {p5[0]:.1f} {p5[1]:.1f} A {f*S:.1f} {f*S:.1f} 0 0 0 {p6[0]:.1f} {p6[1]:.1f} Z" '
+             f'fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>')
+    # kenar kalkanı: 0,5 mm, sklera temasından dik duvarın üstüne
     for sgn in (-1, 1):
         a_out = sgn * th; a_in = sgn * math.asin(min((r - RIM) / R_SCL, 1.0))
-        xa, ya = pt(R4, a_out); xb, yb = pt(R1, a_out); xc, yc = pt(R1, a_in); xd, yd = pt(R4, a_in)
+        xa, ya = pt(R4 - f, a_out); xb, yb = pt(R1, a_out); xc, yc = pt(R1, a_in); xd, yd = pt(R3, a_in)
         e.append(f'<path d="M {xa:.1f} {ya:.1f} L {xb:.1f} {yb:.1f} L {xc:.1f} {yc:.1f} L {xd:.1f} {yd:.1f} Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>')
     # kanallar
     Rd = R_SCL + OFF
@@ -167,9 +176,9 @@ def single(D, notched=False):
          else f"Kanal: {info['n']} yelpaze ışını, ±45°, giriş sırası aralığı {G.FAN_PITCH0} mm, iç çap {CH_ID} mm"),
         f"Bekleme pozisyonu: {info['n_dw']} adet, adım {G.DWELL_STEP} mm, kör uç ölü boşluğu {G.TIP_DEAD} mm",
         f"En uzun kanal {info['arc']:.1f} mm; düzlemde düz, eğrilik yalnızca küreden ({R_SCL+OFF} mm); eksen skleradan {OFF} mm",
-        f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm tam yükseklik",
+        f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm; dış kenar {FILLET} mm yuvarlatılmış",
         f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm",
-        "Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.",
+        "Sütür deliği 3 adet, Ø 0,8 mm. Kabuk kenarından tek giriş hattı: oval kök, 10 mm sonra Ø 4,8 mm yuvarlak kılıf, ucunda tek konektör.",
     ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, sinir ekseni plak merkezinden {G.notch_center_y(D):.0f} mm (kenardan {G.NOTCH_INSET:.0f} mm içeride), dip merkezden {G.notch_center_y(D)-G.NOTCH_R:.0f} mm; kalkan çentiği izler"] if notched else [])
     for i, t in enumerate(rows):
         body.append(f'<text x="30" y="{y + i*17}" font-size="10.5" fill="#222">{t}</text>')

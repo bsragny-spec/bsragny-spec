@@ -58,7 +58,7 @@ pip install numpy scipy && python3 tools/optimize.py
 - Cihaz: kurumdaki **Varian GammaMedplus iX**, Yb-169 için uygun format. Kaynak 0,9 mm kapsül
   formatında Yb-169; Varian ile kaynak anlaşması ön şart, olmazsa belge 08'e göre cihaz alımı.
   Kablo bükülme yarıçapı 13 mm bildiriliyor; teyit edilirse kanallar sklera küresini tam izler.
-- Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar tam yükseklikte altın kalkanla kapalı.
+- Plak çapı = tümör tabanının en geniş çapı + 4 mm. Kenar altın kalkanla kapalı, dış kenar 1,5 mm yuvarlatılmış.
 - İç eğrilik yarıçapı 12,3 mm, yuvarlak 12 ile 20 mm, çentikli 16 ile 20 mm (10 mm U çentik), COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar
   (bekleme ekseni skleradan 1,5 mm), 1,5 mm altın veya tungsten sırt koruması.
