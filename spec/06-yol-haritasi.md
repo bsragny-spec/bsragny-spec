@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.2.3 | 2026-09-03 | Kenar duvarı plak eksenine paralel yapıldı (sırt izdüşümü taban ile aynı, mantar biçimi giderildi); eksenel izdüşüm kuralı; kenar duvar yükseklikleri tabloya eklendi |
 | v0.2.2 | 2026-09-03 | Kabuk kenarı 1,5 mm yarıçaplı yuvarlatıldı (Dupere B görünüşü), 2B kesit ve 3B model güncellendi |
 | v0.2.1 | 2026-09-03 | Kabuktaki altın sap kaldırıldı; kenar yuvasından çıkan tek giriş hattı: oval kök, 10 mm'de Ø 4,8 mm yuvarlak kılıf |
 | v0.2.0 | 2026-09-03 | Kanal düzeni yelpazeye geçti: dar giriş sırasından ± 45° düz ışınlar, paralel kirişle eş doz, çentiklide daha iyi; sap kabukla tek parça yassı, kılıf Ø 4,8 mm yuvarlak; çizimler ve 3B model güncellendi |

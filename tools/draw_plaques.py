@@ -97,60 +97,62 @@ def top_view(D, S, ox, oy, full=True, notched=False):
                              n_trunc=sum(1 for c in ch if c["truncated"]))
 
 def section(D, S, ox, cy, label=True, notched=False):
-    """Kanal eksenine dik kesit. (ox, cy): küre merkezi (px)."""
+    """Kanal eksenine dik kesit. (ox, cy): küre merkezi (px). Kenar duvarı plak eksenine
+    paralel (eksenel izdüşüm): sırt, taban ile aynı izdüşüme sahiptir."""
     e = []
     r = D / 2
-    th = math.asin(min(r / R_SCL, 1.0))
-    def pt(R, a):
-        return ox + R * S * math.sin(a), cy - R * S * math.cos(a)
-    def sector(R1, R2, fill, stroke, sw=1.0):
-        x1l, y1l = pt(R1, -th); x1r, y1r = pt(R1, th); x2r, y2r = pt(R2, th); x2l, y2l = pt(R2, -th)
-        return (f'<path d="M {x1l:.1f} {y1l:.1f} A {R1*S:.1f} {R1*S:.1f} 0 0 1 {x1r:.1f} {y1r:.1f} '
-                f'L {x2r:.1f} {y2r:.1f} A {R2*S:.1f} {R2*S:.1f} 0 0 0 {x2l:.1f} {y2l:.1f} Z" '
+    z = lambda R, x: math.sqrt(max(R * R - x * x, 0.0))
+    px = lambda x, R: (ox + x * S, cy - z(R, x) * S)
+    def band(Ra, Rb, xa, xb, fill, stroke, sw=1.0):
+        # Ra iç yay, Rb dış yay; x aralığı [xa, xb]; duvarlar dikey
+        a0, a1 = px(xa, Ra), px(xb, Ra); b0, b1 = px(xa, Rb), px(xb, Rb)
+        return (f'<path d="M {b0[0]:.1f} {b0[1]:.1f} A {Rb*S:.1f} {Rb*S:.1f} 0 0 1 {b1[0]:.1f} {b1[1]:.1f} '
+                f'L {a1[0]:.1f} {a1[1]:.1f} A {Ra*S:.1f} {Ra*S:.1f} 0 0 0 {a0[0]:.1f} {a0[1]:.1f} Z" '
                 f'fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>')
     # göz ve sklera
     e.append(f'<circle cx="{ox}" cy="{cy}" r="{(R_SCL-1)*S:.1f}" fill="#fdf3e7"/>')
-    thw = min(th + 0.35, math.pi / 2)
-    x1l, y1l = pt(R_SCL, -thw); x1r, y1r = pt(R_SCL, thw); x2r, y2r = pt(R_SCL-1, thw); x2l, y2l = pt(R_SCL-1, -thw)
-    e.append(f'<path d="M {x1l:.1f} {y1l:.1f} A {R_SCL*S:.1f} {R_SCL*S:.1f} 0 0 1 {x1r:.1f} {y1r:.1f} L {x2r:.1f} {y2r:.1f} A {(R_SCL-1)*S:.1f} {(R_SCL-1)*S:.1f} 0 0 0 {x2l:.1f} {y2l:.1f} Z" fill="#e8dcc8" stroke="#8a7a60" stroke-width="0.8"/>')
-    # katmanlar
+    xw = min(r + 4.0, R_SCL - 1.5)
+    e.append(band(R_SCL - 1, R_SCL, -xw, xw, "#e8dcc8", "#8a7a60", 0.8))
+    # katmanlar (eksenel, dik duvarlı)
     R1 = R_SCL; R2 = R1 + T_SPACER; R3 = R2 + T_CHAN; R4 = R3 + T_SHIELD
-    e.append(sector(R1, R2, "#d9ecf5", "#4a7c96", 0.8))
-    e.append(sector(R2, R3, "#eef4f7", "#4a7c96", 0.8))
-    # altın sırt: dış köşeler FILLET yarıçapıyla yuvarlatılmış (dik duvar yalnızca R4-FILLET'e kadar)
-    f = FILLET; da = f / R4          # fillet'in sırt yayında kapladığı açı
-    p1 = pt(R3, -th); p2 = pt(R3, th); p3 = pt(R4 - f, th); p4 = pt(R4, th - da); p5 = pt(R4, -th + da); p6 = pt(R4 - f, -th)
+    e.append(band(R1, R2, -(r - RIM), r - RIM, "#d9ecf5", "#4a7c96", 0.8))
+    e.append(band(R2, R3, -(r - RIM), r - RIM, "#eef4f7", "#4a7c96", 0.8))
+    # altın sırt: dış köşeler FILLET ile yuvarlatılmış
+    f = FILLET
+    p1 = px(-r, R3); p2 = px(r, R3); w3 = px(r, R4); p3 = (w3[0], w3[1] + f * S); p4 = px(r - f, R4)
+    p5 = px(-(r - f), R4); w6 = px(-r, R4); p6 = (w6[0], w6[1] + f * S)
     e.append(f'<path d="M {p1[0]:.1f} {p1[1]:.1f} A {R3*S:.1f} {R3*S:.1f} 0 0 1 {p2[0]:.1f} {p2[1]:.1f} '
              f'L {p3[0]:.1f} {p3[1]:.1f} A {f*S:.1f} {f*S:.1f} 0 0 0 {p4[0]:.1f} {p4[1]:.1f} '
              f'A {R4*S:.1f} {R4*S:.1f} 0 0 0 {p5[0]:.1f} {p5[1]:.1f} A {f*S:.1f} {f*S:.1f} 0 0 0 {p6[0]:.1f} {p6[1]:.1f} Z" '
              f'fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>')
-    # kenar kalkanı: 0,5 mm, sklera temasından dik duvarın üstüne
+    # kenar kalkanı: 0,5 mm, dikey, sklera temasından R3'e
     for sgn in (-1, 1):
-        a_out = sgn * th; a_in = sgn * math.asin(min((r - RIM) / R_SCL, 1.0))
-        xa, ya = pt(R4 - f, a_out); xb, yb = pt(R1, a_out); xc, yc = pt(R1, a_in); xd, yd = pt(R3, a_in)
-        e.append(f'<path d="M {xa:.1f} {ya:.1f} L {xb:.1f} {yb:.1f} L {xc:.1f} {yc:.1f} L {xd:.1f} {yd:.1f} Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>')
-    # kanallar
+        xa, xb = sgn * r, sgn * (r - RIM)
+        q = [px(xa, R3), px(xa, R1), px(xb, R1), px(xb, R3)]
+        e.append('<path d="M ' + ' L '.join(f'{x:.1f} {y:.1f}' for x, y in q) + ' Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>')
+    # kanallar: y=0 düzlemini kestikleri x
     Rd = R_SCL + OFF
     for c in layout(D, notched):
         (xa, ya), (xb, yb) = c["start"], c["end"]
         if ya >= 0 or yb <= 0: continue
         xc = xa + (0 - ya) / (yb - ya) * (xb - xa)
-        a = math.asin(max(min(xc / Rd, 1), -1))
-        x, y = pt(Rd, a)
+        x, y = px(xc, Rd)
         e.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{CH_OD/2*S:.1f}" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>')
         e.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{CH_ID/2*S:.1f}" fill="#fff"/>')
-    x, y = pt(Rd, 0)
+    x, y = px(0, Rd)
     e.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{0.35*S:.1f}" fill="#c0392b"/>')
-    # kalınlık ölçüsü
+    # kalınlık ölçüleri: merkezde ve kenarda
     xl = ox + (r + 2.5) * S
-    ya = cy - R4 * S; yb = cy - R1 * S
+    ya, yb = cy - R4 * S, cy - R1 * S
     e.append(f'<line x1="{xl:.1f}" y1="{ya:.1f}" x2="{xl:.1f}" y2="{yb:.1f}" stroke="#333" stroke-width="0.7"/>')
     e.append(f'<line x1="{xl-3}" y1="{ya:.1f}" x2="{xl+3}" y2="{ya:.1f}" stroke="#333" stroke-width="0.7"/>')
     e.append(f'<line x1="{xl-3}" y1="{yb:.1f}" x2="{xl+3}" y2="{yb:.1f}" stroke="#333" stroke-width="0.7"/>')
-    e.append(f'<text x="{xl + 0.5*S:.1f}" y="{(ya+yb)/2 + 3:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}">{R4-R1:.2f} mm</text>')
-    # kubbe derinliği (sagitta)
-    sag = R_SCL - R_SCL * math.cos(th)
-    return "\n".join(e), dict(sag=sag, th=math.degrees(th))
+    e.append(f'<text x="{xl + 0.5*S:.1f}" y="{(ya+yb)/2 + 3:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}">{R4-R1:.2f} mm merkez</text>')
+    edge_h = z(R4, r) - z(R1, r)
+    e.append(f'<text x="{xl + 0.5*S:.1f}" y="{(ya+yb)/2 + 3 + 1.2*S:.1f}" text-anchor="start" font-size="{max(9, 0.8*S):.0f}">{edge_h:.1f} mm kenar</text>')
+    sag = R_SCL - z(R_SCL, r)
+    th = math.asin(min(r / R_SCL, 1.0))
+    return "\n".join(e), dict(sag=sag, th=math.degrees(th), edge_h=edge_h)
 
 def svg_wrap(w, h, body, title):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" '
@@ -164,10 +166,10 @@ def single(D, notched=False):
     body = [f'<text x="{W/2}" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, {ttl} (ölçek 10 px = 1 mm)</text>']
     tv, info = top_view(D, S, 200, 190, notched=notched)
     body.append(tv)
-    sc, sinfo = section(D, S, 470, 300, notched=notched)
+    sc, sinfo = section(D, S, 450, 300, notched=notched)
     body.append(sc)
     body.append(f'<text x="200" y="{190 + (D/2 + 15.8) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş hattı) altta</text>')
-    body.append(f'<text x="470" y="{300 - (R_SCL + 6.0) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>')
+    body.append(f'<text x="450" y="{300 - (R_SCL + 6.0) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik; duvar eksene paralel</text>')
     y = 452
     rows = [
         (f"Çap {D} mm, çentikli: jukstapapiller tümör, taban ≤ {D-4} mm, posterior kenarı disk kenarında; bir boy büyük seçilir" if notched
@@ -177,7 +179,7 @@ def single(D, notched=False):
         f"Bekleme pozisyonu: {info['n_dw']} adet, adım {G.DWELL_STEP} mm, kör uç ölü boşluğu {G.TIP_DEAD} mm",
         f"En uzun kanal {info['arc']:.1f} mm; düzlemde düz, eğrilik yalnızca küreden ({R_SCL+OFF} mm); eksen skleradan {OFF} mm",
         f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm; dış kenar {FILLET} mm yuvarlatılmış",
-        f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm",
+        f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm; kenar duvar yüksekliği {sinfo['edge_h']:.1f} mm",
         "Sütür deliği 3 adet, Ø 0,8 mm. Kabuk kenarından tek giriş hattı: oval kök, 10 mm sonra Ø 4,8 mm yuvarlak kılıf, ucunda tek konektör.",
     ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, sinir ekseni plak merkezinden {G.notch_center_y(D):.0f} mm (kenardan {G.NOTCH_INSET:.0f} mm içeride), dip merkezden {G.notch_center_y(D)-G.NOTCH_R:.0f} mm; kalkan çentiği izler"] if notched else [])
     for i, t in enumerate(rows):

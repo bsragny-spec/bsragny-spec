@@ -91,7 +91,7 @@
 <header>
   <h1>Yb-169 HDR episkleral aplikatör</h1>
   <span class="sub">3B konformal model, sklera üzerinde</span>
-  <span class="ver">taslak v0.2.2</span>
+  <span class="ver">taslak v0.2.3</span>
 </header>
 
 <aside>
@@ -174,11 +174,10 @@
     }
     return ch;
   }
-  // plak düzlemi (x,y) -> küre yüzeyi yönü; R yarıçapına ölçekle
+  // plak taban düzlemi (x,y) -> R yarıçaplı küre, EKSENEL izdüşüm: (x,y) korunur, z küreden.
+  // Böylece bütün katmanlar aynı izdüşüme sahiptir ve kenar duvarı plak eksenine paraleldir.
   function P(x, y, R) {
-    const z = Math.sqrt(Math.max(R_SCL * R_SCL - x * x - y * y, 0));
-    const k = R / R_SCL;
-    return new THREE.Vector3(x * k, y * k, z * k);
+    return new THREE.Vector3(x, y, Math.sqrt(Math.max(R * R - x * x - y * y, 0)));
   }
   function yRange(D, notched, x) {
     const r = D / 2, s = Math.sqrt(Math.max(r * r - x * x, 0));
