@@ -18,7 +18,7 @@ RIM = 0.5
 FILLET = 1.5   # dış kenar yuvarlatma yarıçapı
 
 def layout(D, notched=False):
-    return G.fan_layout(D, notched=notched)
+    return G.plaque_layout(D, notched=notched)
 
 def notched_outline(r, ox, oy, S, inset=0.0):
     """U çentikli plak dış hattı (posterior = üst). inset: kenar kalkanı iç hattı için."""
@@ -41,20 +41,19 @@ def top_view(D, S, ox, oy, full=True, notched=False):
     r = D / 2
     ch = layout(D, notched)
     pitch = ch[0]["pitch"]
-    # giriş hattı: kabuğun kenarındaki yuvadan çıkan tek kılıf; kök oval (giriş sırası + 1,6 mm),
-    # 10 mm içinde Ø 4,8 mm yuvarlağa geçer. Altın sap yok. (kabuktan önce çizilir)
-    n = len(ch); W = n * G.FAN_PITCH0 + 1.6; Lt = 8.0
-    y_rim = oy + (r - 1.2) * S
-    y1 = y_rim + (Lt + 1.2) * S
-    e.append(f'<path d="M {ox - W/2*S:.1f} {y_rim:.1f} L {ox + W/2*S:.1f} {y_rim:.1f} '
-             f'C {ox + W/2*S:.1f} {y_rim + 5*S:.1f} {ox + 2.4*S:.1f} {y_rim + 6*S:.1f} {ox + 2.4*S:.1f} {y1:.1f} '
-             f'L {ox + 2.4*S:.1f} {y1 + 1.5*S:.1f} A {2.4*S:.1f} {2.4*S:.1f} 0 0 1 {ox - 2.4*S:.1f} {y1 + 1.5*S:.1f} '
-             f'L {ox - 2.4*S:.1f} {y1:.1f} C {ox - 2.4*S:.1f} {y_rim + 6*S:.1f} {ox - W/2*S:.1f} {y_rim + 5*S:.1f} {ox - W/2*S:.1f} {y_rim:.1f} Z" '
-             f'fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>')
-    for c in ch:   # kökteki lümenler
-        e.append(f'<circle cx="{ox + c["x"]*S:.1f}" cy="{y_rim + 2.0*S:.1f}" r="{CH_ID/2*S:.1f}" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>')
+    # giriş: her kanal anterior kenardan KENDİ altın ağzıyla çıkar, kendi kateteri ve kablosu vardır
+    # (kabuktan önce çizilir; ağız kabukla tek parça görünür)
+    NOZ_OD, NOZ_L, CAT_OD, CAT_L = 2.4, 3.0, 2.0, 9.0
+    for c in ch:
+        x0 = ox + c["x"] * S; y_rim = oy - c["y_start"] * S - 1.0 * S
+        e.append(f'<rect x="{x0 - NOZ_OD/2*S:.1f}" y="{y_rim:.1f}" width="{NOZ_OD*S:.1f}" height="{(NOZ_L + 1.0)*S:.1f}" rx="{0.6*S:.1f}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>')
+        yc0 = y_rim + (NOZ_L + 1.0) * S
+        e.append(f'<path d="M {x0:.1f} {yc0:.1f} C {x0:.1f} {yc0 + 4*S:.1f} {x0 + c["x"]*0.15*S:.1f} {yc0 + 6*S:.1f} {x0 + c["x"]*0.25*S:.1f} {yc0 + CAT_L*S:.1f}" stroke="#2b4c5e" stroke-width="{CAT_OD*S:.1f}" fill="none" stroke-linecap="round"/>')
+        e.append(f'<path d="M {x0:.1f} {yc0:.1f} C {x0:.1f} {yc0 + 4*S:.1f} {x0 + c["x"]*0.15*S:.1f} {yc0 + 6*S:.1f} {x0 + c["x"]*0.25*S:.1f} {yc0 + CAT_L*S:.1f}" stroke="#dfe7ec" stroke-width="{(CAT_OD - 0.5)*S:.1f}" fill="none" stroke-linecap="round"/>')
+        e.append(f'<circle cx="{x0:.1f}" cy="{y_rim + (NOZ_L + 0.4)*S:.1f}" r="{CH_ID/2*S:.1f}" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>')
     if full:
-        e.append(f'<text x="{ox:.1f}" y="{y1 + 5.2*S:.1f}" text-anchor="middle" font-size="{max(9, 0.8*S):.0f}" fill="#555">giriş hattı: kök {W:.1f} × 2,6 mm oval, 10 mm sonra Ø 4,8 mm yuvarlak</text>')
+        yl = oy + (r + NOZ_L + CAT_L + 1.5) * S
+        e.append(f'<text x="{ox:.1f}" y="{yl:.1f}" text-anchor="middle" font-size="{max(9, 0.8*S):.0f}" fill="#555">kanal başına altın ağız Ø {NOZ_OD} × {NOZ_L:.0f} mm ve ayrı kateter Ø {CAT_OD} mm</text>')
     # kabuk ve kenar
     if notched:
         e.append(f'<path d="{notched_outline(r, ox, oy, S)}" fill="#efdca0" stroke="#8a6d1a" stroke-width="1.4"/>')     # yuvarlatılmış kenar bandı
@@ -133,10 +132,8 @@ def section(D, S, ox, cy, label=True, notched=False):
     # kanallar: y=0 düzlemini kestikleri x
     Rd = R_SCL + OFF
     for c in layout(D, notched):
-        (xa, ya), (xb, yb) = c["start"], c["end"]
-        if ya >= 0 or yb <= 0: continue
-        xc = xa + (0 - ya) / (yb - ya) * (xb - xa)
-        x, y = px(xc, Rd)
+        if c["y_tube_end"] <= 0: continue
+        x, y = px(c["x"], Rd)
         e.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{CH_OD/2*S:.1f}" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>')
         e.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{CH_ID/2*S:.1f}" fill="#fff"/>')
     x, y = px(0, Rd)
@@ -168,19 +165,20 @@ def single(D, notched=False):
     body.append(tv)
     sc, sinfo = section(D, S, 450, 300, notched=notched)
     body.append(sc)
-    body.append(f'<text x="200" y="{190 + (D/2 + 15.8) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş hattı) altta</text>')
+    body.append(f'<text x="200" y="{190 + (D/2 + 15.8) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (kanal ağızları) altta</text>')
     body.append(f'<text x="450" y="{300 - (R_SCL + 6.0) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik; duvar eksene paralel</text>')
     y = 452
+    xs_txt = ", ".join(f"{c['x']:+.1f}" for c in layout(D, notched))
     rows = [
         (f"Çap {D} mm, çentikli: jukstapapiller tümör, taban ≤ {D-4} mm, posterior kenarı disk kenarında; bir boy büyük seçilir" if notched
          else f"Çap {D} mm, tümör tabanı ≤ {D-4} mm için"),
-        (f"Kanal: {info['n']} yelpaze ışını, ±45°, giriş sırası aralığı {G.FAN_PITCH0} mm; {info['n_trunc']} tanesi çentikte kısaltılmış; iç çap {CH_ID} mm" if notched
-         else f"Kanal: {info['n']} yelpaze ışını, ±45°, giriş sırası aralığı {G.FAN_PITCH0} mm, iç çap {CH_ID} mm"),
+        (f"Kanal: {info['n']} paralel kör kiriş, x = {xs_txt} mm; {info['n_trunc']} tanesi çentikte kısaltılmış; iç çap {CH_ID} mm" if notched
+         else f"Kanal: {info['n']} paralel kör kiriş, x = {xs_txt} mm (LP ile seçildi), iç çap {CH_ID} mm"),
         f"Bekleme pozisyonu: {info['n_dw']} adet, adım {G.DWELL_STEP} mm, kör uç ölü boşluğu {G.TIP_DEAD} mm",
-        f"En uzun kanal {info['arc']:.1f} mm; düzlemde düz, eğrilik yalnızca küreden ({R_SCL+OFF} mm); eksen skleradan {OFF} mm",
+        f"En uzun kanal yayı {info['arc']:.1f} mm; eğrilik yalnızca küreden ({R_SCL+OFF} mm); eksen skleradan {OFF} mm",
         f"Katmanlar: ara katman {T_SPACER} mm, kanal katmanı {T_CHAN} mm, altın sırt {T_SHIELD} mm; kenar kalkanı {RIM} mm; dış kenar {FILLET} mm yuvarlatılmış",
         f"Kubbe derinliği (sagitta) {sinfo['sag']:.1f} mm, yarım açı {sinfo['th']:.0f}°; iç eğrilik yarıçapı {R_SCL} mm; kenar duvar yüksekliği {sinfo['edge_h']:.1f} mm",
-        "Sütür deliği 3 adet, Ø 0,8 mm. Kabuk kenarından tek giriş hattı: oval kök, 10 mm sonra Ø 4,8 mm yuvarlak kılıf, ucunda tek konektör.",
+        "Sütür deliği 3 adet, Ø 0,8 mm. Her kanal kendi altın ağzından çıkar; kanal başına ayrı kateter, ayrı transfer tüpü.",
     ] + ([f"Çentik: U biçimli, genişlik {G.NOTCH_W:.0f} mm, sinir ekseni plak merkezinden {G.notch_center_y(D):.0f} mm (kenardan {G.NOTCH_INSET:.0f} mm içeride), dip merkezden {G.notch_center_y(D)-G.NOTCH_R:.0f} mm; kalkan çentiği izler"] if notched else [])
     for i, t in enumerate(rows):
         body.append(f'<text x="30" y="{y + i*17}" font-size="10.5" fill="#222">{t}</text>')
@@ -201,20 +199,19 @@ def family():
         body.append(tv)
         sc, sinfo = section(D, S, cx, cy + 370, notched=notched)
         body.append(sc)
-        l1 = f"{D} mm {'çentikli' if notched else ''}: {info['n']} ışın, {info['n_dw']} dwell"
-        l2 = (f"{info['n_trunc']} kısa + {info['n']-info['n_trunc']} yan ışın" if notched
-              else f"yelpaze ±45°, taban ≤ {D-4} mm")
-        if notched and D >= 20: l2 += ", ±55°"
+        l1 = f"{D} mm {'çentikli' if notched else ''}: {info['n']} kanal, {info['n_dw']} dwell"
+        l2 = (f"{info['n_trunc']} kısa + {info['n']-info['n_trunc']} yan kanal" if notched
+              else f"ayrı ağız ve kateter, taban ≤ {D-4} mm")
         yl = cy + 105 + (D/2 + 12.5) * S
         body.append(f'<text x="{cx}" y="{yl:.0f}" text-anchor="middle" font-size="9.5" fill="#333">{l1}</text>')
         body.append(f'<text x="{cx}" y="{yl+12:.0f}" text-anchor="middle" font-size="9.5" fill="#555">{l2}</text>')
-    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, giriş hattı anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
+    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, kanal ağızları anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
     return svg_wrap(W, H, "\n".join(body), "Plak ailesi")
 
 if __name__ == "__main__":
     out = os.path.join(os.path.dirname(__file__), "..", "figures")
     os.makedirs(out, exist_ok=True)
-    print(f"{'Çap':>4} {'Işın':>5} {'Giriş':>7} {'Dwell':>5} {'Uzun':>7} {'Sagitta':>8} {'Yarım açı':>9}")
+    print(f"{'Çap':>4} {'Kanal':>5} {'Aralık':>7} {'Dwell':>5} {'Yay':>7} {'Sagitta':>8} {'Yarım açı':>9}")
     for D in SIZES:
         svg, info, sinfo = single(D)
         open(os.path.join(out, f"plak-{D}mm.svg"), "w").write(svg)

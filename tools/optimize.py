@@ -130,8 +130,13 @@ def fan(D, n=None, amax=None):
 def run(b, h):
     D = b + 4
     tp, sp = tumor_points(b, h), sclera_points(D)
-    layouts = [single_chord(D), chords(D, 3), chords(D, 5), chords(D, 7),
-               fan(D), fan(D, amax=45), fan(D, amax=75), fan(D, n=7), c_ring(D), concentric(D)]
+    def spec_layout(D):
+        import geometry as G
+        ch = G.plaque_layout(D); dw = np.array([P for c in ch for P in c["dwells"]])
+        xs = ",".join(f"{c['x']:+.1f}" for c in ch)
+        return dw, R_D, f"spec: {len(ch)} kanal @ {xs}"
+    layouts = [single_chord(D), chords(D, 3), chords(D, 5), chords(D, 7), spec_layout(D),
+               fan(D, amax=45), c_ring(D), concentric(D)]
     print(f"\nTümör tabanı {b} mm, apeks {h} mm  ->  plak {D} mm")
     print(f"{'Düzen':<30}{'Dwell':>6}{'Bükülme R':>11}{'Sklera/Rx eşit':>16}{'Sklera/Rx opt.':>16}{'Süre (göreli)':>15}")
     base_time = None
@@ -167,8 +172,8 @@ def run_notched(D, h):
     disc = tumor_points_offset(0.01, 0.0, ncy)[:1]  # disk merkezi: sinir ekseni, iç sklera
     print(f"\nÇentikli karşılaştırma: plak {D} mm, tümör tabanı {b} mm, apeks {h} mm, tümör merkezi y={yc:+.1f} mm, tümör posterior kenarı y=+{ncy-G.DISC_EDGE:.1f} mm, disk y=+{ncy:.0f} mm")
     print(f"{'Düzen':<34}{'Dwell':>6}{'Sklera/Rx opt.':>16}{'Disk/Rx opt.':>14}")
-    for notched, fanl in ((False, False), (True, False), (True, True)):
-        ch = G.fan_layout(D, notched=True) if fanl else G.plaque_layout(D, notched=notched)
+    for notched, fanl in ((False, False), (True, False)):
+        ch = G.plaque_layout(D, notched=notched)
         dw = np.array([d for c in ch for d in c["dwells"]])
         A_t = np.array([[kernel(p, q) for q in dw] for p in tp])
         A_s = np.array([[kernel(p, q) for q in dw] for p in sp])

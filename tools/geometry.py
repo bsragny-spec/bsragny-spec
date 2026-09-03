@@ -58,26 +58,24 @@ def dose_rate(rel, d_mm):
     d = max(d_mm, 0.5)
     return rel * g_r(d) / (d * d)
 
+# Kanal konumları (mm, plak taban düzlemi x): sayı ve konum LP optimizasyonuyla seçildi
+# (tools/optimize.py, sklera maks / reçete). Yuvarlak 12-16 mm: 3 kanal; 18-20 mm: 5 kanal; çentikli: 5 kanal.
+# Çentiklide dış kanallar sinirin iki yanından geçer (|x| = çentik yarıçapı + kalkan + tüp yarıçapı).
+CHANNEL_X = {12: [-3.5, 0.0, 3.5], 14: [-3.5, 0.0, 3.5], 16: [-5.0, 0.0, 5.0],
+             18: [-6.1, -2.8, 0.0, 2.8, 6.1], 20: [-6.6, -2.3, 0.0, 2.3, 6.6]}
+CHANNEL_X_NOTCHED = {16: [-6.3, -3.15, 0.0, 3.15, 6.3], 18: [-6.3, -3.15, 0.0, 3.15, 6.3], 20: [-6.3, -3.15, 0.0, 3.15, 6.3]}
+
 def plaque_layout(diameter, notched=False):
     """Paralel kiriş kanalları ve bekleme pozisyonlarını üretir.
-    Koordinatlar plak tabanı düzleminde (x,y), z sklera normalinde; +y posterior.
-    notched=True: posterior kenarda U çentik; çentiğe giren kirişler kısaltılır,
-    çentiğin iki yanında tam boy yan kanallar bulunur."""
+    Koordinatlar plak tabanı düzleminde (x,y), z eksenel (küreden); +y posterior.
+    Her kanal anterior kenardan kendi ağzıyla çıkar, kendi kateteri vardır.
+    notched=True: posterior kenarda U çentik; çentiğe giren kirişler kısaltılır."""
     Rd = R_SCLERA + DWELL_OFFSET
-    half = diameter / 2.0 - EDGE_MARGIN
-    if notched:
-        x_f = NOTCH_R + RIM + CH_OD / 2          # yan kanal: çentik + kenar kalkanı + tüp yarıçapı
-        inner = x_f / 2.0                        # kısaltılmış iç kanallar 0, ±x_f/2
-        xs = [-x_f, -inner, 0.0, inner, x_f]
-        r_in = diameter / 2.0 - RIM - 0.2
-        if x_f + 2.0 + CH_OD / 2 <= r_in:        # 20 mm: dış kanal çifti
-            xs = [-(x_f + 2.0)] + xs + [x_f + 2.0]
-        pitch = inner
-    else:
-        # tek sayıda kanal, en dış kanal kenar payının 1 mm içinde
-        n_ch = 2 * int((half - 1.0) / CHANNEL_PITCH + 0.5) + 1
-        pitch = 2 * (half - 1.0) / (n_ch - 1) if n_ch > 1 else 0.0
-        xs = [(-(n_ch - 1) / 2.0 + i) * pitch for i in range(n_ch)]
+    table = CHANNEL_X_NOTCHED if notched else CHANNEL_X
+    xs = table.get(int(round(diameter)))
+    if xs is None:
+        raise ValueError(f"{diameter} mm için kanal tablosu yok")
+    pitch = min(abs(b - a) for a in xs for b in xs if a != b) if len(xs) > 1 else 0.0
     channels = []
     r_in = diameter / 2.0 - RIM - 0.2       # kenar kalkanı iç yüzeyi + 0,2 mm pay
     for x in xs:
@@ -103,6 +101,7 @@ def plaque_layout(diameter, notched=False):
         channels.append({"x": x, "chord": 2 * chord_half, "arc": arc_len,
                          "pitch": pitch, "dwells": dwells,
                          "y_start": -chord_half, "y_tube_end": y_tube_end,
+                         "start": (x, -chord_half), "end": (x, y_tube_end),
                          "truncated": yn is not None})
     return channels
 

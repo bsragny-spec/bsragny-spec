@@ -6,7 +6,7 @@ spesifikasyonu. Kaynak olarak **iterbiyum-169** seçilmiştir; aplikatör mevcut
 plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliyathanede
 ışınlanır.
 
-> Durum: **taslak v0.2**, tasarım dondurulmamıştır. Bütün sayısal değerler tasarım
+> Durum: **taslak v0.3**, tasarım dondurulmamıştır. Bütün sayısal değerler tasarım
 > hedefidir; Monte Carlo ve ölçümle doğrulanmadan klinik anlam taşımaz.
 
 ## Belgeler

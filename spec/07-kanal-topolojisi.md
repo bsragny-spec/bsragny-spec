@@ -77,12 +77,12 @@ Bunun bedelleri:
 
 | Topoloji | Bükülme yarıçapı | Standart afterloader | Doz simetrisi | Merkez kapsama | Karar |
 |----------|------------------|----------------------|---------------|----------------|-------|
-| Paralel kirişler, 3 ile 7 kanal | 13,8 mm | Evet | Kanallar arası vadi, optimizasyonla kapanır | Evet | v0.1 tasarımı; yelpaze ile değiştirildi |
+| **Paralel kirişler, 3 veya 5 kanal, konumlar LP ile** | 13,8 mm | **Evet** | Kanallar arası vadi, optimizasyonla kapanır | Evet | **Seçildi (v0.3)**: her kanal kendi ağzı ve kateteriyle |
 | Spiral, tek kanal | 0 ile 6 mm | Hayır | Mükemmel | Evet, ama ulaşılamaz | Elendi |
 | Tek C halkası + merkez kiriş | 5,5 ile 7,2 mm | Hayır, özel kablo ile belki 20 mm plakta | İyi | Merkez kirişle | 20 mm için v0.2'de değerlendirilebilir |
 | Eş merkezli C halkaları | İç halka 2 ile 3 mm | Hayır | Mükemmel | Evet | Yalnızca pelet dizisiyle |
 | Dupere halkası, pelet dizisi | Sınırsız | Hayır, pelet yükleyici | Mükemmel, statik | Konik kolimasyonla | Referans; G6 nedeniyle elendi |
-| **Yelpaze, dar giriş sırasından ± 45° düz ışınlar** | Işınlar düz, 13,8 mm | **Evet** | Optimizasyonla paralel kirişe eş | Evet | **Seçildi (v0.2)**: paralel kirişle aynı oran, giriş genişliği 8,5 mm'ye iner, tek giriş hattı |
+| Yelpaze, dar giriş sırasından ± 45° düz ışınlar | Işınlar düz, 13,8 mm | Evet | Optimizasyonla paralel kirişe eş | Evet | v0.2'de denendi; tek giriş hattı istenmediği için paralel kirişe dönüldü |
 
 ## Paralel kiriş tasarımına referanstan alınacaklar
 
@@ -104,10 +104,9 @@ teğet tek sap.
 - **Kanal (A)**: halka yarıçapı yaklaşık 4 mm. GammaMedplus kablosunun sınırı 13 mm; kapsül
   bu halkaya giremez. Makale bu yüzden pelet dizisi kullanır. Elimizdeki cihazla uygulanamaz.
   Bu, yukarıdaki spiral analizinin halka biçimli halidir.
-- **Dış görünüş (B)**: benimsenmiştir (belge 02, giriş hattı). Kubbe kabuk, kenardan çıkan tek
-  kılıf, kabukta sap yok. Kılıfın kökü yassı-oval olmak zorundadır: lümenler plak içinde tek
-  sırada durur ve yuvarlak demete geçiş 13 mm bükülme yarıçapıyla 9 ile 10 mm ister; bu geçiş
-  kılıfın ilk 10 mm'sinde yapılır.
+- **Dış görünüş (B)**: kabuk için benimsenmiştir (belge 02): pürüzsüz kubbe, yuvarlatılmış kenar,
+  dik duvar. Tek sap yerine kanal başına küçük altın ağız ve ayrı kateter kullanılır; ortak
+  çok lümenli sap denenmiş (v0.2) ve istenmediği için kaldırılmıştır.
 
 ## Sayısal karşılaştırma: hangi düzen en iyi
 
@@ -131,9 +130,11 @@ Okuma:
 - **Tek kanal ile plak içi tarama** (tek kiriş) oranı iki kat kötüleştirir; sklera dozu
   kabul edilemez olur. Tek giriş korunur ama içeride birden fazla kör kanal şarttır.
 - **Yelpaze ± 45°** ve **5 paralel kiriş** eşdeğerdir; kabloyla uygulanabilen düzenler içinde en
-  iyileridir. Yelpaze giriş sırasını daraltıp tek parça sapa izin verdiği için seçilmiştir.
-  Düzlem içi eğriliğe pay olmadığından (birleşik eğrilik sınırı için düzlem içi yarıçap ≥ 39 mm)
-  ışınlar düzdür; kavisli yelpaze mümkün değildir.
+  iyileridir. Her kanalın kendi ağzı ve kateteriyle çıkması istendiğinden paralel kiriş
+  seçilmiştir; yelpazenin tek avantajı olan dar giriş sırası bu durumda gerekmez.
+- Kanal **sayısı** ayrıca incelenmiştir (belge 02 tablosu): tek kanal iki kat kötü, iki kanal
+  %10 ile 25 kötü, üç kanal 12 ile 16 mm'de beş kanala %3 ile 11 yakın. Karar: 12 ile 16 mm'de 3,
+  18 ile 20 mm'de ve çentiklilerde 5 kanal.
 - **Halka ve eş merkezli düzenler**, pelet dizili özel yükleyici gerektirir ve 5 kirişe göre
   %5 ile 25 kazandırır. En büyük fark 20 mm plak ve kalın tümörde görülür. Bu kazanç, özel
   cihaz geliştirmenin bedeliyle karşılaştırılmalıdır (A9).
@@ -151,8 +152,9 @@ kablo sürücülü HDR kaynağının sertliği ve bükülme sınırı nedeniyle 
 fiziksel olarak çalışmaz; ancak pelet dizisiyle mümkündür ve o zaman standart afterloader
 şartı düşer. Bu iki şart arasında seçim yapılmalıdır:
 
-- **Standart afterloader korunacaksa**: dar giriş sırasından ± 45° düz ışınlarla yelpaze, kabuktan tek
-  giriş hattı, optimize bekleme süreleri (mevcut tasarım). Kabloyla uygulanabilen en iyi düzen budur.
+- **Standart afterloader korunacaksa**: 3 veya 5 paralel kiriş, konumlar ve bekleme süreleri
+  optimize, her kanal kendi ağzı ve kateteriyle (mevcut tasarım). Kabloyla uygulanabilen en iyi
+  düzen budur.
 - **Spiral veya eş merkezli halka isteniyorsa**: pelet dizili özel yükleyici; proje kapsamı
   cihaz geliştirmeyi de içerecek şekilde büyür.
 

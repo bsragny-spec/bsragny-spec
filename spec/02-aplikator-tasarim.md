@@ -66,70 +66,86 @@ oranını verir:
 Bu sayılar nokta kaynak ve eşit bekleme süresi varsayımıyladır; optimizasyon ve gerçek kaynak
 geometrisi ile değişir.
 
-## Kanal yerleşimi: yelpaze
+## Kanal yerleşimi: paralel kirişler, sayı ve konum optimizasyonla
 
-Tasarım kararı (belge 07): **plağa tek giriş; kanallar anterior kenardaki dar bir giriş
-sırasından düz ışınlar halinde ± 45° yelpaze gibi açılır; bekleme süreleri doğrusal programlama
-ile optimize edilir.** Yelpaze, paralel kirişlerle aynı sklera/reçete oranını verir (16 mm'de
-4,0'a 4,1; 20 mm'de 3,0'a 3,0) ve giriş genişliğini kanal yayılımından giriş sırasına indirerek
-tek giriş hattına izin verir.
+Tasarım kararı (belge 07): **paralel kör kirişler; kanal sayısı ve konumları doğrusal programlama
+ile seçilir; her kanal anterior kenardan kendi altın ağzıyla çıkar ve kendi kateteri, kendi
+transfer tüpü vardır.** Yelpaze ve tek giriş hattı düzenleri kaldırılmıştır (belge 07).
 
-- Kanallar **düzlemde düzdür**; eğrilik yalnızca sklera küresinden gelir (13,8 mm). Kablo
-  sınırı 13 mm olduğundan düzlem içi eğriliğe pay yoktur: küre ile birleşik eğrilik 13 mm'yi
-  aşmamak için düzlem içi yarıçap ≥ 39 mm olmalıdır, bu da 16 mm boyunca yalnızca 3 mm sapmadır.
-  Yelpaze bu yüzden kavisli değil düz ışınlarla yapılır.
-- Giriş sırasında tüpler yan yana, aralık **1,7 mm** (dış çap 1,6 + 0,1). Işınlar bu sıradan
-  posterior kenarda eşit açılarla dağıtılan uçlara gider.
-- Kör uçta kaynağın ulaşamadığı boşluk **2,0 mm**; bekleme adımı 2,5 mm (TPS izin verirse 1 mm).
+Kaç kanal gerektiği sorusunun cevabı (sklera maks / reçete, konumlar her sayı için optimize):
+
+| Plak, apeks | 1 kanal | 2 kanal | 3 kanal | 4 kanal | 5 kanal |
+|-------------|---------|---------|---------|---------|---------|
+| 12 mm, 3 mm | 5,6 | 4,1 | **3,4** | 3,4 | 3,5 |
+| 14 mm, 5 mm | 9,5 | 5,2 | **4,8** | 4,5 | 4,4 |
+| 16 mm, 5 mm | 7,9 | 4,3 | **3,9** | 3,8 | 3,5 |
+| 16 mm, 8 mm | 13,8 | 7,2 | **6,4** | 6,2 | 5,8 |
+| 18 mm, 5 mm | 8,3 | 4,1 | 3,6 | 3,3 | **3,2** |
+| 20 mm, 5 mm | 8,2 | 3,7 | 3,0 | 2,7 | **2,6** |
+| 20 mm, 8 mm | 9,6 | 5,5 | 4,4 | 4,0 | **4,0** |
+
+- **Tek kanal yetmez**: sklera oranı iki kat. **İki kanal** üç kanaldan %10 ile 25 kötü.
+- **Üç kanal**, 12 ile 16 mm plaklarda beş kanala %3 ile 11 yakındır ve seçilmiştir.
+- **Beş kanal** 18 ve 20 mm'de %10 ile 15 kazandırır ve orada seçilmiştir.
+- Optimum konumlar dış kanalları kenara yakın koyar (halka benzeri dağılım); eski eşit aralık
+  kuralı terk edilmiştir.
+
+| Çap | Kanal | Konumlar x (mm) | Bekleme pozisyonu | En uzun kanal yayı |
+|-----|-------|-----------------|-------------------|--------------------|
+| 12 mm | 3 | 0, ± 3,5 | 10 | 10,9 mm |
+| 14 mm | 3 | 0, ± 3,5 | 12 | 13,1 mm |
+| 16 mm | 3 | 0, ± 5,0 | 13 | 15,4 mm |
+| 18 mm | 5 | 0, ± 2,8, ± 6,1 | 26 | 17,8 mm |
+| 20 mm | 5 | 0, ± 2,3, ± 6,6 | 31 | 20,4 mm |
+
+- Kanallar sklera eğrisini izler; eksen yarıçapı 13,8 mm'lik küre kabuğu üzerindedir.
+  GammaMedplus iX kablosunun bildirilen minimum bükülme yarıçapı 13 mm'dir (belge 01, A2b).
+  Teyit edilene kadar yedek tasarım 17 mm yaylı kanaldır (uç sapması 16 mm kirişte 0,56 mm).
+- Kanal tüpü her iki uçta kenar kalkanının 0,5 mm içine kadar uzanır; kör uçta kaynağın
+  ulaşamadığı boşluk **2,0 mm**; bekleme adımı 2,5 mm (TPS izin verirse 1 mm).
 - Kanal iç çapı 1,2 mm (Varian 0,9 mm kapsül), tüp dış çapı 1,6 mm.
 
-| Çap | Işın | Açılar | Bekleme pozisyonu | En uzun kanal | Giriş sırası genişliği |
-|-----|------|--------|-------------------|---------------|------------------------|
-| 12 mm | 3 | 0, ± 45° | 9 | 9,7 mm | 5,1 mm |
-| 14 mm | 5 | 0, ± 22°, ± 45° | 18 | 11,0 mm | 8,5 mm |
-| 16 mm | 5 | 0, ± 22°, ± 45° | 23 | 13,2 mm | 8,5 mm |
-| 18 mm | 5 | 0, ± 22°, ± 45° | 26 | 15,3 mm | 8,5 mm |
-| 20 mm | 7 | 0, ± 15°, ± 30°, ± 45° | 40 | 16,5 mm | 11,9 mm |
+Çentikli plakta dış kanallar sinirin iki yanından geçer (x = ± 6,3 mm), iç kanallar çentik
+sınırında kısaltılır. Çentiklide 5 kanal 3 kanaldan belirgin iyidir (16 mm: 5,9'a 7,7) ve
+bütün çentikli boylar 5 kanaldır.
 
-Çentikli plakta çentiğe giren ışınlar çentik sınırında kısaltılır, dıştaki ışınlar sinirin
-iki yanından geçer. Yelpaze çentiklide paralel düzenden **daha iyidir** (16 mm: 4,6'ya 5,9;
-18 mm: 4,3'e 4,6); 20 mm çentiklide ± 55° açı kullanılır (4,6).
+## Kanal ağızları ve kateterler
 
-## Giriş hattı
-
-Dış görünüş Dupere 2021'in aplikatörünü (belge 07, şekil B) örnek alır: pürüzsüz altın kabuk ve
-kabuğun kenarından çıkan **tek giriş hattı**. Kabukta ayrı bir sap, blok veya aparat yoktur;
-kenar kalkanındaki tek yuvadan kılıf çıkar. Kabuk düz disk değil sklera eğrisinde kubbedir.
+Kabuk dıştan Dupere 2021 aplikatörü gibidir: pürüzsüz, kenarı yuvarlatılmış altın kubbe. Giriş
+tarafında ise ortak sap veya kılıf yoktur: **her kanal anterior kenardan kendi altın ağzıyla
+çıkar, her kanalın kendi kateteri ve kendi transfer tüpü vardır.** Bu, standart interstisyel HDR
+uygulamasıyla aynı iş akışıdır ve çok lümenli sap, oval kök, yuvarlak demete geçiş gibi özel
+parçaları ortadan kaldırır.
 
 | Parametre | Değer | Gerekçe |
 |-----------|-------|---------|
-| Çıkış | Anterior kenar kalkanında tek yuva, kabuğa teğet | Fornikse en kısa yol |
-| Kök kesiti | Yassı-oval: genişlik giriş sırası + 1,6 mm (5 kanal için 10,1 mm), kalınlık 2,6 mm | Lümenler plak içinde tek sırada olduğu için kök yassıdır |
-| Geçiş | İlk 10 mm içinde oval kesit **Ø 4,8 mm yuvarlağa** geçer, 8 mm'den sonra yüzeyden ayrılır | 5 lümen 1 + 4 dizilimi (7 lümen 1 + 6), 0,3 mm duvar; 13 mm bükülme yarıçapı için gereken S geçişi 9 mm |
-| Kılıf | Yuvarlak Ø 4,8 mm, yumuşak polimer, forniksten çıkar | Tek hat, tek kilitli konektör |
-| Konektör | Kılıf ucunda tek kilitli konektör; cihaz tarafında kanal başına transfer tüpü | Tek hareketle bağlantı, tüp uzunluğu 1300 mm sabit |
+| Altın ağız | Kanal başına, kabukla tek parça, dış çap 2,4 mm, uzunluk 3 mm, kabuğa teğet, sklera eğrisini izler | Kanal tüpünü kabuktan dışarı korunaklı ve sağlam çıkarır; kenar kalkanındaki açıklık ağızla kapanır |
+| Kateter | Kanal başına 1 adet, dış çap 2,0 mm (6F sınıfı esnek implant kateteri), ağızdan itibaren 30 ile 50 mm, ucunda cihazın standart konektörü | Üreticinin doğrulanmış kateteri ve konektörü; ölü boşluk ve uzunluk cihazca bilinir |
+| Tüp bağlantısı | Kateter ağız içinde kanal tüpüne yapıştırılır veya sıkma ile birleştirilir; geçişte iç çap sabit 1,2 mm | Kaynak geçişinde kademe yok |
+| Toplam uzunluk | Aplikatör + transfer tüpü 1300 mm sabit (GammaMedplus) | Cihaz kuralı |
+| Fornikste | 3 veya 5 kateter yan yana, konjonktiva altından fornikse; kapağa steril bantla tespit | Plağa yük binmez |
 
-- **Plağa tek giriş vardır.** Kaynak, afterloader tarafından her kör kanala sırayla gönderilir;
-  cerrahın gördüğü tek bir hattır.
-- Lümenler plak içinde tek sıra halinde kalır (kanal katmanı 1,9 mm, tek kat). Yuvarlak demete
-  geçiş bu yüzden plak dışında, kılıfın ilk 10 mm'sinde yapılır.
+- Kanal sayısı kadar transfer tüpü bağlanır: 12 ile 16 mm'de 3, 18 ile 20 mm ve çentiklilerde 5.
+  Her kanal numaralı ve renk kodludur; cihazda kanal indeksi ile eşleşir.
+- Ağızlar anterior kenarda, kanal konumlarında (x = 0, ± 3,5 … ± 6,6 mm) yer alır; kenar kalkanı
+  ağızlar arasında kesintisizdir.
 - **Ortadan (kubbe sırtından, skleraya dik) giriş elenmiştir.** Kaynağın dik saptan yüzeye
   paralel kanallara geçmesi 4 mm kalınlık içinde 90° dönüş, yani 2 ile 3 mm bükülme yarıçapı
   ister; kablo sınırı 13 mm'dir. Ayrıca dik sap orbita duvarına bakar ve fornikse ulaşmak için
   orbita içinde kıvrılması gerekir. Yalnızca pelet dizili sistemde mümkündür.
-- **Çıkış yuvasının kenardaki yeri serbesttir.** Varsayılan anterior kenar. Tümör kas yapışma
-  yerinin altındaysa plak döndürülür ve hat lateral kenardan çıkar; ışınlar yuvaya göre tanımlı
-  olduğu için doz düzeni değişmez. Çentikli plakta yuva çentiğin karşısında sabittir.
-- Kılıf kapaklar arasından forniksten çıkar; göz kapağı ekartörü tedavi boyunca yerinde kalır.
-  Kılıf kapağa veya alına steril bantla tespit edilir; plağa yük binmez.
+- **Ağızların kenardaki yönü serbesttir.** Varsayılan anterior kenar. Tümör kas yapışma yerinin
+  altındaysa plak döndürülür ve kateterler lateral kenardan çıkar; kanallar ağızlara göre tanımlı
+  olduğu için doz düzeni değişmez. Çentikli plakta ağızlar çentiğin karşısında sabittir.
+- Kateterler kapaklar arasından forniksten çıkar; göz kapağı ekartörü tedavi boyunca yerinde
+  kalır. Kateterler kapağa veya alına steril bantla tespit edilir.
 
 ## Dikim ve tespit
 
 - Sırt kabuğunun dudağında 3 sütür deliği: 2 posterior yarıda simetrik, 1 anterior kenarda
-  giriş hattının yanında. Delik çapı 0,8 mm, kenarları yuvarlatılmış; 5-0 naylon veya
+  ağızların yanında. Delik çapı 0,8 mm, kenarları yuvarlatılmış; 5-0 naylon veya
   merşilen için.
-- Giriş hattı anteriorda kalacak şekilde dikilir; posterior tümörlerde çıkış ekvator
-  civarında olur, kılıf fornikse yönlenir.
+- Kanal ağızları anteriorda kalacak şekilde dikilir; posterior tümörlerde ağızlar ekvator
+  civarında olur, kateterler fornikse yönlenir.
 - Plak konumu ameliyat sırasında B-mod ultrason ile doğrulanır. Metal kabuk ultrasonda
   net görülür; ayrıca ek parçaya 3 adet ekojen işaret (hava kapsülü veya cam boncuk)
   yerleştirilerek plak yönelimi kesitte tanınabilir kılınır.
