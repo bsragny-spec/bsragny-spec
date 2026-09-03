@@ -106,8 +106,14 @@ Kaç kanal gerektiği sorusunun cevabı (sklera maks / reçete, konumlar her say
 - Kanal iç çapı 1,2 mm (Varian 0,9 mm kapsül), tüp dış çapı 1,6 mm.
 
 Çentikli plakta dış kanallar sinirin iki yanından geçer (x = ± 6,3 mm), iç kanallar çentik
-sınırında kısaltılır. Çentiklide 5 kanal 3 kanaldan belirgin iyidir (16 mm: 5,9'a 7,7) ve
-bütün çentikli boylar 5 kanaldır.
+sınırında kısaltılır. Çentiklide kanal sayısı: 16 ve 18 mm'de **4** (x = ± 3,15, ± 6,3; merkez
+kanal çentikte zaten kısa olduğu için katkısı küçük), 20 mm'de **5**.
+
+| Çentikli plak | 3 kanal | 4 kanal | 5 kanal |
+|---------------|---------|---------|---------|
+| 16 mm | 7,7 | **6,4** | 5,9 |
+| 18 mm | 5,4 | **4,7** | 4,6 |
+| 20 mm | | | **3,8** |
 
 ## Kanal ağızları ve kateterler
 
@@ -125,7 +131,7 @@ parçaları ortadan kaldırır.
 | Toplam uzunluk | Aplikatör + transfer tüpü 1300 mm sabit (GammaMedplus) | Cihaz kuralı |
 | Fornikste | 3 veya 5 kateter yan yana, konjonktiva altından fornikse; kapağa steril bantla tespit | Plağa yük binmez |
 
-- Kanal sayısı kadar transfer tüpü bağlanır: 12 ile 16 mm'de 3, 18 ile 20 mm ve çentiklilerde 5.
+- Kanal sayısı kadar transfer tüpü bağlanır: yuvarlak 12 ile 16 mm'de 3, 18 ile 20 mm'de 5; çentikli 16 ile 18 mm'de 4, 20 mm'de 5.
   Her kanal numaralı ve renk kodludur; cihazda kanal indeksi ile eşleşir.
 - Ağızlar anterior kenarda, kanal konumlarında (x = 0, ± 3,5 … ± 6,6 mm) yer alır; kenar kalkanı
   ağızlar arasında kesintisizdir.
@@ -141,9 +147,11 @@ parçaları ortadan kaldırır.
 
 ## Dikim ve tespit
 
-- Sırt kabuğunun dudağında 3 sütür deliği: 2 posterior yarıda simetrik, 1 anterior kenarda
-  ağızların yanında. Delik çapı 0,8 mm, kenarları yuvarlatılmış; 5-0 naylon veya
-  merşilen için.
+- **Sütür küpeleri: 2 adet**, kenardan dışa taşan altın kulakçık, kabukla tek parça, tabanla
+  aynı düzlemde (skleraya yatar), kalınlık 0,5 mm, dış çap 2,4 mm, delik çapı 0,8 mm, kenarları
+  yuvarlatılmış; 5-0 naylon veya merşilen için. Konum: **dış kanal ağızlarının hemen yanında**,
+  anterior kenarda, ağız merkezinden 2,6 mm yanal. Bu konum plağın yönelimini cerrahiye
+  kendiliğinden gösterir: küpeler ve kateterler aynı taraftadır.
 - Kanal ağızları anteriorda kalacak şekilde dikilir; posterior tümörlerde ağızlar ekvator
   civarında olur, kateterler fornikse yönlenir.
 - Plak konumu ameliyat sırasında B-mod ultrason ile doğrulanır. Metal kabuk ultrasonda
