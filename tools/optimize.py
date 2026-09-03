@@ -121,11 +121,17 @@ def evaluate(dw, tp, sp):
     opt = (A_s @ w).max() / (A_t @ w).min()
     return eq, opt, w.sum()
 
+def fan(D, n=None, amax=None):
+    import geometry as G
+    ch = G.fan_layout(D, n=n, alpha_max=None if amax is None else math.radians(amax))
+    dw = np.array([P for c in ch for P in c["dwells"]])
+    return dw, R_D, f"yelpaze {len(ch)} ışın" + (f", ±{amax}°" if amax else "")
+
 def run(b, h):
     D = b + 4
     tp, sp = tumor_points(b, h), sclera_points(D)
     layouts = [single_chord(D), chords(D, 3), chords(D, 5), chords(D, 7),
-               c_ring(D), concentric(D)]
+               fan(D), fan(D, amax=45), fan(D, amax=75), fan(D, n=7), c_ring(D), concentric(D)]
     print(f"\nTümör tabanı {b} mm, apeks {h} mm  ->  plak {D} mm")
     print(f"{'Düzen':<30}{'Dwell':>6}{'Bükülme R':>11}{'Sklera/Rx eşit':>16}{'Sklera/Rx opt.':>16}{'Süre (göreli)':>15}")
     base_time = None
@@ -161,8 +167,8 @@ def run_notched(D, h):
     disc = tumor_points_offset(0.01, 0.0, ncy)[:1]  # disk merkezi: sinir ekseni, iç sklera
     print(f"\nÇentikli karşılaştırma: plak {D} mm, tümör tabanı {b} mm, apeks {h} mm, tümör merkezi y={yc:+.1f} mm, tümör posterior kenarı y=+{ncy-G.DISC_EDGE:.1f} mm, disk y=+{ncy:.0f} mm")
     print(f"{'Düzen':<34}{'Dwell':>6}{'Sklera/Rx opt.':>16}{'Disk/Rx opt.':>14}")
-    for notched in (False, True):
-        ch = G.plaque_layout(D, notched=notched)
+    for notched, fanl in ((False, False), (True, False), (True, True)):
+        ch = G.fan_layout(D, notched=True) if fanl else G.plaque_layout(D, notched=notched)
         dw = np.array([d for c in ch for d in c["dwells"]])
         A_t = np.array([[kernel(p, q) for q in dw] for p in tp])
         A_s = np.array([[kernel(p, q) for q in dw] for p in sp])
@@ -175,7 +181,7 @@ def run_notched(D, h):
         res = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=[(0, None)] * (n + 1), method="highs")
         w = res.x[:n]
         rx = (A_t @ w).min()
-        name = ("çentikli, " if notched else "yuvarlak (sinir yok sayılır), ") + f"{len(ch)} kanal"
+        name = (("çentikli yelpaze, " if fanl else "çentikli paralel, ") if notched else "yuvarlak (sinir yok sayılır), ") + f"{len(ch)} kanal"
         print(f"{name:<34}{n:>6}{(A_s @ w).max() / rx:>16.1f}{(A_d @ w).max() / rx:>14.2f}")
 
 if __name__ == "__main__":

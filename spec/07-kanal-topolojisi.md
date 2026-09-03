@@ -77,12 +77,12 @@ Bunun bedelleri:
 
 | Topoloji | Bükülme yarıçapı | Standart afterloader | Doz simetrisi | Merkez kapsama | Karar |
 |----------|------------------|----------------------|---------------|----------------|-------|
-| Paralel kirişler, 3 ile 7 kanal | 13,8 mm | Evet | Kanallar arası vadi, optimizasyonla kapanır | Evet | **Seçildi (v0.1)** |
+| Paralel kirişler, 3 ile 7 kanal | 13,8 mm | Evet | Kanallar arası vadi, optimizasyonla kapanır | Evet | v0.1 tasarımı; yelpaze ile değiştirildi |
 | Spiral, tek kanal | 0 ile 6 mm | Hayır | Mükemmel | Evet, ama ulaşılamaz | Elendi |
 | Tek C halkası + merkez kiriş | 5,5 ile 7,2 mm | Hayır, özel kablo ile belki 20 mm plakta | İyi | Merkez kirişle | 20 mm için v0.2'de değerlendirilebilir |
 | Eş merkezli C halkaları | İç halka 2 ile 3 mm | Hayır | Mükemmel | Evet | Yalnızca pelet dizisiyle |
 | Dupere halkası, pelet dizisi | Sınırsız | Hayır, pelet yükleyici | Mükemmel, statik | Konik kolimasyonla | Referans; G6 nedeniyle elendi |
-| Yelpaze, kenardan merkeze yakınsayan kirişler | Kirişler düz, ~13,8 mm | Evet | Merkezde yoğunlaşma, kenarda seyrek | Evet | Paralel kirişe göre avantaj yok, giriş bloğu genişler |
+| **Yelpaze, dar giriş sırasından ± 45° düz ışınlar** | Işınlar düz, 13,8 mm | **Evet** | Optimizasyonla paralel kirişe eş | Evet | **Seçildi (v0.2)**: paralel kirişle aynı oran, giriş genişliği 8,5 mm'ye iner, tek parça sap |
 
 ## Paralel kiriş tasarımına referanstan alınacaklar
 
@@ -119,8 +119,9 @@ maksimumu en aza indirilir. Değer, **sklera maksimumu / reçete dozu** oranıd�
 |-------|------------------|--------------------|---------------------------|----------------------------|----------------------------|----------------------------|
 | Tek çap kirişi | 13,8 mm | Evet | 7,9 → 6,8 | 8,4 → 8,0 | 15,1 → 14,3 | 11,1 → 9,9 |
 | 3 paralel kiriş | 13,8 mm | Evet | 5,2 → 4,2 | 5,9 → 5,1 | 10,0 → 8,5 | 6,3 → 4,8 |
-| **5 paralel kiriş** | 13,8 mm | **Evet** | 4,8 → **3,9** | 5,2 → **4,1** | 8,9 → **6,9** | 4,3 → **3,0** |
+| 5 paralel kiriş | 13,8 mm | Evet | 4,8 → 3,9 | 5,2 → 4,1 | 8,9 → 6,9 | 4,3 → 3,0 |
 | 7 paralel kiriş | 13,8 mm | Evet | 4,8 → 3,7 | 5,2 → 4,0 | 8,8 → 6,7 | 4,5 → 3,3 |
+| **Yelpaze ± 45°, 3/5/5/7 ışın** | 13,8 mm | **Evet** | 5,4 → **4,4** | 5,0 → **4,0** | 8,6 → **6,7** | 4,1 → **3,0** |
 | C halkası + merkez | 3,8 ile 6,9 mm | Hayır | 3,7 → 3,3 | 4,1 → 3,9 | 6,7 → 6,3 | 3,7 → 3,3 |
 | Eş merkezli halkalar + merkez | 2,5 ile 3,8 mm | Hayır | 3,7 → 3,3 | 4,3 → 3,6 | 7,3 → 5,9 | 3,6 → 2,7 |
 
@@ -128,8 +129,10 @@ Okuma:
 
 - **Tek kanal ile plak içi tarama** (tek kiriş) oranı iki kat kötüleştirir; sklera dozu
   kabul edilemez olur. Tek giriş korunur ama içeride birden fazla kör kanal şarttır.
-- **5 paralel kiriş**, kabloyla uygulanabilen düzenler içinde en iyisidir; 7 kanal %3'ten az
-  kazandırır.
+- **Yelpaze ± 45°** ve **5 paralel kiriş** eşdeğerdir; kabloyla uygulanabilen düzenler içinde en
+  iyileridir. Yelpaze giriş sırasını daraltıp tek parça sapa izin verdiği için seçilmiştir.
+  Düzlem içi eğriliğe pay olmadığından (birleşik eğrilik sınırı için düzlem içi yarıçap ≥ 39 mm)
+  ışınlar düzdür; kavisli yelpaze mümkün değildir.
 - **Halka ve eş merkezli düzenler**, pelet dizili özel yükleyici gerektirir ve 5 kirişe göre
   %5 ile 25 kazandırır. En büyük fark 20 mm plak ve kalın tümörde görülür. Bu kazanç, özel
   cihaz geliştirmenin bedeliyle karşılaştırılmalıdır (A9).
@@ -147,8 +150,8 @@ kablo sürücülü HDR kaynağının sertliği ve bükülme sınırı nedeniyle 
 fiziksel olarak çalışmaz; ancak pelet dizisiyle mümkündür ve o zaman standart afterloader
 şartı düşer. Bu iki şart arasında seçim yapılmalıdır:
 
-- **Standart afterloader korunacaksa**: 5 paralel kiriş, tek giriş, optimize bekleme süreleri
-  (mevcut tasarım). Kabloyla uygulanabilen en iyi düzen budur.
+- **Standart afterloader korunacaksa**: dar giriş sırasından ± 45° düz ışınlarla yelpaze, tek
+  parça sap, optimize bekleme süreleri (mevcut tasarım). Kabloyla uygulanabilen en iyi düzen budur.
 - **Spiral veya eş merkezli halka isteniyorsa**: pelet dizili özel yükleyici; proje kapsamı
   cihaz geliştirmeyi de içerecek şekilde büyür.
 

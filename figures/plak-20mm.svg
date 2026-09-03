@@ -2,97 +2,84 @@
 <title>20 mm plak</title>
 <rect width="640" height="600" fill="#ffffff"/>
 <text x="320.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, 20 mm plak (ölçek 10 px = 1 mm)</text>
+<rect x="132.5" y="280.0" width="135.0" height="50.0" rx="10.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
+<rect x="176.0" y="328.0" width="48.0" height="50.0" rx="24.0" fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>
+<circle cx="149.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<circle cx="166.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<circle cx="183.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<circle cx="200.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<circle cx="217.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<circle cx="234.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<circle cx="251.0" cy="321.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
+<text x="275.5" y="306.0" font-size="9" fill="#555">sap 13.5 × 2 mm</text>
+<text x="275.5" y="318.0" font-size="9" fill="#555">kabukla tek parça</text>
+<text x="229.0" y="358.0" font-size="9" fill="#555">kılıf Ø 4,8 mm</text>
 <circle cx="200" cy="190" r="100.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>
 <circle cx="200" cy="190" r="95.0" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>
 <circle cx="264.3" cy="125.7" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
 <circle cx="135.7" cy="125.7" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
 <circle cx="114.5" cy="221.1" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
-<rect x="117.0" y="138.0" width="16.0" height="107.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="119.0" y="140.0" width="12.0" height="105.0" rx="6.0" fill="#fff"/>
-<rect x="119.0" y="140.0" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="125.0" cy="240.0" r="2.8" fill="#c0392b"/>
-<circle cx="125.0" cy="215.0" r="2.8" fill="#c0392b"/>
-<circle cx="125.0" cy="190.0" r="2.8" fill="#c0392b"/>
-<circle cx="125.0" cy="165.0" r="2.8" fill="#c0392b"/>
-<line x1="125.0" y1="245.0" x2="125.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="142.0" y="114.6" width="16.0" height="153.8" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="144.0" y="116.6" width="12.0" height="151.8" rx="6.0" fill="#fff"/>
-<rect x="144.0" y="116.6" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="150.0" cy="263.4" r="2.8" fill="#c0392b"/>
-<circle cx="150.0" cy="238.4" r="2.8" fill="#c0392b"/>
-<circle cx="150.0" cy="213.4" r="2.8" fill="#c0392b"/>
-<circle cx="150.0" cy="188.4" r="2.8" fill="#c0392b"/>
-<circle cx="150.0" cy="163.4" r="2.8" fill="#c0392b"/>
-<circle cx="150.0" cy="138.4" r="2.8" fill="#c0392b"/>
-<line x1="150.0" y1="268.4" x2="150.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="167.0" y="103.4" width="16.0" height="176.2" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="169.0" y="105.4" width="12.0" height="174.2" rx="6.0" fill="#fff"/>
-<rect x="169.0" y="105.4" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="175.0" cy="274.6" r="2.8" fill="#c0392b"/>
-<circle cx="175.0" cy="249.6" r="2.8" fill="#c0392b"/>
-<circle cx="175.0" cy="224.6" r="2.8" fill="#c0392b"/>
-<circle cx="175.0" cy="199.6" r="2.8" fill="#c0392b"/>
-<circle cx="175.0" cy="174.6" r="2.8" fill="#c0392b"/>
-<circle cx="175.0" cy="149.6" r="2.8" fill="#c0392b"/>
-<circle cx="175.0" cy="124.6" r="2.8" fill="#c0392b"/>
-<line x1="175.0" y1="279.6" x2="175.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="192.0" y="100.0" width="16.0" height="183.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="194.0" y="102.0" width="12.0" height="181.0" rx="6.0" fill="#fff"/>
-<rect x="194.0" y="102.0" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="200.0" cy="278.0" r="2.8" fill="#c0392b"/>
-<circle cx="200.0" cy="253.0" r="2.8" fill="#c0392b"/>
-<circle cx="200.0" cy="228.0" r="2.8" fill="#c0392b"/>
-<circle cx="200.0" cy="203.0" r="2.8" fill="#c0392b"/>
-<circle cx="200.0" cy="178.0" r="2.8" fill="#c0392b"/>
-<circle cx="200.0" cy="153.0" r="2.8" fill="#c0392b"/>
-<circle cx="200.0" cy="128.0" r="2.8" fill="#c0392b"/>
-<line x1="200.0" y1="283.0" x2="200.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="217.0" y="103.4" width="16.0" height="176.2" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="219.0" y="105.4" width="12.0" height="174.2" rx="6.0" fill="#fff"/>
-<rect x="219.0" y="105.4" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="225.0" cy="274.6" r="2.8" fill="#c0392b"/>
-<circle cx="225.0" cy="249.6" r="2.8" fill="#c0392b"/>
-<circle cx="225.0" cy="224.6" r="2.8" fill="#c0392b"/>
-<circle cx="225.0" cy="199.6" r="2.8" fill="#c0392b"/>
-<circle cx="225.0" cy="174.6" r="2.8" fill="#c0392b"/>
-<circle cx="225.0" cy="149.6" r="2.8" fill="#c0392b"/>
-<circle cx="225.0" cy="124.6" r="2.8" fill="#c0392b"/>
-<line x1="225.0" y1="279.6" x2="225.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="242.0" y="114.6" width="16.0" height="153.8" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="244.0" y="116.6" width="12.0" height="151.8" rx="6.0" fill="#fff"/>
-<rect x="244.0" y="116.6" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="250.0" cy="263.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="238.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="213.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="188.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="163.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="138.4" r="2.8" fill="#c0392b"/>
-<line x1="250.0" y1="268.4" x2="250.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="267.0" y="138.0" width="16.0" height="107.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="269.0" y="140.0" width="12.0" height="105.0" rx="6.0" fill="#fff"/>
-<rect x="269.0" y="140.0" width="12.0" height="20.0" rx="6.0" fill="#f3d1cc"/>
-<circle cx="275.0" cy="240.0" r="2.8" fill="#c0392b"/>
-<circle cx="275.0" cy="215.0" r="2.8" fill="#c0392b"/>
-<circle cx="275.0" cy="190.0" r="2.8" fill="#c0392b"/>
-<circle cx="275.0" cy="165.0" r="2.8" fill="#c0392b"/>
-<line x1="275.0" y1="245.0" x2="275.0" y2="300.0" stroke="#2b4c5e" stroke-width="0.8"/>
-<rect x="110.0" y="300.0" width="180.0" height="22.0" rx="4.0" fill="#9fb3c0" stroke="#2b4c5e" stroke-width="1"/>
-<circle cx="125.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="125.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">1</text>
-<circle cx="150.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="150.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">2</text>
-<circle cx="175.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="175.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">3</text>
-<circle cx="200.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="200.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">4</text>
-<circle cx="225.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="225.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">5</text>
-<circle cx="250.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="250.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">6</text>
-<circle cx="275.0" cy="311.0" r="4.5" fill="#fff" stroke="#2b4c5e" stroke-width="0.7"/>
-<text x="275.0" y="314.0" text-anchor="middle" font-size="7" fill="#2b4c5e">7</text>
-<path d="M 200 322.0 C 200 352.0 220.0 362.0 240.0 382.0" stroke="#2b4c5e" stroke-width="8.0" fill="none" stroke-linecap="round"/>
-<path d="M 200 322.0 C 200 352.0 220.0 362.0 240.0 382.0" stroke="#dfe7ec" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+<rect x="-3.0" y="-8.0" width="141.3" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(149.0,264.8) rotate(-96.00)"/>
+<rect x="-3.0" y="-6.0" width="139.3" height="12.0" rx="6.0" fill="#fff" transform="translate(149.0,264.8) rotate(-96.00)"/>
+<rect x="116.3" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(149.0,264.8) rotate(-96.00)"/>
+<circle cx="148.5" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="145.9" cy="234.9" r="2.8" fill="#c0392b"/>
+<circle cx="143.3" cy="210.1" r="2.8" fill="#c0392b"/>
+<circle cx="140.6" cy="185.2" r="2.8" fill="#c0392b"/>
+<circle cx="138.0" cy="160.3" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="155.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(166.0,264.8) rotate(-94.60)"/>
+<rect x="-3.0" y="-6.0" width="153.8" height="12.0" rx="6.0" fill="#fff" transform="translate(166.0,264.8) rotate(-94.60)"/>
+<rect x="130.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(166.0,264.8) rotate(-94.60)"/>
+<circle cx="165.6" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="163.6" cy="234.9" r="2.8" fill="#c0392b"/>
+<circle cx="161.6" cy="209.9" r="2.8" fill="#c0392b"/>
+<circle cx="159.6" cy="185.0" r="2.8" fill="#c0392b"/>
+<circle cx="157.6" cy="160.1" r="2.8" fill="#c0392b"/>
+<circle cx="155.6" cy="135.2" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="164.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(183.0,264.8) rotate(-92.46)"/>
+<rect x="-3.0" y="-6.0" width="162.8" height="12.0" rx="6.0" fill="#fff" transform="translate(183.0,264.8) rotate(-92.46)"/>
+<rect x="139.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(183.0,264.8) rotate(-92.46)"/>
+<circle cx="182.8" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="181.7" cy="234.8" r="2.8" fill="#c0392b"/>
+<circle cx="180.6" cy="209.8" r="2.8" fill="#c0392b"/>
+<circle cx="179.6" cy="184.8" r="2.8" fill="#c0392b"/>
+<circle cx="178.5" cy="159.9" r="2.8" fill="#c0392b"/>
+<circle cx="177.4" cy="134.9" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="167.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(200.0,264.8) rotate(-90.00)"/>
+<rect x="-3.0" y="-6.0" width="165.8" height="12.0" rx="6.0" fill="#fff" transform="translate(200.0,264.8) rotate(-90.00)"/>
+<rect x="142.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(200.0,264.8) rotate(-90.00)"/>
+<circle cx="200.0" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="234.8" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="209.8" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="184.8" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="159.8" r="2.8" fill="#c0392b"/>
+<circle cx="200.0" cy="134.8" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="164.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(217.0,264.8) rotate(-87.54)"/>
+<rect x="-3.0" y="-6.0" width="162.8" height="12.0" rx="6.0" fill="#fff" transform="translate(217.0,264.8) rotate(-87.54)"/>
+<rect x="139.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(217.0,264.8) rotate(-87.54)"/>
+<circle cx="217.2" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="218.3" cy="234.8" r="2.8" fill="#c0392b"/>
+<circle cx="219.4" cy="209.8" r="2.8" fill="#c0392b"/>
+<circle cx="220.4" cy="184.8" r="2.8" fill="#c0392b"/>
+<circle cx="221.5" cy="159.9" r="2.8" fill="#c0392b"/>
+<circle cx="222.6" cy="134.9" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="155.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(234.0,264.8) rotate(-85.40)"/>
+<rect x="-3.0" y="-6.0" width="153.8" height="12.0" rx="6.0" fill="#fff" transform="translate(234.0,264.8) rotate(-85.40)"/>
+<rect x="130.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(234.0,264.8) rotate(-85.40)"/>
+<circle cx="234.4" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="236.4" cy="234.9" r="2.8" fill="#c0392b"/>
+<circle cx="238.4" cy="209.9" r="2.8" fill="#c0392b"/>
+<circle cx="240.4" cy="185.0" r="2.8" fill="#c0392b"/>
+<circle cx="242.4" cy="160.1" r="2.8" fill="#c0392b"/>
+<circle cx="244.4" cy="135.2" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="141.3" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(251.0,264.8) rotate(-84.00)"/>
+<rect x="-3.0" y="-6.0" width="139.3" height="12.0" rx="6.0" fill="#fff" transform="translate(251.0,264.8) rotate(-84.00)"/>
+<rect x="116.3" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(251.0,264.8) rotate(-84.00)"/>
+<circle cx="251.5" cy="259.8" r="2.8" fill="#c0392b"/>
+<circle cx="254.1" cy="234.9" r="2.8" fill="#c0392b"/>
+<circle cx="256.7" cy="210.1" r="2.8" fill="#c0392b"/>
+<circle cx="259.4" cy="185.2" r="2.8" fill="#c0392b"/>
+<circle cx="262.0" cy="160.3" r="2.8" fill="#c0392b"/>
 <line x1="100.0" y1="74.0" x2="300.0" y2="74.0" stroke="#333" stroke-width="0.7"/>
 <line x1="100.0" y1="69.0" x2="100.0" y2="79.0" stroke="#333" stroke-width="0.7"/>
 <line x1="300.0" y1="69.0" x2="300.0" y2="79.0" stroke="#333" stroke-width="0.7"/>
@@ -104,33 +91,33 @@
 <path d="M 347.6 212.4 A 150.5 150.5 0 0 1 592.4 212.4 L 604.6 203.6 A 165.5 165.5 0 0 0 335.4 203.6 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
 <path d="M 335.4 203.6 L 370.0 228.4 L 375.0 221.9 L 342.2 194.9 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
 <path d="M 604.6 203.6 L 570.0 228.4 L 565.0 221.9 L 597.8 194.9 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
-<circle cx="395.0" cy="184.2" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="395.0" cy="184.2" r="6.0" fill="#fff"/>
-<circle cx="420.0" cy="171.4" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="420.0" cy="171.4" r="6.0" fill="#fff"/>
-<circle cx="445.0" cy="164.3" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="445.0" cy="164.3" r="6.0" fill="#fff"/>
+<circle cx="411.1" cy="175.2" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="411.1" cy="175.2" r="6.0" fill="#fff"/>
+<circle cx="430.0" cy="167.9" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="430.0" cy="167.9" r="6.0" fill="#fff"/>
+<circle cx="449.8" cy="163.5" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="449.8" cy="163.5" r="6.0" fill="#fff"/>
 <circle cx="470.0" cy="162.0" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
 <circle cx="470.0" cy="162.0" r="6.0" fill="#fff"/>
-<circle cx="495.0" cy="164.3" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="495.0" cy="164.3" r="6.0" fill="#fff"/>
-<circle cx="520.0" cy="171.4" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="520.0" cy="171.4" r="6.0" fill="#fff"/>
-<circle cx="545.0" cy="184.2" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="545.0" cy="184.2" r="6.0" fill="#fff"/>
+<circle cx="490.2" cy="163.5" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="490.2" cy="163.5" r="6.0" fill="#fff"/>
+<circle cx="510.0" cy="167.9" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="510.0" cy="167.9" r="6.0" fill="#fff"/>
+<circle cx="528.9" cy="175.2" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="528.9" cy="175.2" r="6.0" fill="#fff"/>
 <circle cx="470.0" cy="162.0" r="3.5" fill="#c0392b"/>
 <line x1="595.0" y1="134.5" x2="595.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
 <line x1="592.0" y1="134.5" x2="598.0" y2="134.5" stroke="#333" stroke-width="0.7"/>
 <line x1="592.0" y1="177.0" x2="598.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
 <text x="600.0" y="158.8" text-anchor="start" font-size="9">4.25 mm</text>
-<text x="200" y="405" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş sapı) altta</text>
+<text x="200" y="415" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş sapı) altta</text>
 <text x="470" y="117" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>
 <text x="30" y="440" font-size="10.5" fill="#222">Çap 20 mm, tümör tabanı ≤ 16 mm için</text>
-<text x="30" y="457" font-size="10.5" fill="#222">Kanal: 7 paralel kör kiriş, aralık 2.50 mm, iç çap 1.2 mm</text>
-<text x="30" y="474" font-size="10.5" fill="#222">Bekleme pozisyonu: 41 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
-<text x="30" y="491" font-size="10.5" fill="#222">En uzun kanal yayı 20.4 mm; eksen skleradan 1.5 mm, küre yarıçapı 13.8 mm</text>
+<text x="30" y="457" font-size="10.5" fill="#222">Kanal: 7 yelpaze ışını, ±45°, giriş sırası aralığı 1.7 mm, iç çap 1.2 mm</text>
+<text x="30" y="474" font-size="10.5" fill="#222">Bekleme pozisyonu: 40 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
+<text x="30" y="491" font-size="10.5" fill="#222">En uzun kanal 16.5 mm; düzlemde düz, eğrilik yalnızca küreden (13.8 mm); eksen skleradan 1.5 mm</text>
 <text x="30" y="508" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
 <text x="30" y="525" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 5.1 mm, yarım açı 54°; iç eğrilik yarıçapı 12.3 mm</text>
-<text x="30" y="542" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kenara teğet yassı giriş sapı, tek kilitli konektör, tek kılıf.</text>
+<text x="30" y="542" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.</text>
 <text x="320.0" y="586" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
 </svg>

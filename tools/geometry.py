@@ -106,6 +106,58 @@ def plaque_layout(diameter, notched=False):
                          "truncated": yn is not None})
     return channels
 
+FAN_PITCH0 = 1.7      # mm, giriş noktasında tüpler yan yana (OD 1,6 + 0,1)
+
+def fan_layout(diameter, notched=False, n=None, alpha_max=None):
+    """Yelpaze: kanallar anterior kenardaki dar bir giriş sırasından düz ışınlar halinde açılır.
+    Düzlem içinde düz oldukları için bükülme yarıçapı yalnızca küre kabuğundan gelir (13,8 mm).
+    Işın uçları posterior kenarda eşit açıyla dağıtılır."""
+    r = diameter / 2.0
+    r_in = r - RIM - 0.2
+    if n is None:
+        n = 2 * int((r - EDGE_MARGIN - 1.0) / CHANNEL_PITCH + 0.5) + 1
+    if alpha_max is None:
+        alpha_max = math.radians(55 if (notched and diameter >= 20) else 45)
+    channels = []
+    y_entry = -math.sqrt(max(r_in**2 - ((n-1)/2*FAN_PITCH0)**2, 0)) + 0.3
+    for i in range(n):
+        x0 = (i - (n - 1) / 2.0) * FAN_PITCH0
+        a = -alpha_max + 2 * alpha_max * i / (n - 1) if n > 1 else 0.0
+        # hedef uç: kenar iç çemberi üzerinde, posteriorden a açısında
+        xe, ye = r_in * math.sin(a), r_in * math.cos(a)
+        dx, dy = xe - x0, ye - y_entry
+        L = math.hypot(dx, dy); ux, uy = dx / L, dy / L
+        # ışın kenar iç çemberini nerede keser (giriş noktasından ileri)
+        # |(x0,y_entry) + t(ux,uy)|^2 = r_in^2
+        b = 2 * (x0 * ux + y_entry * uy); c = x0**2 + y_entry**2 - r_in**2
+        t_edge = (-b + math.sqrt(max(b*b - 4*c, 0))) / 2
+        t_tube_end = t_edge - 0.3
+        trunc = False
+        if notched:
+            # çentik dairesi ile kesişim: |(x0 - 0, y_entry - ncy) + t u|^2 = NOTCH_R^2
+            ncy = notch_center_y(diameter)
+            px, py = x0, y_entry - ncy
+            bb = 2 * (px * ux + py * uy); cc = px*px + py*py - NOTCH_R**2
+            disc = bb*bb - 4*cc
+            if disc > 0:
+                t1 = (-bb - math.sqrt(disc)) / 2
+                if 0 < t1 < t_tube_end:
+                    t_tube_end = t1 - RIM - 0.3; trunc = True
+        t_last = t_tube_end - TIP_DEAD
+        k = int((t_last - 0.5) // DWELL_STEP) + 1
+        dwells = []
+        for j in range(max(k, 0)):
+            t = 0.5 + j * DWELL_STEP
+            x, y = x0 + t * ux, y_entry + t * uy
+            z = math.sqrt(max((R_SCLERA + DWELL_OFFSET)**2 - x*x - y*y, 0.0))
+            dwells.append((x, y, z))
+        channels.append({"x": x0, "angle": math.degrees(a), "start": (x0, y_entry),
+                         "end": (x0 + t_tube_end * ux, y_entry + t_tube_end * uy),
+                         "length": t_tube_end, "dwells": dwells, "truncated": trunc,
+                         "pitch": FAN_PITCH0, "arc": t_tube_end, "chord": t_tube_end,
+                         "y_start": y_entry, "y_tube_end": y_entry + t_tube_end * uy})
+    return channels
+
 def evaluate(diameter, tumor_heights=(3, 5, 8, 10)):
     ch = plaque_layout(diameter)
     dwells = [d for c in ch for d in c["dwells"]]

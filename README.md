@@ -6,7 +6,7 @@ spesifikasyonu. Kaynak olarak **iterbiyum-169** seçilmiştir; aplikatör mevcut
 plakların şeklini örnek alır, skleraya dikilir ve HDR afterloader ile ameliyathanede
 ışınlanır.
 
-> Durum: **taslak v0.1**, tasarım dondurulmamıştır. Bütün sayısal değerler tasarım
+> Durum: **taslak v0.2**, tasarım dondurulmamıştır. Bütün sayısal değerler tasarım
 > hedefidir; Monte Carlo ve ölçümle doğrulanmadan klinik anlam taşımaz.
 
 ## Belgeler
@@ -62,7 +62,8 @@ pip install numpy scipy && python3 tools/optimize.py
 - İç eğrilik yarıçapı 12,3 mm, yuvarlak 12 ile 20 mm, çentikli 16 ile 20 mm (10 mm U çentik), COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar
   (bekleme ekseni skleradan 1,5 mm), 1,5 mm altın veya tungsten sırt koruması.
-- Plağa tek giriş; içeride 3, 5 veya 7 paralel kör kanal. Kabloyla uygulanabilen düzenler
-  arasında en iyi sklera/reçete oranını veren düzen budur (belge 07).
+- Plağa tek giriş: kabukla tek parça yassı sap, sonra Ø 4,8 mm yuvarlak kılıf. İçeride 3, 5 veya 7
+  kör kanal dar giriş sırasından ± 45° yelpaze gibi açılır; paralel kirişlerle aynı sklera/reçete
+  oranı, daha dar giriş (belge 07).
 - Tek fraksiyon, hedef apeks dozu başlangıçta 22 Gy, faz I protokolüyle kademeli artış.
 - Işınlama süresi 4 Ci kaynakla 5 mm tümörde yaklaşık 11 dakika.

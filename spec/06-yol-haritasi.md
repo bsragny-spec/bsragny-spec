@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.2.0 | 2026-09-03 | Kanal düzeni yelpazeye geçti: dar giriş sırasından ± 45° düz ışınlar, paralel kirişle eş doz, çentiklide daha iyi; sap kabukla tek parça yassı, kılıf Ø 4,8 mm yuvarlak; çizimler ve 3B model güncellendi |
 | v0.1.12 | 2026-09-02 | Ortadan (dik) giriş gerekçesiyle elendi; sapın kenardaki yerinin serbestliği ve çentikli plakta sabitliği belge 02'ye eklendi |
 | v0.1.11 | 2026-09-02 | Giriş bloğu yerine kenara teğet yassı çok lümenli sap (Dupere 2021 dış görünüşü, kubbe uyarlaması); "9" halka kanalının kabloyla uygulanamazlığı belge 07'ye eklendi |
 | v0.1.10 | 2026-09-02 | 3B konformal model eklendi (figures/3d-model.html): göz küresi, katmanlı plak, kanallar ve bekleme pozisyonları, çentik ve optik sinir, tümör kubbesi, kesit görünümü |

@@ -59,135 +59,61 @@ oranını verir:
 Bu sayılar nokta kaynak ve eşit bekleme süresi varsayımıyladır; optimizasyon ve gerçek kaynak
 geometrisi ile değişir.
 
-## Kanal yerleşimi
+## Kanal yerleşimi: yelpaze
 
-Tasarım kararı (belge 07'deki karşılaştırmaya dayanır): **plağa tek giriş, içeride paralel
-kör kirişler, bekleme süreleri doğrusal programlama ile optimize.** Kablo sürücülü HDR
-kaynağıyla uygulanabilen düzenler arasında en iyi sklera/reçete oranını bu verir; tek kiriş
-oranı iki kat kötüleştirir, halka ve spiral düzenler kabloyla uygulanamaz.
+Tasarım kararı (belge 07): **plağa tek giriş; kanallar anterior kenardaki dar bir giriş
+sırasından düz ışınlar halinde ± 45° yelpaze gibi açılır; bekleme süreleri doğrusal programlama
+ile optimize edilir.** Yelpaze, paralel kirişlerle aynı sklera/reçete oranını verir (16 mm'de
+4,0'a 4,1; 20 mm'de 3,0'a 3,0) ve giriş genişliğini kanal yayılımından giriş sırasına indirir.
 
-- Kanallar plak tabanına paralel **kirişler** boyunca uzanır, hepsi anterior (limbal) kenardaki
-  giriş bloğundan girer. Radyal yerleşim elendi: kanallar bir merkezde toplanınca giriş bloğu
-  plak ortasına gelir ve bükülme yarıçapı sağlanamaz.
-- Kanallar sklera eğrisini izler; eksen yarıçapı 13,8 mm'lik küre kabuğu üzerindedir.
-  Kurumdaki GammaMedplus iX kablosunun bildirilen minimum bükülme yarıçapı 13 mm'dir (belge 01),
-  yani küreyi tam izleyen kanal kablo sınırının içindedir. Bu değer Varian teknik föyünden teyit
-  edilene kadar (A2b) **yedek tasarım** 17 mm yaylı kanaldır: kiriş ortası skleradan 1,5 mm'de,
-  uçlar küreden dışa doğru hafifçe ayrılır:
+- Kanallar **düzlemde düzdür**; eğrilik yalnızca sklera küresinden gelir (13,8 mm). Kablo
+  sınırı 13 mm olduğundan düzlem içi eğriliğe pay yoktur: küre ile birleşik eğrilik 13 mm'yi
+  aşmamak için düzlem içi yarıçap ≥ 39 mm olmalıdır, bu da 16 mm boyunca yalnızca 3 mm sapmadır.
+  Yelpaze bu yüzden kavisli değil düz ışınlarla yapılır.
+- Giriş sırasında tüpler yan yana, aralık **1,7 mm** (dış çap 1,6 + 0,1). Işınlar bu sıradan
+  posterior kenarda eşit açılarla dağıtılan uçlara gider.
+- Kör uçta kaynağın ulaşamadığı boşluk **2,0 mm**; bekleme adımı 2,5 mm (TPS izin verirse 1 mm).
+- Kanal iç çapı 1,2 mm (Varian 0,9 mm kapsül), tüp dış çapı 1,6 mm.
 
-  | Kiriş uzunluğu | Düz kanal sapması | R = 17 mm kanal sapması |
-  |----------------|-------------------|-------------------------|
-  | 8 mm | 0,59 mm | 0,12 mm |
-  | 12 mm | 1,37 mm | 0,28 mm |
-  | 14 mm | 1,91 mm | 0,40 mm |
-  | 16 mm | 2,56 mm | 0,56 mm |
+| Çap | Işın | Açılar | Bekleme pozisyonu | En uzun kanal | Giriş sırası genişliği |
+|-----|------|--------|-------------------|---------------|------------------------|
+| 12 mm | 3 | 0, ± 45° | 9 | 9,7 mm | 5,1 mm |
+| 14 mm | 5 | 0, ± 22°, ± 45° | 18 | 11,0 mm | 8,5 mm |
+| 16 mm | 5 | 0, ± 22°, ± 45° | 23 | 13,2 mm | 8,5 mm |
+| 18 mm | 5 | 0, ± 22°, ± 45° | 26 | 15,3 mm | 8,5 mm |
+| 20 mm | 7 | 0, ± 15°, ± 30°, ± 45° | 40 | 16,5 mm | 11,9 mm |
 
-  Yedek tasarımda sapma kanal katmanı içinde karşılanır; uçlarda bekleme yüksekliği 1,5 mm'den
-  en fazla 0,6 mm artar ve plan kütüphanesinde gerçek koordinatlarla hesaba girer. Düz kanal
-  her iki durumda da elenir.
-- Kanal yarıçapı ne olursa olsun 20 tekrarlı sahte kaynak geçiş testi kabul şartıdır (belge 04);
-  13 mm sınırına yakın çalışıldığı için bu test özellikle önemlidir.
-- Giriş bloğu ile kanal arasında ek büküm yoktur; transfer tüpü bloğa kanal yayına teğet girer.
-- Kanal tüpü her iki uçta kenar kalkanının 0,5 mm içine kadar uzanır (kiriş uzunluğu kalkan iç çemberine göre hesaplanır); kör uçta kaynağın ulaşamadığı boşluk **2,0 mm** kabul edilmiştir; kaynak modeline göre
-  otoradyografiyle ölçülür ve TPS'e girilir.
-- Bekleme pozisyonu adımı 2,5 mm; planlama sistemi izin veriyorsa 1,0 mm adımla optimizasyon.
+Çentikli plakta çentiğe giren ışınlar çentik sınırında kısaltılır, dıştaki ışınlar sinirin
+iki yanından geçer. Yelpaze çentiklide paralel düzenden **daha iyidir** (16 mm: 4,6'ya 5,9;
+18 mm: 4,3'e 4,6); 20 mm çentiklide ± 55° açı kullanılır (4,6).
 
-| Çap | Kanal sayısı | Kanal aralığı | Bekleme pozisyonu sayısı | En uzun kanal yayı |
-|-----|--------------|---------------|--------------------------|--------------------|
-| 12 mm | 3 | 3,50 mm | 10 | 10,9 mm |
-| 14 mm | 5 | 2,25 mm | 18 | 13,1 mm |
-| 16 mm | 5 | 2,75 mm | 21 | 15,4 mm |
-| 18 mm | 5 | 3,25 mm | 24 | 17,8 mm |
-| 20 mm | 7 | 2,50 mm | 41 | 20,4 mm |
+## Giriş sapı ve kılıf
 
-Kanal aralığı 2,25 mm'de komşu tüpler arası duvar 0,75 mm kalır; PEEK için yeterlidir,
-üretim yöntemi belirlenince teyit edilir. Belge 07'deki karşılaştırmaya göre 5 kanal ile
-7 kanal arasındaki fark %3'ün altındadır; 20 mm plakta 5 veya 7 kanal seçimi Monte Carlo'da
-sklera yüzeyi dalgalanmasına göre yapılır.
-
-## Çentikli sürümler (jukstapapiller tümörler)
-
-Optik disk komşuluğundaki tümörler için 16, 18 ve 20 mm plakların posterior kenarı U çentiklidir.
+Dış görünüş Dupere 2021'in aplikatörünü (belge 07, şekil B) örnek alır: pürüzsüz altın kabuk ve
+plak kenarına teğet **tek sap, kabukla tek parça**; ayrı bir blok veya aparat yoktur. İki fark:
+kabuk düz disk değil sklera eğrisinde kubbedir; sapın içinde tek lümen değil yelpaze giriş
+sırasındaki 3 ile 7 lümen vardır.
 
 | Parametre | Değer | Gerekçe |
 |-----------|-------|---------|
-| Çentik biçimi | U, yarım daire tabanlı | Sinir kılıfına oturur, köşe yok |
-| Çentik genişliği | **10 mm** | Sinir dural kılıfı globda 5 ile 7 mm; COMS/Eye Physics modeli 8 mm'dir ancak cerrahi deneyimde 8 mm çentik kılıfa zor oturmaktadır. Parametredir (`NOTCH_W`), 9 ile 11 mm arasında cerrahın ölçümüne göre ayarlanabilir |
-| Yarım daire merkezi (sinir ekseni) | Plak kenarından **1 mm içeride**: merkezden 16 mm'de 7, 18 mm'de 8, 20 mm'de 9 mm | Çentik derinliği bütün boylarda aynı (kenardan 6 mm); küçük plakta çentik plağın ortasına inmez ve plak sinire aynı biçimde oturur |
-| Çentik kenarı | 0,5 mm altın kalkan çentik hattını izler | Kenar her yerde kapalı kalır |
-| Tümör yerleşimi | Tümörün posterior kenarı disk kenarında (sinir ekseninden 1,5 mm önde), yani tümör çentik bölgesine 3 ile 4 mm girer; taban çapı ≤ plak çapı − 4 mm | Jukstapapiller tümörün gerçek yerleşimi; çentik altındaki tümör kenarı yalnızca yan kanallardan doz alır |
-| Sütür delikleri | 2 lateral, 1 anterior sapın yanında | Posterior kenar çentik nedeniyle kullanılamaz |
+| Sap konumu | Anterior kenar, kabuğa teğet, sklera eğrisini izler | Fornikse en kısa yol, düşük profil |
+| Sap kesiti | Yassı: genişlik giriş sırası + 1,6 mm (5 kanal için 10,1 mm), **kalınlık 2,0 mm** | Lümen 1,2 + duvarlar 0,4 mm; plak yanında konjonktiva altında en düşük profil |
+| Sap uzunluğu | Plak kenarından 3,5 ile 4 mm | Lümenlerin kabuktan güvenli çıkışı |
+| Kılıf | Sap ucundan itibaren **yuvarlak, Ø 4,8 mm**; lümenler 10 mm içinde yuvarlak demete geçer | 5 lümen 1 + 4 dizilimi (7 lümen 1 + 6), 0,3 mm duvar; 13 mm bükülme yarıçapı için gereken S geçişi 9 mm |
+| Konektör | Kılıf ucunda tek kilitli konektör, cihaz tarafında kanal başına ayrılan transfer tüpleri | Tek hareketle bağlantı, tüp uzunluğu 1300 mm sabit |
 
-Kanal düzeni çentikli sürümlerde değişir. Çentiğe giren üç iç kanal (x = 0 ve ± 3,15 mm) çentik
-sınırında kısaltılır; çentiğin iki yanında **tam boy yan kanallar** (x = ± 6,3 mm: çentik yarıçapı
-5 mm + kalkan 0,5 mm + tüp yarıçapı 0,8 mm) sinirin iki yanından geçer ve disk komşuluğundaki
-tümör kenarını besler. 20 mm'de bir dış kanal çifti daha vardır (x = ± 8,3 mm).
-
-| Çap | Sinir ekseni, merkezden | Çentik dibi, merkezden | Kanal | Kısaltılmış | Yan kanal | Yan kanal bekleme pozisyonu | Toplam bekleme pozisyonu |
-|-----|-------------------------|------------------------|-------|-------------|-----------|-----------------------------|--------------------------|
-| 16 mm | 7 mm | 2 mm | 5 | 3 | 2 | 2'şer | 13 |
-| 18 mm | 8 mm | 3 mm | 5 | 3 | 2 | 4'er | 20 |
-| 20 mm | 9 mm | 4 mm | 7 | 3 | 4 | 5'er ve 3'er | 31 |
-
-14 mm çentikli sürüm yoktur: 10 mm çentiğin yanında yan kanala yer kalmaz.
-
-`tools/optimize.py` çentikli karşılaştırması (nokta kaynak, LP optimizasyonu, tümör posterior
-kenarı disk kenarında, apeks 5 mm, taban = plak − 4 mm):
-
-| Plak | Düzen | Sklera/Rx | Disk merkezi/Rx |
-|------|-------|-----------|-----------------|
-| 16 mm | Yuvarlak, sinir yok sayılır | 3,7 | 0,98 |
-| 16 mm | **Çentikli** | 5,9 | 0,77 |
-| 18 mm | Yuvarlak, sinir yok sayılır | 3,2 | 0,81 |
-| 18 mm | **Çentikli** | 4,6 | 0,79 |
-| 20 mm | Yuvarlak, sinir yok sayılır | 2,7 | 1,00 |
-| 20 mm | **Çentikli** | 3,7 | 0,80 |
-
-Okuma:
-
-- Çentik altındaki tümör kenarı yalnızca yan kanallardan doz aldığı için, o kenarı reçeteye
-  çıkarmak yan kanalların altındaki sklerayı ısıtır. Sklera/Rx çentikli plakta yuvarlağa göre
-  %35 ile 60 yükselir. Bu, jukstapapiller tümörlerin bilinen sorunudur; LDR çentikli plakta da
-  vardır ve orada seed çıkarıldığı için daha kötüdür.
-- 16 mm çentiklide yan kanallar 2'şer bekleme pozisyonuyla çok kısadır; sklera/Rx 5,9 kabul
-  edilemez. **Kural: jukstapapiller tümörde çentikli plak bir boy büyük seçilir.** Taban 12 mm
-  için 18 mm çentikli, taban 14 mm için 20 mm çentikli. 16 mm çentikli yalnızca tabanı 10 mm
-  ve altındaki tümörler içindir.
-- Disk merkezi dozu reçetenin %77 ile 80'i düzeyinde kalır. Tümör diske bitişik olduğu için
-  bunun altına inilemez; disk dozu kısıtı jukstapapiller tümörde gevşetilmiş kabul edilir.
-- HDR'nin çentikte avantajı, yan kanal bekleme sürelerinin tümör kenarına göre optimize
-  edilebilmesidir; LDR'de bu serbestlik yoktur.
-
-## Giriş sapı ve transfer tüpleri
-
-Dış görünüş Dupere 2021'in aplikatörünü (belge 07, şekil B) örnek alır: pürüzsüz altın kabuk ve
-plak kenarına **teğet tek sap**, plak yüzeyinden çıkıntı yok. İki fark: kabuk düz disk değil
-sklera eğrisinde kubbedir; sap tek lümenli yuvarlak boru değil **yassı ve çok lümenlidir**.
-
-- **Plağa tek giriş vardır.** Kenar kalkanında tek bir yuva açılır; sap bu yuvadan çıkar.
-  Kaynak, afterloader tarafından her kör kanala sırayla gönderilir; cerrahın gördüğü tek bir
-  sap ve tek bir kılıftır.
-- Sap plağın anterior kenarında, kabuğa teğet ve sklera eğrisini izler, **kalınlık ≤ 2,0 mm**
-  (lümen 1,2 mm + 0,4 mm duvarlar), genişlik kanal yayılımı + 1,6 mm, plak dışında 4 mm uzunluk;
-  ucunda tek kilitli konektör. Kanal lümenleri sapta kiriş
-  aralığıyla yan yana dizilir; her lümen numaralı ve renk kodludur.
-- Lümenler yuvarlak tek boruya toplanmaz: kiriş aralığındaki lümenleri 13 mm bükülme
-  yarıçapıyla bir araya getirmek yaklaşık 15 mm uzunluk ister, bu da orbita içinde kalır.
-  Tüpler ancak forniks dışında, kılıf içinde birleşir.
-- Kanallar sapa **teğet** girer; sapta ek büküm yoktur. Tüm büküm kanal içindeki küre
-  kabuğu eğrisidir.
+- **Plağa tek giriş vardır.** Kaynak, afterloader tarafından her kör kanala sırayla gönderilir;
+  cerrahın gördüğü tek bir sap ve tek bir kılıftır.
+- Lümenler plak içinde tek sıra halinde kalır (kanal katmanı 1,9 mm, tek kat). Yuvarlak demete
+  geçiş bu yüzden plak dışında, kılıfın ilk 10 mm'sinde yapılır.
 - **Ortadan (kubbe sırtından, skleraya dik) giriş elenmiştir.** Kaynağın dik saptan yüzeye
   paralel kanallara geçmesi 4 mm kalınlık içinde 90° dönüş, yani 2 ile 3 mm bükülme yarıçapı
   ister; kablo sınırı 13 mm'dir. Ayrıca dik sap orbita duvarına bakar ve fornikse ulaşmak için
   orbita içinde kıvrılması gerekir. Yalnızca pelet dizili sistemde mümkündür.
-- **Sapın kenardaki yeri serbesttir.** Varsayılan anterior kenar (fornikse en yakın). Tümör
-  kas yapışma yerinin altındaysa plak döndürülür ve sap lateral kenardan çıkar; kanallar sapa
-  paralel olduğu için doz düzeni değişmez. Çentikli plakta sap çentiğin karşısında sabittir.
-- Transfer tüpleri sapın ucuna tek bir kilitli konektörle bağlanır (tek hareketle 3 ile 7 kanal).
-  Konektörden sonra tüpler 20 cm boyunca tek kılıf içinde gider, sonra afterloader
-  bağlantıları için ayrılır. Toplam uzunluk cihazın standart transfer tüpü uzunluğuna eşittir.
-- Konektör kilitli değilken afterloader kanal kontrolü hata verir (tüp uzunluğu ölçümü ile).
-- Tüpler kapaklar arasından forniksten çıkar; göz kapağı ekartörü tedavi boyunca yerinde kalır.
+- **Sapın kenardaki yeri serbesttir.** Varsayılan anterior kenar. Tümör kas yapışma yerinin
+  altındaysa plak döndürülür ve sap lateral kenardan çıkar; ışınlar sapa göre tanımlı olduğu
+  için doz düzeni değişmez. Çentikli plakta sap çentiğin karşısında sabittir.
+- Kılıf kapaklar arasından forniksten çıkar; göz kapağı ekartörü tedavi boyunca yerinde kalır.
   Kılıf kapağa veya alına steril bantla tespit edilir; plağa yük binmez.
 
 ## Dikim ve tespit

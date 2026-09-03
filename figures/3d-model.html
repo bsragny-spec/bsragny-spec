@@ -91,7 +91,7 @@
 <header>
   <h1>Yb-169 HDR episkleral aplikatör</h1>
   <span class="sub">3B konformal model, sklera üzerinde</span>
-  <span class="ver">taslak v0.1.11</span>
+  <span class="ver">taslak v0.2.0</span>
 </header>
 
 <aside>
@@ -149,32 +149,28 @@
   const NOTCH_R = 5.0, NOTCH_INSET = 1.0, DISC_EDGE = 1.5;
   const notchCY = D => D / 2 - NOTCH_INSET;
 
+  const FAN_PITCH0 = 1.7, ALPHA_MAX = 45 * Math.PI / 180;
   function layout(D, notched) {
-    const half = D / 2 - EDGE, rIn = D / 2 - RIM - 0.2;
-    let xs, pitch;
-    if (notched) {
-      const xf = NOTCH_R + RIM + CH_OD / 2, inner = xf / 2;
-      xs = [-xf, -inner, 0, inner, xf]; pitch = inner;
-      if (xf + 2 + CH_OD / 2 <= rIn) xs = [-(xf + 2), ...xs, xf + 2];
-    } else {
-      const n = 2 * Math.floor((half - 1) / PITCH_NOM + 0.5) + 1;
-      pitch = n > 1 ? 2 * (half - 1) / (n - 1) : 0;
-      xs = Array.from({ length: n }, (_, i) => (-(n - 1) / 2 + i) * pitch);
-    }
+    // Yelpaze: anterior kenardaki dar giriş sırasından düz ışınlar; eğrilik yalnızca küreden.
+    const r = D / 2, rIn = r - RIM - 0.2;
+    const n = 2 * Math.floor((r - EDGE - 1) / PITCH_NOM + 0.5) + 1;
+    const yEntry = -Math.sqrt(Math.max(rIn * rIn - ((n - 1) / 2 * FAN_PITCH0) ** 2, 0)) + 0.3;
     const ch = [];
-    for (const x of xs) {
-      if (Math.abs(x) + CH_OD / 2 > rIn) continue;
-      const chordHalf = Math.sqrt(Math.max(rIn * rIn - x * x, 0));
-      let yEnd = chordHalf - 0.3, trunc = false;
-      if (notched && Math.abs(x) < NOTCH_R) {
-        const yn = notchCY(D) - Math.sqrt(NOTCH_R * NOTCH_R - x * x);
-        if (yn - RIM - 0.3 < yEnd) { yEnd = yn - RIM - 0.3; trunc = true; }
+    for (let i = 0; i < n; i++) {
+      const AM = (notched && D >= 20) ? 55 * Math.PI / 180 : ALPHA_MAX;
+      const x0 = (i - (n - 1) / 2) * FAN_PITCH0, a = n > 1 ? -AM + 2 * AM * i / (n - 1) : 0;
+      const xe = rIn * Math.sin(a), ye = rIn * Math.cos(a);
+      let dx = xe - x0, dy = ye - yEntry; const L = Math.hypot(dx, dy); const ux = dx / L, uy = dy / L;
+      const b = 2 * (x0 * ux + yEntry * uy), c = x0 * x0 + yEntry * yEntry - rIn * rIn;
+      let tEnd = (-b + Math.sqrt(Math.max(b * b - 4 * c, 0))) / 2 - 0.3, trunc = false;
+      if (notched) {
+        const ncy = notchCY(D), px = x0, py = yEntry - ncy, bb = 2 * (px * ux + py * uy), cc = px * px + py * py - NOTCH_R * NOTCH_R, disc = bb * bb - 4 * cc;
+        if (disc > 0) { const t1 = (-bb - Math.sqrt(disc)) / 2; if (t1 > 0 && t1 < tEnd) { tEnd = t1 - RIM - 0.3; trunc = true; } }
       }
-      const yStart = -chordHalf + 0.5, yLast = yEnd - TIP_DEAD;
-      const k = Math.floor((yLast - yStart) / STEP) + 1;
-      const dw = Array.from({ length: Math.max(k, 0) }, (_, i) => yStart + i * STEP);
-      ch.push({ x, y0: -chordHalf, y1: yEnd, dwells: dw, trunc, pitch,
-                arc: 2 * R_D * Math.asin(Math.min(chordHalf / R_D, 1)) });
+      const k = Math.floor((tEnd - TIP_DEAD - 0.5) / STEP) + 1;
+      const dwells = Array.from({ length: Math.max(k, 0) }, (_, j) => { const t = 0.5 + j * STEP; return [x0 + t * ux, yEntry + t * uy]; });
+      const pt = t => [x0 + t * ux, yEntry + t * uy];
+      ch.push({ x: x0, angle: a, pt, tEnd, dwells, trunc, pitch: FAN_PITCH0, arc: tEnd, yEntry });
     }
     return ch;
   }
@@ -203,6 +199,7 @@
   scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8478, 0.9));
   const key = new THREE.DirectionalLight(0xffffff, 0.75); key.position.set(30, -20, 50); scene.add(key);
   const fill = new THREE.DirectionalLight(0xffffff, 0.3); fill.position.set(-30, 25, 10); scene.add(fill);
+  const front = new THREE.DirectionalLight(0xffffff, 0.45); front.position.set(10, -60, 20); scene.add(front);
 
   // kamera kontrolü
   const target = new THREE.Vector3(0, 0, 9);
@@ -318,13 +315,13 @@
     if (document.getElementById('cChan').checked) {
       for (const c of ch) {
         const pts = []; const n = 24;
-        for (let i = 0; i <= n; i++) pts.push(P(c.x, c.y0 + (c.y1 - c.y0) * i / n, R_D));
+        for (let i = 0; i <= n; i++) { const [px, py] = c.pt(-0.3 + (c.tEnd + 0.3) * i / n); pts.push(P(px, py, R_D)); }
         const curve = new THREE.CatmullRomCurve3(pts);
         group.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 40, CH_OD / 2, 14, false), mats.tube));
         group.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 40, CH_ID / 2 - 0.05, 12, false), mats.lumen.clone()));
-        c.dwells.forEach((y, i) => {
+        c.dwells.forEach(([px, py]) => {
           const s = new THREE.Mesh(new THREE.SphereGeometry(0.32, 14, 10), mats.dwell);
-          s.position.copy(P(c.x, y, R_D)); group.add(s);
+          s.position.copy(P(px, py, R_D)); group.add(s);
         });
       }
       // giriş sapı: sklera eğrisini izleyen kavisli, yassı, çok lümenli gövde
@@ -333,7 +330,7 @@
         const phi = sArc / R_SCL, c = Math.sqrt(Math.max(1 - (x / R_SCL) ** 2, 0));
         return new THREE.Vector3(x / R_SCL, -Math.sin(phi) * c, Math.cos(phi) * c).normalize().multiplyScalar(R);
       };
-      const xs = ch.map(c => c.x), w = Math.max(...xs) - Math.min(...xs) + 1.6, L = 4.0, T = 2.0;
+      const w = ch.length * FAN_PITCH0 + 1.6, L = 3.5, T = 2.0;
       const s0 = R_SCL * Math.asin(Math.min(r / R_SCL, 1)) - 0.4, Ra = R1 + 0.15, Rb = Ra + T;
       const slab = (sA, sB, xw, Ra_, Rb_, mat, N = 12, M = 10) => {
         const rows = (R) => Array.from({ length: N + 1 }, (_, i) => { const sv = sA + (sB - sA) * i / N;
@@ -347,9 +344,9 @@
         const pts = Array.from({ length: 9 }, (_, i) => Q(c.x, s0 + 0.5 + (L - 0.3) * i / 8, (Ra + Rb) / 2));
         group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 12, CH_ID / 2, 10, false), mats.lumenSolid));
       }
-      slab(s0 + L, s0 + L + 1.6, w + 0.6, Ra - 0.2, Rb + 0.3, mats.block);   // kilitli konektör
-      const sh = [Q(0, s0 + L + 1.4, (Ra + Rb) / 2), Q(0, s0 + L + 5, (Ra + Rb) / 2 + 0.8), Q(0, s0 + L + 10, (Ra + Rb) / 2 + 3.5)];
-      group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(sh), 16, 0.8, 12, false), mats.block)); // kılıf
+      // yuvarlak kılıf Ø 4,5 mm: sapın ucundan, lümenler 10 mm içinde yuvarlak demete geçer
+      const sh = [Q(0, s0 + L - 0.2, (Ra + Rb) / 2 + 0.3), Q(0, s0 + L + 5, (Ra + Rb) / 2 + 1.2), Q(0, s0 + L + 11, (Ra + Rb) / 2 + 4.0)];
+      group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(sh), 16, 2.4, 16, false), mats.block));
     }
     // tümör
     if (document.getElementById('cTumor').checked) {
@@ -385,8 +382,9 @@
         band(R3, R4, -r, r, mats.gold); band(R1, R3, -r, -(r - RIM), mats.gold); band(R1, R3, r - RIM, r, mats.gold);
       }
       if (document.getElementById('cChan').checked) for (const c of ch) {
-        if (c.y0 > 0 || c.y1 < 0) continue;
-        const p = P(c.x, -0.03, R_D), t = P(c.x, 0.5, R_D).sub(P(c.x, -0.5, R_D)).normalize();
+        const [xa, ya] = c.pt(0), [xb, yb] = c.pt(c.tEnd); if (ya >= 0 || yb <= 0) continue;
+        const xc = xa + (0 - ya) / (yb - ya) * (xb - xa);
+        const p = P(xc, -0.03, R_D), t = P(xb, yb, R_D).sub(P(xa, ya, R_D)).normalize();
         const ring = new THREE.Mesh(new THREE.RingGeometry(CH_ID / 2, CH_OD / 2, 24), mats.tube.clone());
         ring.material.opacity = 1; ring.material.clippingPlanes = []; ring.position.copy(p); ring.lookAt(p.clone().add(t)); group.add(ring);
         const lum = new THREE.Mesh(new THREE.CircleGeometry(CH_ID / 2, 24), mats.lumenSolid.clone()); lum.material.clippingPlanes = [];
@@ -400,10 +398,13 @@
     const { D, notched } = state, dw = ch.reduce((s, c) => s + c.dwells.length, 0);
     const rows = [
       ['Plak', `${D} mm ${notched ? 'çentikli' : 'yuvarlak'}`],
-      ['Kanal', notched ? `${ch.length} (${ch.filter(c => c.trunc).length} kısa + ${ch.filter(c => !c.trunc).length} yan)` : `${ch.length} paralel`],
-      ['Kanal aralığı', `${ch[0].pitch.toFixed(2)} mm`],
+      ['Kanal', notched ? `${ch.length} ışın (${ch.filter(c => c.trunc).length} kısa)` : `${ch.length} yelpaze ışını`],
+      ['Yelpaze açısı', (notched && D >= 20) ? '±55°' : '±45°'],
+      ['Giriş sırası aralığı', `${FAN_PITCH0} mm`],
+      ['Sap', `${(ch.length * FAN_PITCH0 + 1.6).toFixed(1)} × 2,0 mm, tek parça`],
+      ['Kılıf', 'Ø 4,8 mm, yuvarlak'],
       ['Bekleme pozisyonu', `${dw}`],
-      ['En uzun kanal yayı', `${Math.max(...ch.map(c => c.arc)).toFixed(1)} mm`],
+      ['En uzun kanal', `${Math.max(...ch.map(c => c.arc)).toFixed(1)} mm`],
       ['Toplam kalınlık', `${(R4 - R1).toFixed(2)} mm`],
       ['İç eğrilik yarıçapı', `${R_SCL} mm`],
       ['Bekleme ekseni', `skleradan ${OFF} mm`],
