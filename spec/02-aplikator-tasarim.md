@@ -89,14 +89,19 @@ Kaç kanal gerektiği sorusunun cevabı (sklera maks / reçete, konumlar her say
 - **Beş kanal** 18 ve 20 mm'de %10 ile 15 kazandırır ve orada seçilmiştir.
 - Optimum konumlar dış kanalları kenara yakın koyar (halka benzeri dağılım); eski eşit aralık
   kuralı terk edilmiştir.
+- Optimum bölge düzdür: 1 mm bekleme adımıyla yapılan taramada dış kanalın kenardan 2,5 ile
+  3,5 mm, iç kanalın 2,0 ile 3,0 mm arasındaki konumları sklera oranını %5'ten az değiştirir.
+  Bu yüzden konumlar **tek bir kurala** bağlanmıştır: **dış kanal kenardan 3,0 mm içeride
+  (x = r − 3,0), 5 kanallıda iç kanallar ± 2,5 mm, merkez kanal 0.** Kural her boyda LP
+  optimumunun %5 içindedir.
 
 | Çap | Kanal | Konumlar x (mm) | Bekleme pozisyonu | En uzun kanal yayı |
 |-----|-------|-----------------|-------------------|--------------------|
-| 12 mm | 3 | 0, ± 3,5 | 10 | 10,9 mm |
-| 14 mm | 3 | 0, ± 3,5 | 12 | 13,1 mm |
+| 12 mm | 3 | 0, ± 3,0 | 10 | 10,9 mm |
+| 14 mm | 3 | 0, ± 4,0 | 10 | 13,1 mm |
 | 16 mm | 3 | 0, ± 5,0 | 13 | 15,4 mm |
-| 18 mm | 5 | 0, ± 2,8, ± 6,1 | 26 | 17,8 mm |
-| 20 mm | 5 | 0, ± 2,3, ± 6,6 | 31 | 20,4 mm |
+| 18 mm | 5 | 0, ± 2,5, ± 6,0 | 26 | 17,8 mm |
+| 20 mm | 5 | 0, ± 2,5, ± 7,0 | 29 | 20,4 mm |
 
 - Kanallar sklera eğrisini izler; eksen yarıçapı 13,8 mm'lik küre kabuğu üzerindedir.
   GammaMedplus iX kablosunun bildirilen minimum bükülme yarıçapı 13 mm'dir (belge 01, A2b).

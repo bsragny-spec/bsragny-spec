@@ -64,8 +64,11 @@ def dose_rate(rel, d_mm):
 # Sütür küpeleri: 2 adet, dış kanal ağızlarının hemen yanında (anterior kenar).
 EYELET_R, EYELET_HOLE, EYELET_OFFSET = 1.2, 0.4, 2.6   # mm: küpe yarıçapı, delik yarıçapı, dış ağızdan yanal uzaklık
 # Çentiklide dış kanallar sinirin iki yanından geçer (|x| = çentik yarıçapı + kalkan + tüp yarıçapı).
-CHANNEL_X = {12: [-3.5, 0.0, 3.5], 14: [-3.5, 0.0, 3.5], 16: [-5.0, 0.0, 5.0],
-             18: [-6.1, -2.8, 0.0, 2.8, 6.1], 20: [-6.6, -2.3, 0.0, 2.3, 6.6]}
+# Tek kural: dış kanal plak kenarından 3,0 mm içeride (x = r - 3,0); 5 kanallıda iç kanallar ±2,5 mm.
+# Bu kural her boyda LP optimumunun %5 içinde kalır (1 mm bekleme adımıyla tarama, belge 02).
+OUTER_INSET, INNER_X = 3.0, 2.5
+CHANNEL_X = {12: [-3.0, 0.0, 3.0], 14: [-4.0, 0.0, 4.0], 16: [-5.0, 0.0, 5.0],
+             18: [-6.0, -2.5, 0.0, 2.5, 6.0], 20: [-7.0, -2.5, 0.0, 2.5, 7.0]}
 CHANNEL_X_NOTCHED = {16: [-6.3, -3.15, 3.15, 6.3], 18: [-6.3, -3.15, 3.15, 6.3], 20: [-6.3, -3.15, 0.0, 3.15, 6.3]}
 
 def plaque_layout(diameter, notched=False):

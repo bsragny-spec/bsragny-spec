@@ -47,6 +47,7 @@ ilerleyebilir ve Ir-192 ile test edilebilir.
 | Sürüm | Tarih | Değişiklik |
 |-------|-------|-----------|
 | v0.1 | 2026-09-02 | İlk taslak: kaynak seçimi, geometri, dozimetri yaklaşımı, iş akışı, açık sorular |
+| v0.3.2 | 2026-09-03 | Kanal konumları tek kurala bağlandı: dış kanal kenardan 3,0 mm içeride, iç kanallar ±2,5 mm (LP optimumunun %5 içinde); 18 ve 20 mm arasındaki tutarsız aralıklar giderildi |
 | v0.3.1 | 2026-09-03 | Çentikli 16 ve 18 mm 4 kanala indirildi; bütün plaklara dış ağızların yanında 2 sütür küpesi eklendi, kenar delikleri kaldırıldı |
 | v0.3.0 | 2026-09-03 | Yelpaze ve tek giriş hattı kaldırıldı. Kanal sayısı çalışması: 12-16 mm 3 kanal, 18-20 mm ve çentikli 5 kanal, konumlar LP ile. Her kanal kendi altın ağzı ve kateteriyle çıkar |
 | v0.2.3 | 2026-09-03 | Kenar duvarı plak eksenine paralel yapıldı (sırt izdüşümü taban ile aynı, mantar biçimi giderildi); eksenel izdüşüm kuralı; kenar duvar yükseklikleri tabloya eklendi |

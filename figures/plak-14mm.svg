@@ -2,33 +2,32 @@
 <title>14 mm plak</title>
 <rect width="640" height="640" fill="#ffffff"/>
 <text x="320.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, 14 mm plak (ölçek 10 px = 1 mm)</text>
-<rect x="168.0" y="232.4" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
-<path d="M 180.0 272.4 C 180.0 312.4 174.8 332.4 171.2 362.4" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
-<path d="M 180.0 272.4 C 180.0 312.4 174.8 332.4 171.2 362.4" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
-<circle cx="180.0" cy="266.4" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<rect x="163.0" y="228.7" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
+<path d="M 175.0 268.7 C 175.0 308.7 169.0 328.7 165.0 358.7" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
+<path d="M 175.0 268.7 C 175.0 308.7 169.0 328.7 165.0 358.7" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
+<circle cx="175.0" cy="262.7" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
 <rect x="203.0" y="243.0" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
 <path d="M 215.0 283.0 C 215.0 323.0 215.0 343.0 215.0 373.0" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
 <path d="M 215.0 283.0 C 215.0 323.0 215.0 343.0 215.0 373.0" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
 <circle cx="215.0" cy="277.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
-<rect x="238.0" y="232.4" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
-<path d="M 250.0 272.4 C 250.0 312.4 255.2 332.4 258.8 362.4" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
-<path d="M 250.0 272.4 C 250.0 312.4 255.2 332.4 258.8 362.4" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
-<circle cx="250.0" cy="266.4" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<rect x="243.0" y="228.7" width="24.0" height="40.0" rx="6.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
+<path d="M 255.0 268.7 C 255.0 308.7 261.0 328.7 265.0 358.7" stroke="#2b4c5e" stroke-width="20.0" fill="none" stroke-linecap="round"/>
+<path d="M 255.0 268.7 C 255.0 308.7 261.0 328.7 265.0 358.7" stroke="#dfe7ec" stroke-width="15.0" fill="none" stroke-linecap="round"/>
+<circle cx="255.0" cy="262.7" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
 <text x="215.0" y="395.0" text-anchor="middle" font-size="9" fill="#555">kanal başına altın ağız Ø 2.4 × 3 mm ve ayrı kateter Ø 2.0 mm</text>
-<circle cx="146.2" cy="228.8" r="12.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
-<circle cx="146.2" cy="228.8" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.7"/>
-<circle cx="283.8" cy="228.8" r="12.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
-<circle cx="283.8" cy="228.8" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.7"/>
+<circle cx="140.5" cy="216.3" r="12.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
+<circle cx="140.5" cy="216.3" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.7"/>
+<circle cx="289.5" cy="216.3" r="12.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.0"/>
+<circle cx="289.5" cy="216.3" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.7"/>
 <circle cx="215" cy="190" r="70.0" fill="#efdca0" stroke="#8a6d1a" stroke-width="1.4"/>
 <circle cx="215" cy="190" r="55.0" fill="#e6c96a" stroke="#c9ad4f" stroke-width="0.6"/>
 <circle cx="215" cy="190" r="65.0" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7" opacity="0.92"/>
-<rect x="-3.0" y="-8.0" width="104.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(180.0,242.4) rotate(-90.00)"/>
-<rect x="-3.0" y="-6.0" width="102.8" height="12.0" rx="6.0" fill="#fff" transform="translate(180.0,242.4) rotate(-90.00)"/>
-<rect x="79.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(180.0,242.4) rotate(-90.00)"/>
-<circle cx="180.0" cy="237.4" r="2.8" fill="#c0392b"/>
-<circle cx="180.0" cy="212.4" r="2.8" fill="#c0392b"/>
-<circle cx="180.0" cy="187.4" r="2.8" fill="#c0392b"/>
-<circle cx="180.0" cy="162.4" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="97.3" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(175.0,238.7) rotate(-90.00)"/>
+<rect x="-3.0" y="-6.0" width="95.3" height="12.0" rx="6.0" fill="#fff" transform="translate(175.0,238.7) rotate(-90.00)"/>
+<rect x="72.3" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(175.0,238.7) rotate(-90.00)"/>
+<circle cx="175.0" cy="233.7" r="2.8" fill="#c0392b"/>
+<circle cx="175.0" cy="208.7" r="2.8" fill="#c0392b"/>
+<circle cx="175.0" cy="183.7" r="2.8" fill="#c0392b"/>
 <rect x="-3.0" y="-8.0" width="126.0" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(215.0,253.0) rotate(-90.00)"/>
 <rect x="-3.0" y="-6.0" width="124.0" height="12.0" rx="6.0" fill="#fff" transform="translate(215.0,253.0) rotate(-90.00)"/>
 <rect x="101.0" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(215.0,253.0) rotate(-90.00)"/>
@@ -36,13 +35,12 @@
 <circle cx="215.0" cy="223.0" r="2.8" fill="#c0392b"/>
 <circle cx="215.0" cy="198.0" r="2.8" fill="#c0392b"/>
 <circle cx="215.0" cy="173.0" r="2.8" fill="#c0392b"/>
-<rect x="-3.0" y="-8.0" width="104.8" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(250.0,242.4) rotate(-90.00)"/>
-<rect x="-3.0" y="-6.0" width="102.8" height="12.0" rx="6.0" fill="#fff" transform="translate(250.0,242.4) rotate(-90.00)"/>
-<rect x="79.8" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(250.0,242.4) rotate(-90.00)"/>
-<circle cx="250.0" cy="237.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="212.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="187.4" r="2.8" fill="#c0392b"/>
-<circle cx="250.0" cy="162.4" r="2.8" fill="#c0392b"/>
+<rect x="-3.0" y="-8.0" width="97.3" height="16.0" rx="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.8" transform="translate(255.0,238.7) rotate(-90.00)"/>
+<rect x="-3.0" y="-6.0" width="95.3" height="12.0" rx="6.0" fill="#fff" transform="translate(255.0,238.7) rotate(-90.00)"/>
+<rect x="72.3" y="-6.0" width="20.0" height="12.0" rx="6.0" fill="#f3d1cc" transform="translate(255.0,238.7) rotate(-90.00)"/>
+<circle cx="255.0" cy="233.7" r="2.8" fill="#c0392b"/>
+<circle cx="255.0" cy="208.7" r="2.8" fill="#c0392b"/>
+<circle cx="255.0" cy="183.7" r="2.8" fill="#c0392b"/>
 <line x1="145.0" y1="104.0" x2="285.0" y2="104.0" stroke="#333" stroke-width="0.7"/>
 <line x1="145.0" y1="99.0" x2="145.0" y2="109.0" stroke="#333" stroke-width="0.7"/>
 <line x1="285.0" y1="99.0" x2="285.0" y2="109.0" stroke="#333" stroke-width="0.7"/>
@@ -54,12 +52,12 @@
 <path d="M 380.0 166.8 A 150.5 150.5 0 0 1 520.0 166.8 L 520.0 165.0 A 15.0 15.0 0 0 0 505.0 143.9 A 165.5 165.5 0 0 0 395.0 143.9 A 15.0 15.0 0 0 0 380.0 165.0 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
 <path d="M 380.0 166.8 L 380.0 198.9 L 385.0 195.6 L 385.0 164.3 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
 <path d="M 520.0 166.8 L 520.0 198.9 L 515.0 195.6 L 515.0 164.3 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1"/>
-<circle cx="415.0" cy="166.5" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="415.0" cy="166.5" r="6.0" fill="#fff"/>
+<circle cx="410.0" cy="167.9" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="410.0" cy="167.9" r="6.0" fill="#fff"/>
 <circle cx="450.0" cy="162.0" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
 <circle cx="450.0" cy="162.0" r="6.0" fill="#fff"/>
-<circle cx="485.0" cy="166.5" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
-<circle cx="485.0" cy="166.5" r="6.0" fill="#fff"/>
+<circle cx="490.0" cy="167.9" r="8.0" fill="#b8c7d1" stroke="#2b4c5e" stroke-width="0.7"/>
+<circle cx="490.0" cy="167.9" r="6.0" fill="#fff"/>
 <circle cx="450.0" cy="162.0" r="3.5" fill="#c0392b"/>
 <line x1="545.0" y1="134.5" x2="545.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
 <line x1="542.0" y1="134.5" x2="548.0" y2="134.5" stroke="#333" stroke-width="0.7"/>
@@ -69,8 +67,8 @@
 <text x="215" y="418" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (kanal ağızları) altta</text>
 <text x="450" y="117" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik; duvar eksene paralel</text>
 <text x="30" y="452" font-size="10.5" fill="#222">Çap 14 mm, tümör tabanı ≤ 10 mm için</text>
-<text x="30" y="469" font-size="10.5" fill="#222">Kanal: 3 paralel kör kiriş, x = -3.5, +0.0, +3.5 mm (LP ile seçildi), iç çap 1.2 mm</text>
-<text x="30" y="486" font-size="10.5" fill="#222">Bekleme pozisyonu: 12 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
+<text x="30" y="469" font-size="10.5" fill="#222">Kanal: 3 paralel kör kiriş, x = -4.0, +0.0, +4.0 mm (LP ile seçildi), iç çap 1.2 mm</text>
+<text x="30" y="486" font-size="10.5" fill="#222">Bekleme pozisyonu: 10 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
 <text x="30" y="503" font-size="10.5" fill="#222">En uzun kanal yayı 13.1 mm; eğrilik yalnızca küreden (13.8 mm); eksen skleradan 1.5 mm</text>
 <text x="30" y="520" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm; dış kenar 1.5 mm yuvarlatılmış</text>
 <text x="30" y="537" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 2.2 mm, yarım açı 35°; iç eğrilik yarıçapı 12.3 mm; kenar duvar yüksekliği 4.9 mm</text>
