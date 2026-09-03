@@ -2,16 +2,13 @@
 <title>16 mm çentikli plak</title>
 <rect width="640" height="600" fill="#ffffff"/>
 <text x="320.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Yb-169 HDR episkleral aplikatör, 16 mm çentikli plak (ölçek 10 px = 1 mm)</text>
-<rect x="149.5" y="260.0" width="101.0" height="50.0" rx="10.0" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>
-<rect x="176.0" y="308.0" width="48.0" height="50.0" rx="24.0" fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>
-<circle cx="166.0" cy="301.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
-<circle cx="183.0" cy="301.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
-<circle cx="200.0" cy="301.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
-<circle cx="217.0" cy="301.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
-<circle cx="234.0" cy="301.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>
-<text x="258.5" y="286.0" font-size="9" fill="#555">sap 10.1 × 2 mm</text>
-<text x="258.5" y="298.0" font-size="9" fill="#555">kabukla tek parça</text>
-<text x="229.0" y="338.0" font-size="9" fill="#555">kılıf Ø 4,8 mm</text>
+<path d="M 149.5 258.0 L 250.5 258.0 C 250.5 308.0 224.0 318.0 224.0 350.0 L 224.0 365.0 A 24.0 24.0 0 0 1 176.0 365.0 L 176.0 350.0 C 176.0 318.0 149.5 308.0 149.5 258.0 Z" fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>
+<circle cx="166.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<circle cx="183.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<circle cx="200.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<circle cx="217.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<circle cx="234.0" cy="278.0" r="6.0" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>
+<text x="200.0" y="402.0" text-anchor="middle" font-size="9" fill="#555">giriş hattı: kök 10.1 × 2,6 mm oval, 10 mm sonra Ø 4,8 mm yuvarlak</text>
 <path d="M 250.0 127.6 A 80.0 80.0 0 1 1 150.0 127.6 L 150.0 120.0 A 50.0 50.0 0 0 0 250.0 120.0 Z" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>
 <path d="M 255.0 139.0 A 75.0 75.0 0 1 1 145.0 139.0 L 145.0 120.0 A 55.0 55.0 0 0 0 255.0 120.0 Z" fill="#eef4f7" stroke="#8a6d1a" stroke-width="0.7"/>
 <circle cx="269.9" cy="177.7" r="4.0" fill="#fff" stroke="#8a6d1a" stroke-width="0.8"/>
@@ -78,15 +75,15 @@
 <line x1="572.0" y1="134.5" x2="578.0" y2="134.5" stroke="#333" stroke-width="0.7"/>
 <line x1="572.0" y1="177.0" x2="578.0" y2="177.0" stroke="#333" stroke-width="0.7"/>
 <text x="580.0" y="158.8" text-anchor="start" font-size="9">4.25 mm</text>
-<text x="200" y="395" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş sapı) altta</text>
+<text x="200" y="428" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş hattı) altta</text>
 <text x="470" y="117" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>
-<text x="30" y="440" font-size="10.5" fill="#222">Çap 16 mm, çentikli: jukstapapiller tümör, taban ≤ 12 mm, posterior kenarı disk kenarında; bir boy büyük seçilir</text>
-<text x="30" y="457" font-size="10.5" fill="#222">Kanal: 5 yelpaze ışını, ±45°, giriş sırası aralığı 1.7 mm; 3 tanesi çentikte kısaltılmış; iç çap 1.2 mm</text>
-<text x="30" y="474" font-size="10.5" fill="#222">Bekleme pozisyonu: 16 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
-<text x="30" y="491" font-size="10.5" fill="#222">En uzun kanal 11.2 mm; düzlemde düz, eğrilik yalnızca küreden (13.8 mm); eksen skleradan 1.5 mm</text>
-<text x="30" y="508" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
-<text x="30" y="525" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 3.0 mm, yarım açı 41°; iç eğrilik yarıçapı 12.3 mm</text>
-<text x="30" y="542" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.</text>
-<text x="30" y="559" font-size="10.5" fill="#222">Çentik: U biçimli, genişlik 10 mm, sinir ekseni plak merkezinden 7 mm (kenardan 1 mm içeride), dip merkezden 2 mm; kalkan çentiği izler</text>
+<text x="30" y="452" font-size="10.5" fill="#222">Çap 16 mm, çentikli: jukstapapiller tümör, taban ≤ 12 mm, posterior kenarı disk kenarında; bir boy büyük seçilir</text>
+<text x="30" y="469" font-size="10.5" fill="#222">Kanal: 5 yelpaze ışını, ±45°, giriş sırası aralığı 1.7 mm; 3 tanesi çentikte kısaltılmış; iç çap 1.2 mm</text>
+<text x="30" y="486" font-size="10.5" fill="#222">Bekleme pozisyonu: 16 adet, adım 2.5 mm, kör uç ölü boşluğu 2.0 mm</text>
+<text x="30" y="503" font-size="10.5" fill="#222">En uzun kanal 11.2 mm; düzlemde düz, eğrilik yalnızca küreden (13.8 mm); eksen skleradan 1.5 mm</text>
+<text x="30" y="520" font-size="10.5" fill="#222">Katmanlar: ara katman 0.85 mm, kanal katmanı 1.9 mm, altın sırt 1.5 mm; kenar kalkanı 0.5 mm tam yükseklik</text>
+<text x="30" y="537" font-size="10.5" fill="#222">Kubbe derinliği (sagitta) 3.0 mm, yarım açı 41°; iç eğrilik yarıçapı 12.3 mm</text>
+<text x="30" y="554" font-size="10.5" fill="#222">Sütür deliği 3 adet, Ø 0,8 mm. Kabukla tek parça yassı sap, ucunda tek kilitli konektör ve Ø 4,5 mm kılıf.</text>
+<text x="30" y="571" font-size="10.5" fill="#222">Çentik: U biçimli, genişlik 10 mm, sinir ekseni plak merkezinden 7 mm (kenardan 1 mm içeride), dip merkezden 2 mm; kalkan çentiği izler</text>
 <text x="320.0" y="586" text-anchor="middle" font-size="10" fill="#777">Şematik tasarım çizimi, taslak v0.1. Üretim çizimi değildir; toleranslar belge 02.</text>
 </svg>

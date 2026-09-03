@@ -62,7 +62,7 @@ pip install numpy scipy && python3 tools/optimize.py
 - İç eğrilik yarıçapı 12,3 mm, yuvarlak 12 ile 20 mm, çentikli 16 ile 20 mm (10 mm U çentik), COMS ile aynı dikim tekniği.
 - Skleradan dışa doğru: 0,85 mm polimer ara katman, kör uçlu paralel kanallar
   (bekleme ekseni skleradan 1,5 mm), 1,5 mm altın veya tungsten sırt koruması.
-- Plağa tek giriş: kabukla tek parça yassı sap, sonra Ø 4,8 mm yuvarlak kılıf. İçeride 3, 5 veya 7
+- Plağa tek giriş hattı: kabuğun kenarındaki yuvadan çıkan tek kılıf, kök oval, 10 mm'de Ø 4,8 mm yuvarlak. İçeride 3, 5 veya 7
   kör kanal dar giriş sırasından ± 45° yelpaze gibi açılır; paralel kirişlerle aynı sklera/reçete
   oranı, daha dar giriş (belge 07).
 - Tek fraksiyon, hedef apeks dozu başlangıçta 22 Gy, faz I protokolüyle kademeli artış.

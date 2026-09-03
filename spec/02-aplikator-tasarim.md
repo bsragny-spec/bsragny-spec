@@ -64,7 +64,8 @@ geometrisi ile değişir.
 Tasarım kararı (belge 07): **plağa tek giriş; kanallar anterior kenardaki dar bir giriş
 sırasından düz ışınlar halinde ± 45° yelpaze gibi açılır; bekleme süreleri doğrusal programlama
 ile optimize edilir.** Yelpaze, paralel kirişlerle aynı sklera/reçete oranını verir (16 mm'de
-4,0'a 4,1; 20 mm'de 3,0'a 3,0) ve giriş genişliğini kanal yayılımından giriş sırasına indirir.
+4,0'a 4,1; 20 mm'de 3,0'a 3,0) ve giriş genişliğini kanal yayılımından giriş sırasına indirerek
+tek giriş hattına izin verir.
 
 - Kanallar **düzlemde düzdür**; eğrilik yalnızca sklera küresinden gelir (13,8 mm). Kablo
   sınırı 13 mm olduğundan düzlem içi eğriliğe pay yoktur: küre ile birleşik eğrilik 13 mm'yi
@@ -87,41 +88,40 @@ ile optimize edilir.** Yelpaze, paralel kirişlerle aynı sklera/reçete oranın
 iki yanından geçer. Yelpaze çentiklide paralel düzenden **daha iyidir** (16 mm: 4,6'ya 5,9;
 18 mm: 4,3'e 4,6); 20 mm çentiklide ± 55° açı kullanılır (4,6).
 
-## Giriş sapı ve kılıf
+## Giriş hattı
 
 Dış görünüş Dupere 2021'in aplikatörünü (belge 07, şekil B) örnek alır: pürüzsüz altın kabuk ve
-plak kenarına teğet **tek sap, kabukla tek parça**; ayrı bir blok veya aparat yoktur. İki fark:
-kabuk düz disk değil sklera eğrisinde kubbedir; sapın içinde tek lümen değil yelpaze giriş
-sırasındaki 3 ile 7 lümen vardır.
+kabuğun kenarından çıkan **tek giriş hattı**. Kabukta ayrı bir sap, blok veya aparat yoktur;
+kenar kalkanındaki tek yuvadan kılıf çıkar. Kabuk düz disk değil sklera eğrisinde kubbedir.
 
 | Parametre | Değer | Gerekçe |
 |-----------|-------|---------|
-| Sap konumu | Anterior kenar, kabuğa teğet, sklera eğrisini izler | Fornikse en kısa yol, düşük profil |
-| Sap kesiti | Yassı: genişlik giriş sırası + 1,6 mm (5 kanal için 10,1 mm), **kalınlık 2,0 mm** | Lümen 1,2 + duvarlar 0,4 mm; plak yanında konjonktiva altında en düşük profil |
-| Sap uzunluğu | Plak kenarından 3,5 ile 4 mm | Lümenlerin kabuktan güvenli çıkışı |
-| Kılıf | Sap ucundan itibaren **yuvarlak, Ø 4,8 mm**; lümenler 10 mm içinde yuvarlak demete geçer | 5 lümen 1 + 4 dizilimi (7 lümen 1 + 6), 0,3 mm duvar; 13 mm bükülme yarıçapı için gereken S geçişi 9 mm |
-| Konektör | Kılıf ucunda tek kilitli konektör, cihaz tarafında kanal başına ayrılan transfer tüpleri | Tek hareketle bağlantı, tüp uzunluğu 1300 mm sabit |
+| Çıkış | Anterior kenar kalkanında tek yuva, kabuğa teğet | Fornikse en kısa yol |
+| Kök kesiti | Yassı-oval: genişlik giriş sırası + 1,6 mm (5 kanal için 10,1 mm), kalınlık 2,6 mm | Lümenler plak içinde tek sırada olduğu için kök yassıdır |
+| Geçiş | İlk 10 mm içinde oval kesit **Ø 4,8 mm yuvarlağa** geçer, 8 mm'den sonra yüzeyden ayrılır | 5 lümen 1 + 4 dizilimi (7 lümen 1 + 6), 0,3 mm duvar; 13 mm bükülme yarıçapı için gereken S geçişi 9 mm |
+| Kılıf | Yuvarlak Ø 4,8 mm, yumuşak polimer, forniksten çıkar | Tek hat, tek kilitli konektör |
+| Konektör | Kılıf ucunda tek kilitli konektör; cihaz tarafında kanal başına transfer tüpü | Tek hareketle bağlantı, tüp uzunluğu 1300 mm sabit |
 
 - **Plağa tek giriş vardır.** Kaynak, afterloader tarafından her kör kanala sırayla gönderilir;
-  cerrahın gördüğü tek bir sap ve tek bir kılıftır.
+  cerrahın gördüğü tek bir hattır.
 - Lümenler plak içinde tek sıra halinde kalır (kanal katmanı 1,9 mm, tek kat). Yuvarlak demete
   geçiş bu yüzden plak dışında, kılıfın ilk 10 mm'sinde yapılır.
 - **Ortadan (kubbe sırtından, skleraya dik) giriş elenmiştir.** Kaynağın dik saptan yüzeye
   paralel kanallara geçmesi 4 mm kalınlık içinde 90° dönüş, yani 2 ile 3 mm bükülme yarıçapı
   ister; kablo sınırı 13 mm'dir. Ayrıca dik sap orbita duvarına bakar ve fornikse ulaşmak için
   orbita içinde kıvrılması gerekir. Yalnızca pelet dizili sistemde mümkündür.
-- **Sapın kenardaki yeri serbesttir.** Varsayılan anterior kenar. Tümör kas yapışma yerinin
-  altındaysa plak döndürülür ve sap lateral kenardan çıkar; ışınlar sapa göre tanımlı olduğu
-  için doz düzeni değişmez. Çentikli plakta sap çentiğin karşısında sabittir.
+- **Çıkış yuvasının kenardaki yeri serbesttir.** Varsayılan anterior kenar. Tümör kas yapışma
+  yerinin altındaysa plak döndürülür ve hat lateral kenardan çıkar; ışınlar yuvaya göre tanımlı
+  olduğu için doz düzeni değişmez. Çentikli plakta yuva çentiğin karşısında sabittir.
 - Kılıf kapaklar arasından forniksten çıkar; göz kapağı ekartörü tedavi boyunca yerinde kalır.
   Kılıf kapağa veya alına steril bantla tespit edilir; plağa yük binmez.
 
 ## Dikim ve tespit
 
 - Sırt kabuğunun dudağında 3 sütür deliği: 2 posterior yarıda simetrik, 1 anterior kenarda
-  giriş bloğunun yanında. Delik çapı 0,8 mm, kenarları yuvarlatılmış; 5-0 naylon veya
+  giriş hattının yanında. Delik çapı 0,8 mm, kenarları yuvarlatılmış; 5-0 naylon veya
   merşilen için.
-- Sap tarafı anteriorda kalacak şekilde dikilir; posterior tümörlerde sap ekvator
+- Giriş hattı anteriorda kalacak şekilde dikilir; posterior tümörlerde çıkış ekvator
   civarında olur, kılıf fornikse yönlenir.
 - Plak konumu ameliyat sırasında B-mod ultrason ile doğrulanır. Metal kabuk ultrasonda
   net görülür; ayrıca ek parçaya 3 adet ekojen işaret (hava kapsülü veya cam boncuk)

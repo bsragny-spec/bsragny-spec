@@ -40,19 +40,20 @@ def top_view(D, S, ox, oy, full=True, notched=False):
     r = D / 2
     ch = layout(D, notched)
     pitch = ch[0]["pitch"]
-    # giriş sapı: kabukla tek parça (kabuktan önce çizilir), kenara teğet, yassı; ucunda lümenler, sonra yuvarlak kılıf
-    n = len(ch); W = n * G.FAN_PITCH0 + 1.6; Ls = 4.0
-    y_rim = oy + (r - 1.0) * S
-    e.append(f'<rect x="{ox - W/2*S:.1f}" y="{y_rim:.1f}" width="{W*S:.1f}" height="{(Ls + 1.0)*S:.1f}" rx="{1.0*S:.1f}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.2"/>')
-    y0 = y_rim + (Ls + 1.0) * S
-    e.append(f'<rect x="{ox - 2.4*S:.1f}" y="{y0 - 0.2*S:.1f}" width="{4.8*S:.1f}" height="{5.0*S:.1f}" rx="{2.4*S:.1f}" fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>')
-    for c in ch:
-        cx = ox + c["x"] * S; cy = y_rim + (Ls + 0.1) * S
-        e.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{CH_ID/2*S:.1f}" fill="#fff" stroke="#2b4c5e" stroke-width="0.6"/>')
+    # giriş hattı: kabuğun kenarındaki yuvadan çıkan tek kılıf; kök oval (giriş sırası + 1,6 mm),
+    # 10 mm içinde Ø 4,8 mm yuvarlağa geçer. Altın sap yok. (kabuktan önce çizilir)
+    n = len(ch); W = n * G.FAN_PITCH0 + 1.6; Lt = 8.0
+    y_rim = oy + (r - 1.2) * S
+    y1 = y_rim + (Lt + 1.2) * S
+    e.append(f'<path d="M {ox - W/2*S:.1f} {y_rim:.1f} L {ox + W/2*S:.1f} {y_rim:.1f} '
+             f'C {ox + W/2*S:.1f} {y_rim + 5*S:.1f} {ox + 2.4*S:.1f} {y_rim + 6*S:.1f} {ox + 2.4*S:.1f} {y1:.1f} '
+             f'L {ox + 2.4*S:.1f} {y1 + 1.5*S:.1f} A {2.4*S:.1f} {2.4*S:.1f} 0 0 1 {ox - 2.4*S:.1f} {y1 + 1.5*S:.1f} '
+             f'L {ox - 2.4*S:.1f} {y1:.1f} C {ox - 2.4*S:.1f} {y_rim + 6*S:.1f} {ox - W/2*S:.1f} {y_rim + 5*S:.1f} {ox - W/2*S:.1f} {y_rim:.1f} Z" '
+             f'fill="#dfe7ec" stroke="#2b4c5e" stroke-width="0.9"/>')
+    for c in ch:   # kökteki lümenler
+        e.append(f'<circle cx="{ox + c["x"]*S:.1f}" cy="{y_rim + 2.0*S:.1f}" r="{CH_ID/2*S:.1f}" fill="#fff" stroke="#2b4c5e" stroke-width="0.5"/>')
     if full:
-        e.append(f'<text x="{ox + (W/2 + 0.8)*S:.1f}" y="{y_rim + 2.6*S:.1f}" font-size="{max(9, 0.8*S):.0f}" fill="#555">sap {W:.1f} × 2 mm</text>')
-        e.append(f'<text x="{ox + (W/2 + 0.8)*S:.1f}" y="{y_rim + 3.8*S:.1f}" font-size="{max(9, 0.8*S):.0f}" fill="#555">kabukla tek parça</text>')
-        e.append(f'<text x="{ox + 2.9*S:.1f}" y="{y0 + 2.8*S:.1f}" font-size="{max(9, 0.8*S):.0f}" fill="#555">kılıf Ø 4,8 mm</text>')
+        e.append(f'<text x="{ox:.1f}" y="{y1 + 5.2*S:.1f}" text-anchor="middle" font-size="{max(9, 0.8*S):.0f}" fill="#555">giriş hattı: kök {W:.1f} × 2,6 mm oval, 10 mm sonra Ø 4,8 mm yuvarlak</text>')
     # kabuk ve kenar
     if notched:
         e.append(f'<path d="{notched_outline(r, ox, oy, S)}" fill="#e6c96a" stroke="#8a6d1a" stroke-width="1.4"/>')
@@ -156,9 +157,9 @@ def single(D, notched=False):
     body.append(tv)
     sc, sinfo = section(D, S, 470, 300, notched=notched)
     body.append(sc)
-    body.append(f'<text x="200" y="{190 + (D/2 + 12.5) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş sapı) altta</text>')
+    body.append(f'<text x="200" y="{190 + (D/2 + 15.8) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Üstten görünüş, anterior (giriş hattı) altta</text>')
     body.append(f'<text x="470" y="{300 - (R_SCL + 6.0) * S:.0f}" text-anchor="middle" font-size="11" fill="#555">Kesit, kanal eksenine dik</text>')
-    y = 440
+    y = 452
     rows = [
         (f"Çap {D} mm, çentikli: jukstapapiller tümör, taban ≤ {D-4} mm, posterior kenarı disk kenarında; bir boy büyük seçilir" if notched
          else f"Çap {D} mm, tümör tabanı ≤ {D-4} mm için"),
@@ -193,10 +194,10 @@ def family():
         l2 = (f"{info['n_trunc']} kısa + {info['n']-info['n_trunc']} yan ışın" if notched
               else f"yelpaze ±45°, taban ≤ {D-4} mm")
         if notched and D >= 20: l2 += ", ±55°"
-        yl = cy + 105 + (D/2 + 11.5) * S
+        yl = cy + 105 + (D/2 + 12.5) * S
         body.append(f'<text x="{cx}" y="{yl:.0f}" text-anchor="middle" font-size="9.5" fill="#333">{l1}</text>')
         body.append(f'<text x="{cx}" y="{yl+12:.0f}" text-anchor="middle" font-size="9.5" fill="#555">{l2}</text>')
-    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, giriş sapı anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
+    body.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-size="10" fill="#777">Her boy için üstten görünüş (posterior üstte, giriş hattı anteriorda) ve kanal eksenine dik kesit. Şematik, taslak v0.1.</text>')
     return svg_wrap(W, H, "\n".join(body), "Plak ailesi")
 
 if __name__ == "__main__":

@@ -82,7 +82,7 @@ Bunun bedelleri:
 | Tek C halkası + merkez kiriş | 5,5 ile 7,2 mm | Hayır, özel kablo ile belki 20 mm plakta | İyi | Merkez kirişle | 20 mm için v0.2'de değerlendirilebilir |
 | Eş merkezli C halkaları | İç halka 2 ile 3 mm | Hayır | Mükemmel | Evet | Yalnızca pelet dizisiyle |
 | Dupere halkası, pelet dizisi | Sınırsız | Hayır, pelet yükleyici | Mükemmel, statik | Konik kolimasyonla | Referans; G6 nedeniyle elendi |
-| **Yelpaze, dar giriş sırasından ± 45° düz ışınlar** | Işınlar düz, 13,8 mm | **Evet** | Optimizasyonla paralel kirişe eş | Evet | **Seçildi (v0.2)**: paralel kirişle aynı oran, giriş genişliği 8,5 mm'ye iner, tek parça sap |
+| **Yelpaze, dar giriş sırasından ± 45° düz ışınlar** | Işınlar düz, 13,8 mm | **Evet** | Optimizasyonla paralel kirişe eş | Evet | **Seçildi (v0.2)**: paralel kirişle aynı oran, giriş genişliği 8,5 mm'ye iner, tek giriş hattı |
 
 ## Paralel kiriş tasarımına referanstan alınacaklar
 
@@ -104,9 +104,10 @@ teğet tek sap.
 - **Kanal (A)**: halka yarıçapı yaklaşık 4 mm. GammaMedplus kablosunun sınırı 13 mm; kapsül
   bu halkaya giremez. Makale bu yüzden pelet dizisi kullanır. Elimizdeki cihazla uygulanamaz.
   Bu, yukarıdaki spiral analizinin halka biçimli halidir.
-- **Dış görünüş (B)**: benimsenmiştir (belge 02, giriş sapı). Kubbe kabuk, kenara teğet yassı
-  çok lümenli sap, çıkıntısız. Tek boru yerine yassı sap gerekmesinin nedeni yine bükülme
-  yarıçapıdır: lümenleri tek boruya toplamak orbita içinde 15 mm düz uzunluk ister.
+- **Dış görünüş (B)**: benimsenmiştir (belge 02, giriş hattı). Kubbe kabuk, kenardan çıkan tek
+  kılıf, kabukta sap yok. Kılıfın kökü yassı-oval olmak zorundadır: lümenler plak içinde tek
+  sırada durur ve yuvarlak demete geçiş 13 mm bükülme yarıçapıyla 9 ile 10 mm ister; bu geçiş
+  kılıfın ilk 10 mm'sinde yapılır.
 
 ## Sayısal karşılaştırma: hangi düzen en iyi
 
@@ -150,8 +151,8 @@ kablo sürücülü HDR kaynağının sertliği ve bükülme sınırı nedeniyle 
 fiziksel olarak çalışmaz; ancak pelet dizisiyle mümkündür ve o zaman standart afterloader
 şartı düşer. Bu iki şart arasında seçim yapılmalıdır:
 
-- **Standart afterloader korunacaksa**: dar giriş sırasından ± 45° düz ışınlarla yelpaze, tek
-  parça sap, optimize bekleme süreleri (mevcut tasarım). Kabloyla uygulanabilen en iyi düzen budur.
+- **Standart afterloader korunacaksa**: dar giriş sırasından ± 45° düz ışınlarla yelpaze, kabuktan tek
+  giriş hattı, optimize bekleme süreleri (mevcut tasarım). Kabloyla uygulanabilen en iyi düzen budur.
 - **Spiral veya eş merkezli halka isteniyorsa**: pelet dizili özel yükleyici; proje kapsamı
   cihaz geliştirmeyi de içerecek şekilde büyür.
 

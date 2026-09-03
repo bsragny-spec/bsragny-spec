@@ -91,7 +91,7 @@
 <header>
   <h1>Yb-169 HDR episkleral aplikatör</h1>
   <span class="sub">3B konformal model, sklera üzerinde</span>
-  <span class="ver">taslak v0.2.0</span>
+  <span class="ver">taslak v0.2.1</span>
 </header>
 
 <aside>
@@ -134,7 +134,7 @@
 </aside>
 
 <div id="scene">
-  <div class="axis">posterior ↑ çentik tarafı<br>anterior ↓ giriş sapı</div>
+  <div class="axis">posterior ↑ çentik tarafı<br>anterior ↓ giriş hattı</div>
   <div class="hint">Sürükle: döndür · Tekerlek: yakınlaştır · Sağ tık sürükle: kaydır</div>
 </div>
 
@@ -324,29 +324,25 @@
           s.position.copy(P(px, py, R_D)); group.add(s);
         });
       }
-      // giriş sapı: sklera eğrisini izleyen kavisli, yassı, çok lümenli gövde
-      // (Dupere 2021 B görünüşünün kubbe uyarlaması). Konum meridyen yay uzunluğuyla.
+      // giriş hattı: kabuğun kenarındaki yuvadan çıkan TEK kılıf. Kök kesiti oval
+      // (giriş sırası + 1,6 mm × 2,6 mm), 10 mm içinde Ø 4,8 mm yuvarlağa geçer, sonra yüzeyden ayrılır.
       const Q = (x, sArc, R) => {   // x: yanal kiriş (mm), sArc: kutuptan anteriora yay (mm)
         const phi = sArc / R_SCL, c = Math.sqrt(Math.max(1 - (x / R_SCL) ** 2, 0));
         return new THREE.Vector3(x / R_SCL, -Math.sin(phi) * c, Math.cos(phi) * c).normalize().multiplyScalar(R);
       };
-      const w = ch.length * FAN_PITCH0 + 1.6, L = 3.5, T = 2.0;
-      const s0 = R_SCL * Math.asin(Math.min(r / R_SCL, 1)) - 0.4, Ra = R1 + 0.15, Rb = Ra + T;
-      const slab = (sA, sB, xw, Ra_, Rb_, mat, N = 12, M = 10) => {
-        const rows = (R) => Array.from({ length: N + 1 }, (_, i) => { const sv = sA + (sB - sA) * i / N;
-          return Array.from({ length: M + 1 }, (_, j) => Q(-xw / 2 + xw * j / M, sv, R)); });
-        group.add(gridMesh(rows(Rb_), mat)); group.add(gridMesh(rows(Ra_), mat));
-        for (const xe of [-xw / 2, xw / 2]) group.add(gridMesh(Array.from({ length: N + 1 }, (_, i) => { const sv = sA + (sB - sA) * i / N; return [Q(xe, sv, Ra_), Q(xe, sv, Rb_)]; }), mat));
-        for (const se of [sA, sB]) group.add(gridMesh(Array.from({ length: M + 1 }, (_, j) => { const xv = -xw / 2 + xw * j / M; return [Q(xv, se, Ra_), Q(xv, se, Rb_)]; }), mat));
-      };
-      slab(s0, s0 + L, w, Ra, Rb, goldMat);                                   // sap, altın kabukla tek parça
-      for (const c of ch) {                                                    // lümenler
-        const pts = Array.from({ length: 9 }, (_, i) => Q(c.x, s0 + 0.5 + (L - 0.3) * i / 8, (Ra + Rb) / 2));
-        group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 12, CH_ID / 2, 10, false), mats.lumenSolid));
+      const w = ch.length * FAN_PITCH0 + 1.6, s0 = R_SCL * Math.asin(Math.min(r / R_SCL, 1)) - 0.6;
+      const NS = 40, NT = 24, rows = [];
+      for (let i = 0; i <= NS; i++) {
+        const u = i / NS, sv = s0 + 14 * u;                 // 14 mm boyunca
+        const k = Math.min(u * 14 / 10, 1);                 // 0..1 ilk 10 mm'de oval -> yuvarlak
+        const a = (w / 2) * (1 - k) + 2.4 * k, b = 1.3 * (1 - k) + 2.4 * k;
+        const lift = Math.max(0, (u * 14 - 8)) * 0.15;      // 8 mm'den sonra yüzeyden hafifçe ayrılır
+        const Rc = R1 + 0.2 + b + lift;
+        rows.push(Array.from({ length: NT + 1 }, (_, j) => { const th = 2 * Math.PI * j / NT;
+          return Q(a * Math.cos(th), sv, Rc + b * Math.sin(th)); }));
       }
-      // yuvarlak kılıf Ø 4,5 mm: sapın ucundan, lümenler 10 mm içinde yuvarlak demete geçer
-      const sh = [Q(0, s0 + L - 0.2, (Ra + Rb) / 2 + 0.3), Q(0, s0 + L + 5, (Ra + Rb) / 2 + 1.2), Q(0, s0 + L + 11, (Ra + Rb) / 2 + 4.0)];
-      group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(sh), 16, 2.4, 16, false), mats.block));
+      group.add(gridMesh(rows, mats.block));
+      const cap = rows[NS]; group.add(gridMesh([cap, cap.map(() => Q(0, s0 + 14, R1 + 0.2 + 2.4 + 6 * 0.15))], mats.block));
     }
     // tümör
     if (document.getElementById('cTumor').checked) {
@@ -401,8 +397,8 @@
       ['Kanal', notched ? `${ch.length} ışın (${ch.filter(c => c.trunc).length} kısa)` : `${ch.length} yelpaze ışını`],
       ['Yelpaze açısı', (notched && D >= 20) ? '±55°' : '±45°'],
       ['Giriş sırası aralığı', `${FAN_PITCH0} mm`],
-      ['Sap', `${(ch.length * FAN_PITCH0 + 1.6).toFixed(1)} × 2,0 mm, tek parça`],
-      ['Kılıf', 'Ø 4,8 mm, yuvarlak'],
+      ['Giriş hattı', `kök ${(ch.length * FAN_PITCH0 + 1.6).toFixed(1)} × 2,6 mm oval`],
+      ['Kılıf', '10 mm\'de Ø 4,8 mm yuvarlak'],
       ['Bekleme pozisyonu', `${dw}`],
       ['En uzun kanal', `${Math.max(...ch.map(c => c.arc)).toFixed(1)} mm`],
       ['Toplam kalınlık', `${(R4 - R1).toFixed(2)} mm`],
